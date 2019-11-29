@@ -13,7 +13,7 @@ A record in SHIPSTATUS is like:
 '''
 SHIPSTATUS = []
 
-# river作为公共资源共享
+# river作为公共资源共享, 初始即创建河床，不再在sim_env中初始河床.
 RIVER = np.zeros((10000, 100))
 
 '''
@@ -22,3 +22,11 @@ RIVER = np.zeros((10000, 100))
 注册形式:  mmsi
 '''
 SHIP_REGISTER = {'ship_num': 0, 'registered_ship': []}
+
+'''
+RISKVALUE风险值
+'''
+RISKVALUE = []
+
+SHIP1POS = []
+SHIP2POS = []

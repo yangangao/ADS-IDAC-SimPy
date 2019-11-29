@@ -12,21 +12,21 @@ class Ship(object):
         self.lat = lat
         self.shipspeed = shipspeed
         self.heading = heading
-        ship_register = self.register()
+        ship_login = self.login()
         ship_run = self.env.process(self.run()) # 初始化时即默认run()
         pass
 
-    def register(self):
+    def login(self):
         # 向公共资源的注册表中注册船舶信息
         sim_res.SHIP_REGISTER['ship_num'] += 1
-        sim_res.SHIP_REGISTER['registered_ship'].append(mmsi)
+        sim_res.SHIP_REGISTER['registered_ship'].append(self.mmsi)
         pass
 
-    def cancelregister(self):
+    def logout(self):
         # 在何种条件下注销？值得讨论
-        # To-Do: cancel register
+        # To-Do: logout
         sim_res.SHIP_REGISTER['ship_num'] -= 1
-        sim_res.SHIP_REGISTER['registered_ship'].remove(mmsi)
+        sim_res.SHIP_REGISTER['registered_ship'].remove(self.mmsi)
         pass
 
     def run(self, ):

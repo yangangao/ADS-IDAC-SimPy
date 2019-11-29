@@ -11,8 +11,6 @@ class Env:
         super().__init__()
         # 或许并不需要引入仿真环境，如果后续自然环境需要随时改变，则需要引入仿真环境env
         # self.env = env 
-        # 基本的河流应当作为基础资源共享，初始化创建空河床
-        sim_res.RIVER = np.zeros((10000, 100))
 
 
 class Water(Env):
@@ -20,9 +18,8 @@ class Water(Env):
     Water类由Env环境类派生而来, 
     '''
     def __init__(self):
-        # 初始化Water类，并初始化父类Env类，此过程中已经创建了基础的河床
         super().__init__()
-        # 并向河床中注入水流
+        # 向河床中注入水流
         self.add_water()
         pass
 
