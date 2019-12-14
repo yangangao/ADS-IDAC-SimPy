@@ -18,20 +18,29 @@ def LineCircleIntersection(circle_center,circle_radius, point_line, vec_line):
     x_vec = vec_line[0]
     y_vec = vec_line[1]
     
+    #将方向向量归一化
+    vec_norm = (x_vec ** 2 + y_vec ** 2) ** 0.5
+    x_vec *= vec_norm
+    y_vec *= vec_norm
+    
     x1 = circle_center[0]
     y1 = circle_center[1]
     
     x2 = point_line[0]
     y2 = point_line[1]
     
-    a = y_vec / x_vec
-    b = -x_vec / y_vec
+    lamda = ((x1 - x2) * x_vec + (y1 - y2) * y_vec) / (x_vec * x_vec + y_vec * y_vec)
+    x_center,y_center = x2 + lamda * x_vec, y2 + lamda * y_vec
     
-    xx1 = (a * x2 + b * x1 - (y1 + y2)) / (a + b)
-    xx2 = (-a * x2 + b * x1 - (y1 + y2)) / (-a + b)
+    R_2 = circle_radius ** 2
+    r_2 = ((circle_center[0] - x_center) ** 2) + ((circle_center[1] - y_center) ** 2)
+    dist = (R_2 - r_2) ** 0.5
     
-    yy1 = a * (xx1 - x2) + y2
-    yy2 = -a * (xx1 - x2) + y2
+    xx1 = x_center + x_vec * dist
+    yy1 = y_center + y_vec * dist
+    
+    xx2 = x_center - x_vec * dist
+    yy2 = y_center + y_vec * dist    
     
     #返回的第一个点是与直线向量方向相同的点，第二个点是与直线向量方向相反的点
     return np.array([xx1,yy1]), np.array([xx2,yy2])
