@@ -9,7 +9,7 @@ V_MAX = 20*1852/3600  #船舶的最大速度为20节，转换成m/s
 ALPHA_MAX = 30        #船舶的最大转向角度为30°
 DCPA = 500            #允许的最小会遇距离，单位是m
 
-def LineCircleIntersection(circle_center,circle_radius, point_line, vec_line):
+def line_circle_intersection(circle_center,circle_radius, point_line, vec_line):
     #计算直线和圆的交点
     # circle_center为圆心坐标
     #circle_radius为圆的半径
@@ -45,6 +45,27 @@ def LineCircleIntersection(circle_center,circle_radius, point_line, vec_line):
     #返回的第一个点是与直线向量方向相同的点，第二个点是与直线向量方向相反的点
     return np.array([xx1,yy1]), np.array([xx2,yy2])
 
+def get_arc_points(center_point,start_point,end_point):
+    # center_point是圆弧的圆心坐标
+    # start_point是圆弧的起点坐标
+    # end_point是圆弧的终点坐标
+    # 求从start_point逆时针旋转到end_point的圆弧点集
+    first_arc = start_point - center_point
+    end_arc = end_point - center_point
+    
+    r_arc = np.linalg.norm(first_arc) #圆弧半径
+    # 弧的圆心角，°
+    theta_arc = math.acos(np.dot(first_arc,end_arc)/(r_arc ** 2)) * 180 / np.pi
+    
+    points = start_point
+    for theta in np.arange(1,theta_arc,1):
+        #旋转角度
+        theta_rotate = np.array([[np.cos(theta * np.pi / 180), -np.sin(theta * np.pi / 180)],\
+                                 [np.sin(theta * np.pi / 180), np.cos(theta * np.pi / 180)]])
+        p_temp = center_point + np.dot(theta_rotate,first_arc)
+        points = np.vstack((points, p_temp))
+    
+    return points
 
 def draw_vo_areas(pos1,course1,speed1,pos2,course2,speed2):
     # pos1为本船的位置向量，pos2为目标船位置向量
@@ -62,7 +83,7 @@ def draw_vo_areas(pos1,course1,speed1,pos2,course2,speed2):
     #vec12逆时针旋转90°得到的向量
     vec12_rotate90 =  np.array([vec12(0) * np.cos(np.pi / 2) - vec12(1) * np.sin(np.pi / 2),\
                                 vec12(0) * np.sin(np.pi / 2) + vec12(1) * np.cos(np.pi / 2)])
-    pp4,pp3 = LineCircleIntersection(pp1,V_MAX * SCALE, pp2, vec12_rotate90)
+    pp4,pp3 = line_circle_intersection(pp1,V_MAX * SCALE, pp2, vec12_rotate90)
     
     gama = math.asin(DCPA / np.linalg(vec12)) * 180 / pi #安全角度
     #相对位置向量顺时针旋转gamma后的向量
@@ -74,7 +95,7 @@ def draw_vo_areas(pos1,course1,speed1,pos2,course2,speed2):
     p_temp1, p_temp2 = LineCircleIntersection(pp1,V_MAX * SCALE, pp2, vec_rotate_right)
     pp5 = p_temp1 #这里还需要进一步判断
     
-    p_temp1, p_temp2 = LineCircleIntersection(pp1,V_MAX * SCALE, pp2, vec_rotate_left)
+    p_temp1, p_temp2 = line_circle_intersection(pp1,V_MAX * SCALE, pp2, vec_rotate_left)
     pp6 = p_temp1 #这里还需要进一步判断
     
     pp7 = np.array([pp1(0) + V_MAX * SCALE * np.sin((course1 + ALPHA_MAX) * np.pi / 180),\
