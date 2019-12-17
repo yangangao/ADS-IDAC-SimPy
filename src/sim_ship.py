@@ -86,7 +86,7 @@ class Ship(object):
         self.gama = gama_temp
     
     #计算本船与目标船的DCPA    
-    def ComputeDCPA(self, x, y, speed, heading):
+    def ComputeDCPA(self, x_target, y_target, speed, heading):
         #x, y是目标船的经度坐标和纬度坐标
         #speed是目标船的速度,m/s
         #heading是目标船的航向，°
@@ -105,7 +105,7 @@ class Ship(object):
         
         #求两船相对位置坐标
         pos_own = np.array([self.lon,self.lat])
-        pos_target = np.array([x, y])        
+        pos_target = np.array([x_target, y_target])        
         pos = pos_target - pos_own
         
         #相对距离在相对速度上的投影
@@ -125,7 +125,7 @@ class Ship(object):
         return DCPA
     
     #计算本船与目标船的TCPA,如果返回值为负数，则说明两条船舶逐渐远离
-    def ComputeTCPA(self, x, y, speed, heading):
+    def ComputeTCPA(self, x_target, y_target, speed, heading):
         #x, y是目标船的经度坐标和纬度坐标
         #speed是目标船的速度,m/s
         #heading是目标船的航向，°
@@ -144,7 +144,7 @@ class Ship(object):
         
         #求两船相对位置坐标
         pos_own = np.array([self.lon,self.lat])
-        pos_target = np.array([x, y])        
+        pos_target = np.array([x_target, y_target])        
         pos = pos_target - pos_own
         
         #相对距离在相对速度上的投影
