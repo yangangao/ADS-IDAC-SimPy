@@ -17,14 +17,24 @@ SHIPSTATUS = []
 RIVER = np.zeros((10000, 100))
 
 '''
-资源注册表 Register
+船舶资源注册表 Register
 每生成一只船，就要在此注册一次
 注册形式:  mmsi
 '''
 SHIP_REGISTER = {'ship_num': 0, 'registered_ship': []}
 
+
 '''
-RISKVALUE风险值
+水流资源注册表
+'''
+
+'''
+风资源注册表
+
+'''
+
+'''
+RISKVALUE风险值临时策略
 '''
 RISKVALUE = []
 

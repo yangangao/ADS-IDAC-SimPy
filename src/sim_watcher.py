@@ -22,7 +22,7 @@ class Watcher:
             print(item)
         pass
 
-    def plot_trace(self, point):
+    def plottrace(self, point):
         # 使用matplotlib之pyplot绘制船舶轨迹
         # point = 38
         def initial(ax):
@@ -49,7 +49,7 @@ class Watcher:
         # IniObsY=4000
         # IniObsAngle=135
         # IniObsSpeed=10*math.sqrt(2)   #米/秒
-        print('开始仿真')
+        # print('开始仿真')
         obsX = []
         obsX2 = []
         # obsY = [4000,]
