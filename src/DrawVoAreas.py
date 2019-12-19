@@ -19,13 +19,7 @@ pos2 = [5446,2567]
 course2 = 240
 speed2 = 5.144
 
-poly_vo,poly_front,poly_rear,poly_diverging = gvp.GetVoPolygons(pos1,course1,speed1,pos2,course2,speed2)
 
-
-#patches.append(poly_vo)
-#patches.append(poly_front)
-#patches.append(poly_rear)
-#patches.append(poly_diverging)
 
 def PolygonTransform(polygon):
     #把shapely.geometry中的Polygon格式转换成matplotlib格式的Polygon
@@ -39,31 +33,43 @@ def PolygonTransform(polygon):
     polygon_transform = Polygon(polygon_transform, True)
     return polygon_transform
 
+poly_vo,poly_front,poly_rear,poly_diverging = gvp.GetVoPolygons(pos1,course1,speed1,pos2,course2,speed2)
+
 patches = []
+colors = []
 if poly_vo:
     poly_vo = PolygonTransform(poly_vo)
     patches.append(poly_vo)
+    colors.append(10)
     
 if poly_front:
     poly_front = PolygonTransform(poly_front)
     patches.append(poly_front)
+    colors.append(30)
 
 if poly_rear:
     poly_rear = PolygonTransform(poly_rear)
     patches.append(poly_rear)
+    colors.append(50)
 
 if poly_diverging:
     poly_diverging = PolygonTransform(poly_diverging)
     patches.append(poly_diverging)
+    colors.append(70)
+print(colors)
 #
 fig, ax = plt.subplots()
 p = PatchCollection(patches, alpha=0.4)
 ax.add_collection(p)
 
-colors = 100*np.random.rand(len(patches))
-print(colors)
 p.set_array(np.array(colors))
 ax.add_collection(p)
+
+#画速度向量
+vx = speed1 * 500 * np.sin(course1 * np.pi / 180)
+vy = speed1 * 500 * np.cos(course1 * np.pi / 180)
+ax.arrow(pos1[0], pos1[1], vx, vy, length_includes_head=True,\
+         head_width=200, head_length=400, fc='r', ec='r')
 
 plt.xlim(pos1[0]-4000, pos1[0]+4000)
 plt.ylim(pos1[1], pos1[1]+8000)
