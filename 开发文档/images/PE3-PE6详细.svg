@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-1653 -1935 2128 1323" width="2128" height="1323">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-1669 -1863 2399 1407" width="2399" height="1407">
   <defs>
     <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#3185c0">
       <g>
@@ -47,12 +47,12 @@
         <font-face-name name="PingFangSC-Regular"/>
       </font-face-src>
     </font-face>
-    <font-face font-family="PingFang SC" font-size="50" panose-1="2 11 4 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="58" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="400">
+    <font-face font-family="PingFang SC" font-size="50" panose-1="2 11 8 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="80" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="600">
       <font-face-src>
-        <font-face-name name="PingFangSC-Regular"/>
+        <font-face-name name="PingFangSC-Semibold"/>
       </font-face-src>
     </font-face>
-    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-1653" y="-1935">
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-1669" y="-1863">
       <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1.308"/>
       <feOffset in="blur" result="offset" dx="0" dy="2"/>
       <feFlood flood-color="black" flood-opacity=".5" result="flood"/>
@@ -70,21 +70,21 @@
     </font-face>
   </defs>
   <metadata> Produced by OmniGraffle 7.8.2 
-    <dc:date>2019-12-29 07:35:38 +0000</dc:date>
+    <dc:date>2019-12-29 13:45:43 +0000</dc:date>
   </metadata>
   <g id="版面___1" fill-opacity="1" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none">
     <title>PE3-PE6流程</title>
-    <rect fill="white" x="-1653" y="-1935" width="2128" height="1323"/>
+    <rect fill="white" x="-1669" y="-1863" width="2399" height="1407"/>
     <g id="版面___1: Bottom">
       <title>Bottom</title>
       <g id="Line_56">
-        <line x1="-1433.0862" y1="-1892.6976" x2="-1434.7073" y2="-643.26316" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="48.0,24.0,6.0,24.0" stroke-width="6"/>
+        <line x1="-1433.0862" y1="-1859.9602" x2="-1434.7073" y2="-459.96023" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="48.0,24.0,6.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_57">
-        <line x1="-428.8679" y1="-1902.6976" x2="-429.8679" y2="-667.26316" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="48.0,24.0,6.0,24.0" stroke-width="6"/>
+        <line x1="-428.2468" y1="-1859.9602" x2="-429.8679" y2="-459.96023" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="48.0,24.0,6.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_35">
-        <line x1="-1598.192" y1="-1704.0847" x2="432.82977" y2="-1701.2213" marker-end="url(#FilledArrow_Marker)" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+        <line x1="-1598.192" y1="-1704.0847" x2="691.1741" y2="-1701.483" marker-end="url(#FilledArrow_Marker)" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
       </g>
       <g id="Line_34">
         <line x1="-1601.6226" y1="-1679.8658" x2="-1601.6226" y2="-1729.6397" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
@@ -120,37 +120,37 @@
         <line x1="73.74125" y1="-1679.8658" x2="73.74125" y2="-1729.6397" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
       </g>
       <g id="Line_23">
-        <line x1="-1600.484" y1="-1662.4595" x2="-1596.4987" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-1600.484" y1="-1662.4595" x2="-1596.4987" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_21">
-        <line x1="-1265.6182" y1="-1662.4595" x2="-1261.6329" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-1265.6182" y1="-1662.4595" x2="-1261.6329" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_20">
-        <line x1="-1098.1853" y1="-1662.4595" x2="-1094.2" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-1098.1853" y1="-1662.4595" x2="-1094.2" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_19">
-        <line x1="-930.7525" y1="-1662.4595" x2="-926.7672" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-930.7525" y1="-1662.4595" x2="-926.7672" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_18">
-        <line x1="-763.3196" y1="-1662.4595" x2="-759.3343" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-763.3196" y1="-1662.4595" x2="-759.3343" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_17">
-        <line x1="-595.8867" y1="-1662.4595" x2="-591.90145" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-595.8867" y1="-1662.4595" x2="-591.90145" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_15">
-        <line x1="-261.02098" y1="-1662.4595" x2="-257.0357" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-261.02098" y1="-1662.4595" x2="-257.0357" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_14">
-        <line x1="-93.58811" y1="-1662.4595" x2="-89.60284" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="-93.58811" y1="-1662.4595" x2="-89.60284" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_13">
-        <line x1="73.84476" y1="-1662.4595" x2="77.830025" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="73.84476" y1="-1662.4595" x2="77.830025" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Line_12">
         <line x1="241.27763" y1="-1679.8658" x2="241.27763" y2="-1729.6397" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
       </g>
       <g id="Line_11">
-        <line x1="241.27763" y1="-1662.4595" x2="245.2629" y2="-903.4673" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+        <line x1="241.27763" y1="-1662.4595" x2="245.2629" y2="-462.4595" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
       <g id="Graphic_10">
         <text transform="translate(341.92398 -1818.78)" fill="#3185c0">
@@ -158,12 +158,12 @@
         </text>
       </g>
       <g id="Graphic_9">
-        <text transform="translate(-870.1658 -1853.0382)" fill="#3185c0">
+        <text transform="translate(-1540.243 -1817.6015)" fill="#3185c0">
           <tspan font-family="STIXGeneral" font-size="50" font-weight="400" fill="#3185c0" x="4.2094106" y="53">𝝙t</tspan>
         </text>
       </g>
       <g id="Line_8">
-        <line x1="-914.4902" y1="-1766.0764" x2="-778.909" y2="-1766.0764" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledArrow_Marker_3)" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <line x1="-1584.5673" y1="-1730.6397" x2="-1448.9862" y2="-1730.6397" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledArrow_Marker_3)" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
       </g>
       <g id="Group_5">
         <g id="Graphic_7">
@@ -181,12 +181,12 @@
       </g>
       <g id="Group_2">
         <g id="Graphic_4">
-          <text transform="translate(-1634 -1821.2314)" fill="#3185c0">
+          <text transform="translate(-1664.1851 -1780.5382)" fill="#3185c0">
             <tspan font-family="Times" font-size="50" font-weight="400" fill="#3185c0" x="12.554199" y="48">t  </tspan>
           </text>
         </g>
         <g id="Graphic_3">
-          <text transform="translate(-1615 -1795.0663)" fill="#3185c0">
+          <text transform="translate(-1645.1851 -1754.373)" fill="#3185c0">
             <tspan font-family="Times" font-size="40" font-weight="400" fill="#3185c0" x="16.362693" y="38">0</tspan>
           </text>
         </g>
@@ -198,28 +198,40 @@
         </text>
       </g>
       <g id="Graphic_58">
-        <text transform="translate(-1207.3941 -1929)" fill="black">
-          <tspan font-family="PingFang SC" font-size="50" font-weight="400" fill="black" x="57.875" y="53">一个避碰决策-操纵周期</tspan>
+        <text transform="translate(-1242.7768 -1849)" fill="#3185c0">
+          <tspan font-family="PingFang SC" font-size="50" font-weight="600" fill="#3185c0" x="57.875" y="53">一个避碰决策-操纵周期</tspan>
         </text>
+      </g>
+      <g id="Line_321">
+        <line x1="408.7105" y1="-1685.2262" x2="408.7105" y2="-1735" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+      </g>
+      <g id="Line_320">
+        <line x1="408.814" y1="-1667.8198" x2="412.7993" y2="-467.8198" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
+      </g>
+      <g id="Line_319">
+        <line x1="576.2469" y1="-1685.2262" x2="576.2469" y2="-1735" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+      </g>
+      <g id="Line_318">
+        <line x1="576.2469" y1="-1667.8198" x2="580.23214" y2="-467.8198" stroke="#fed470" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24.0,24.0" stroke-width="6"/>
       </g>
     </g>
     <g id="版面___1: 流程">
       <title>流程</title>
       <g id="Graphic_37_shadow" filter="url(#Shadow)">
-        <rect x="-1648.4913" y="-1214.5858" width="100" height="100" fill="#ffffc0"/>
-        <rect x="-1648.4913" y="-1214.5858" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-1648" y="-1118.6364" width="100" height="100" fill="#ffffc0"/>
+        <rect x="-1648" y="-1118.6364" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_36_shadow" filter="url(#Shadow)">
-        <rect x="-1172.354" y="-1214.5858" width="147.68109" height="100" fill="#ffc0c0"/>
-        <rect x="-1172.354" y="-1214.5858" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-1171.8627" y="-1118.6364" width="147.68109" height="100" fill="#ffc0c0"/>
+        <rect x="-1171.8627" y="-1118.6364" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_38_shadow" filter="url(#Shadow)">
-        <rect x="-1481.0584" y="-1214.5858" width="100" height="100" fill="#c0ffc0"/>
-        <rect x="-1481.0584" y="-1214.5858" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-1480.5671" y="-1118.6364" width="100" height="100" fill="#c0ffc0"/>
+        <rect x="-1480.5671" y="-1118.6364" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_39_shadow" filter="url(#Shadow)">
-        <rect x="-1172.354" y="-889.4109" width="147.68109" height="100" fill="#ffc0c0"/>
-        <rect x="-1172.354" y="-889.4109" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-1171.8627" y="-793.4614" width="147.68109" height="100" fill="#ffc0c0"/>
+        <rect x="-1171.8627" y="-793.4614" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_47_shadow" filter="url(#Shadow)">
         <rect x="-800.4407" y="-1662.4595" width="75" height="80" fill="#c0ffff"/>
@@ -234,162 +246,162 @@
         <rect x="-358.74728" y="-1647.4595" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_60_shadow" filter="url(#Shadow)">
-        <rect x="-631.3941" y="-1433.5227" width="75" height="80" fill="#ffd579"/>
-        <rect x="-631.3941" y="-1433.5227" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-630.9028" y="-1337.5732" width="75" height="80" fill="#ffd579"/>
+        <rect x="-630.9028" y="-1337.5732" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_63_shadow" filter="url(#Shadow)">
-        <rect x="-800.034" y="-1090.8974" width="75" height="80" fill="#c0ffff"/>
-        <rect x="-800.034" y="-1090.8974" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-799.5427" y="-994.948" width="75" height="80" fill="#c0ffff"/>
+        <rect x="-799.5427" y="-994.948" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_62_shadow" filter="url(#Shadow)">
-        <rect x="-631.3941" y="-1090.8974" width="75" height="80" fill="#ffd579"/>
-        <rect x="-631.3941" y="-1090.8974" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-630.9028" y="-994.948" width="75" height="80" fill="#ffd579"/>
+        <rect x="-630.9028" y="-994.948" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_61_shadow" filter="url(#Shadow)">
-        <rect x="-631.3941" y="-861.1806" width="75" height="80" fill="#ffd579"/>
-        <rect x="-631.3941" y="-861.1806" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-630.9028" y="-765.2311" width="75" height="80" fill="#ffd579"/>
+        <rect x="-630.9028" y="-765.2311" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_64_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-1189.5858" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1189.5858" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-1093.6364" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1093.6364" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_65_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-1075.8974" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1075.8974" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-979.948" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-979.948" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_66_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-1418.5227" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1418.5227" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-1322.5732" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1322.5732" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_67_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-846.1806" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-846.1806" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-750.2311" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-750.2311" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_79_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-1532.991" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1532.991" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-1437.0416" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1437.0416" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_80_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-1304.0542" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1304.0542" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-1208.1048" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1208.1048" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_81_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-960.649" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-960.649" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-864.6995" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-864.6995" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_82_shadow" filter="url(#Shadow)">
-        <rect x="-358.74728" y="-726.0816" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-726.0816" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-358.256" y="-630.13216" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-630.13216" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_87_shadow" filter="url(#Shadow)">
-        <rect x="10.837393" y="-1590.2253" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1590.2253" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="11.208639" y="-1535.9602" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.208639" y="-1535.9602" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_88_shadow" filter="url(#Shadow)">
         <rect x="-22.078366" y="-1647.4595" width="195.83152" height="50" fill="#ffffc0"/>
         <rect x="-22.078366" y="-1647.4595" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_90_shadow" filter="url(#Shadow)">
-        <rect x="10.837393" y="-1475.7569" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1475.7569" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="11.328685" y="-1379.8074" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.328685" y="-1379.8074" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_89_shadow" filter="url(#Shadow)">
-        <rect x="-22.078366" y="-1532.991" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-22.078366" y="-1532.991" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-21.587073" y="-1437.0416" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-21.587073" y="-1437.0416" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_94_shadow" filter="url(#Shadow)">
-        <rect x="9.241247" y="-1361.2884" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="9.241247" y="-1361.2884" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="9.73254" y="-1265.339" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="9.73254" y="-1265.339" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_93_shadow" filter="url(#Shadow)">
-        <rect x="-23.67451" y="-1418.5227" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-23.67451" y="-1418.5227" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-23.18322" y="-1322.5732" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-23.18322" y="-1322.5732" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_92_shadow" filter="url(#Shadow)">
-        <rect x="9.241247" y="-1246.82" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="9.241247" y="-1246.82" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="9.73254" y="-1150.8706" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="9.73254" y="-1150.8706" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_91_shadow" filter="url(#Shadow)">
-        <rect x="-23.67451" y="-1304.0542" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-23.67451" y="-1304.0542" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-23.18322" y="-1208.1048" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-23.18322" y="-1208.1048" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_98_shadow" filter="url(#Shadow)">
-        <rect x="10.837393" y="-1132.3516" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1132.3516" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="11.328685" y="-1036.4021" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.328685" y="-1036.4021" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_97_shadow" filter="url(#Shadow)">
-        <rect x="-22.078366" y="-1189.5858" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-22.078366" y="-1189.5858" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-21.587073" y="-1093.6364" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-21.587073" y="-1093.6364" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_96_shadow" filter="url(#Shadow)">
-        <rect x="10.837393" y="-1017.8832" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1017.8832" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="11.328685" y="-921.9337" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.328685" y="-921.9337" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_95_shadow" filter="url(#Shadow)">
-        <rect x="-22.078366" y="-1075.1174" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-22.078366" y="-1075.1174" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-21.587073" y="-979.1679" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-21.587073" y="-979.1679" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_102_shadow" filter="url(#Shadow)">
-        <rect x="5.89329" y="-903.4148" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="5.89329" y="-903.4148" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="6.3845826" y="-807.4653" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="6.3845826" y="-807.4653" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_101_shadow" filter="url(#Shadow)">
-        <rect x="-27.02247" y="-960.649" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-27.02247" y="-960.649" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-26.531176" y="-864.6995" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-26.531176" y="-864.6995" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_100_shadow" filter="url(#Shadow)">
-        <rect x="5.89329" y="-788.9464" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="5.89329" y="-788.9464" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="6.3845826" y="-692.9969" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="6.3845826" y="-692.9969" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_99_shadow" filter="url(#Shadow)">
-        <rect x="-27.02247" y="-846.1806" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-27.02247" y="-846.1806" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-26.531176" y="-750.2311" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-26.531176" y="-750.2311" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_106_shadow" filter="url(#Shadow)">
-        <rect x="5.89329" y="-668.8474" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="5.89329" y="-668.8474" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="6.3845826" y="-572.89795" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="6.3845826" y="-572.89795" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_105_shadow" filter="url(#Shadow)">
-        <rect x="-27.02247" y="-726.0816" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-27.02247" y="-726.0816" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="-26.531176" y="-630.13216" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-26.531176" y="-630.13216" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_41">
-        <line x1="-1547.4913" y1="-1164.5858" x2="-1482.0584" y2="-1164.5858" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-1547" y1="-1068.6364" x2="-1481.5671" y2="-1068.6364" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_43">
-        <line x1="-1380.0584" y1="-1164.5858" x2="-1173.354" y2="-1164.5858" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-1379.5671" y1="-1068.6364" x2="-1172.8627" y2="-1068.6364" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_44">
-        <path d="M -1431.0584 -1113.5858 L -1431.0584 -1103.5858 L -1430.6014 -927.618 L -1430.6014 -839.4109 L -1173.354 -839.4109" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -1430.5671 -1017.6364 L -1430.5671 -1007.6364 L -1430.1101 -831.6685 L -1430.1101 -743.4614 L -1172.8627 -743.4614" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_37">
-        <rect x="-1648.4913" y="-1214.5858" width="100" height="100" fill="#ffffc0"/>
-        <rect x="-1648.4913" y="-1214.5858" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-1643.4913 -1206.5858)" fill="black">
+        <rect x="-1648" y="-1118.6364" width="100" height="100" fill="#ffffc0"/>
+        <rect x="-1648" y="-1118.6364" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-1643 -1110.6364)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="15" y="32">确认</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="15" y="74">风险</tspan>
         </text>
       </g>
       <g id="Graphic_36">
-        <rect x="-1172.354" y="-1214.5858" width="147.68109" height="100" fill="#ffc0c0"/>
-        <rect x="-1172.354" y="-1214.5858" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-1167.354 -1206.5858)" fill="black">
+        <rect x="-1171.8627" y="-1118.6364" width="147.68109" height="100" fill="#ffc0c0"/>
+        <rect x="-1171.8627" y="-1118.6364" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-1166.8627 -1110.6364)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="8.840544" y="32">有沟通的</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="8.840544" y="74">避碰决策</tspan>
         </text>
       </g>
       <g id="Graphic_38">
-        <rect x="-1481.0584" y="-1214.5858" width="100" height="100" fill="#c0ffc0"/>
-        <rect x="-1481.0584" y="-1214.5858" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-1476.0584 -1206.5858)" fill="black">
+        <rect x="-1480.5671" y="-1118.6364" width="100" height="100" fill="#c0ffc0"/>
+        <rect x="-1480.5671" y="-1118.6364" width="100" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-1475.5671 -1110.6364)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="15" y="32">避碰</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="15" y="74">沟通</tspan>
         </text>
       </g>
       <g id="Graphic_39">
-        <rect x="-1172.354" y="-889.4109" width="147.68109" height="100" fill="#ffc0c0"/>
-        <rect x="-1172.354" y="-889.4109" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-1167.354 -881.4109)" fill="black">
+        <rect x="-1171.8627" y="-793.4614" width="147.68109" height="100" fill="#ffc0c0"/>
+        <rect x="-1171.8627" y="-793.4614" width="147.68109" height="100" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-1166.8627 -785.4614)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="8.840544" y="32">无沟通的</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="8.840544" y="74">避碰决策</tspan>
         </text>
@@ -418,143 +430,143 @@
         </text>
       </g>
       <g id="Graphic_60">
-        <rect x="-631.3941" y="-1433.5227" width="75" height="80" fill="#ffd579"/>
-        <rect x="-631.3941" y="-1433.5227" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-626.3941 -1435.5227)" fill="black">
+        <rect x="-630.9028" y="-1337.5732" width="75" height="80" fill="#ffd579"/>
+        <rect x="-630.9028" y="-1337.5732" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-625.9028 -1339.5732)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="32">机械</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="74">响应</tspan>
         </text>
       </g>
       <g id="Graphic_63">
-        <rect x="-800.034" y="-1090.8974" width="75" height="80" fill="#c0ffff"/>
-        <rect x="-800.034" y="-1090.8974" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-795.034 -1092.8974)" fill="black">
+        <rect x="-799.5427" y="-994.948" width="75" height="80" fill="#c0ffff"/>
+        <rect x="-799.5427" y="-994.948" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-794.5427 -996.948)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="32">避碰</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="74">操纵</tspan>
         </text>
       </g>
       <g id="Graphic_62">
-        <rect x="-631.3941" y="-1090.8974" width="75" height="80" fill="#ffd579"/>
-        <rect x="-631.3941" y="-1090.8974" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-626.3941 -1092.8974)" fill="black">
+        <rect x="-630.9028" y="-994.948" width="75" height="80" fill="#ffd579"/>
+        <rect x="-630.9028" y="-994.948" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-625.9028 -996.948)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="32">机械</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="74">响应</tspan>
         </text>
       </g>
       <g id="Graphic_61">
-        <rect x="-631.3941" y="-861.1806" width="75" height="80" fill="#ffd579"/>
-        <rect x="-631.3941" y="-861.1806" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-626.3941 -863.1806)" fill="black">
+        <rect x="-630.9028" y="-765.2311" width="75" height="80" fill="#ffd579"/>
+        <rect x="-630.9028" y="-765.2311" width="75" height="80" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-625.9028 -767.2311)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="32">机械</tspan>
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.5" y="74">响应</tspan>
         </text>
       </g>
       <g id="Graphic_64">
-        <rect x="-358.74728" y="-1189.5858" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1189.5858" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -1185.5858)" fill="black">
+        <rect x="-358.256" y="-1093.6364" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1093.6364" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -1089.6364)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_65">
-        <rect x="-358.74728" y="-1075.8974" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1075.8974" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -1071.8974)" fill="black">
+        <rect x="-358.256" y="-979.948" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-979.948" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -975.948)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_66">
-        <rect x="-358.74728" y="-1418.5227" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1418.5227" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -1414.5227)" fill="black">
+        <rect x="-358.256" y="-1322.5732" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1322.5732" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -1318.5732)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_67">
-        <rect x="-358.74728" y="-846.1806" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-846.1806" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -842.1806)" fill="black">
+        <rect x="-358.256" y="-750.2311" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-750.2311" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -746.2311)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Line_68">
-        <path d="M -1024.6729 -1164.5858 L -918.5584 -1164.5858 L -918.5584 -1622.4595 L -800.4407 -1622.4595" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -1024.1816 -1068.6364 L -918.0671 -1068.6364 L -918.0671 -1622.4595 L -800.4407 -1622.4595" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_69">
-        <line x1="-1024.6729" y1="-1164.5858" x2="-359.74728" y2="-1164.5858" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-1024.1816" y1="-1068.6364" x2="-359.256" y2="-1068.6364" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_70">
-        <path d="M -1024.6729 -1164.5858 L -918.6793 -1164.5858 L -918.6793 -1050.8974 L -801.034 -1050.8974" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -1024.1816 -1068.6364 L -918.188 -1068.6364 L -918.188 -954.948 L -800.5427 -954.948" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_71">
         <line x1="-724.4407" y1="-1622.4595" x2="-633.6011" y2="-1622.4595" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_72">
-        <path d="M -762.9407 -1582.4595 L -762.9407 -1571.4595 L -762.8471 -1405.5069 L -762.8471 -1393.5227 L -631.3941 -1393.5227" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -762.9407 -1582.4595 L -762.9407 -1309.5574 L -762.3558 -1309.5574 L -762.3558 -1297.5732 L -630.9028 -1297.5732" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_73">
-        <line x1="-725.034" y1="-1050.8974" x2="-631.3941" y2="-1050.8974" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-724.5427" y1="-954.948" x2="-630.9028" y2="-954.948" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_74">
-        <path d="M -762.534 -1010.8974 L -762.534 -999.8974 L -762.33365 -939.3577 L -762.33365 -821.1806 L -631.3941 -821.1806" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -762.0427 -914.948 L -762.0427 -903.948 L -761.8424 -843.4082 L -761.8424 -725.2311 L -630.9028 -725.2311" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_75">
         <line x1="-557.6011" y1="-1622.4595" x2="-359.74728" y2="-1622.4595" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_76">
-        <line x1="-556.3941" y1="-1393.5227" x2="-359.74728" y2="-1393.5227" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-555.9028" y1="-1297.5732" x2="-359.256" y2="-1297.5732" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_77">
-        <line x1="-556.3941" y1="-1050.8974" x2="-359.74728" y2="-1050.8974" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-555.9028" y1="-954.948" x2="-359.256" y2="-954.948" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_78">
-        <line x1="-556.3941" y1="-821.1806" x2="-358.74728" y2="-821.1806" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-555.9028" y1="-725.2311" x2="-358.256" y2="-725.2311" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_79">
-        <rect x="-358.74728" y="-1532.991" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1532.991" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -1528.991)" fill="black">
+        <rect x="-358.256" y="-1437.0416" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1437.0416" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -1433.0416)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_80">
-        <rect x="-358.74728" y="-1304.0542" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-1304.0542" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -1300.0542)" fill="black">
+        <rect x="-358.256" y="-1208.1048" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-1208.1048" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -1204.1048)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_81">
-        <rect x="-358.74728" y="-960.649" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-960.649" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -956.649)" fill="black">
+        <rect x="-358.256" y="-864.6995" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-864.6995" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -860.6995)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_82">
-        <rect x="-358.74728" y="-726.0816" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-358.74728" y="-726.0816" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-353.74728 -722.0816)" fill="black">
+        <rect x="-358.256" y="-630.13216" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-358.256" y="-630.13216" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-353.256 -626.13216)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Line_83">
-        <path d="M -260.83152 -1597.4595 L -260.83152 -1565.6858 L -259.1735 -1565.6858 L -.16260732 -1565.2253 L 9.837393 -1565.2253" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.83152 -1597.4595 L -260.83152 -1565.6858 L -259.1735 -1565.6858 L -259.1735 -1510.9602 L 10.208639 -1510.9602" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_84">
-        <path d="M -593.8941 -1352.5227 L -593.8941 -1342.5227 L -593.4798 -1299.8182 L -593.4798 -1279.0542 L -358.74728 -1279.0542" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -593.4028 -1256.5732 L -593.4028 -1246.5732 L -592.9885 -1203.8687 L -592.9885 -1183.1048 L -358.256 -1183.1048" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_85">
-        <path d="M -593.8941 -1010.8974 L -593.8941 -999.8974 L -593.5426 -945.766 L -593.5426 -935.649 L -358.74728 -935.649" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -593.4028 -914.948 L -593.4028 -903.948 L -593.0513 -849.8166 L -593.0513 -839.6995 L -358.256 -839.6995" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_86">
-        <path d="M -593.8941 -781.1806 L -593.8941 -770.1806 L -594.0985 -711.7237 L -594.0985 -701.0816 L -359.74728 -701.0816" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -593.4028 -685.2311 L -593.4028 -674.2311 L -593.6072 -615.7742 L -593.6072 -605.13216 L -359.256 -605.13216" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Graphic_87">
-        <rect x="10.837393" y="-1590.2253" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1590.2253" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(15.837393 -1586.2253)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="11.208639" y="-1535.9602" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.208639" y="-1535.9602" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(16.208639 -1531.9602)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_88">
@@ -565,114 +577,114 @@
         </text>
       </g>
       <g id="Graphic_90">
-        <rect x="10.837393" y="-1475.7569" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1475.7569" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(15.837393 -1471.7569)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="11.328685" y="-1379.8074" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.328685" y="-1379.8074" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(16.328685 -1375.8074)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_89">
-        <rect x="-22.078366" y="-1532.991" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-22.078366" y="-1532.991" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-17.078366 -1528.991)" fill="black">
+        <rect x="-21.587073" y="-1437.0416" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-21.587073" y="-1437.0416" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-16.587073 -1433.0416)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_94">
-        <rect x="9.241247" y="-1361.2884" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="9.241247" y="-1361.2884" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(14.241247 -1357.2884)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="9.73254" y="-1265.339" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="9.73254" y="-1265.339" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(14.73254 -1261.339)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_93">
-        <rect x="-23.67451" y="-1418.5227" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-23.67451" y="-1418.5227" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-18.674511 -1414.5227)" fill="black">
+        <rect x="-23.18322" y="-1322.5732" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-23.18322" y="-1322.5732" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-18.183219 -1318.5732)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_92">
-        <rect x="9.241247" y="-1246.82" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="9.241247" y="-1246.82" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(14.241247 -1242.82)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="9.73254" y="-1150.8706" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="9.73254" y="-1150.8706" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(14.73254 -1146.8706)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_91">
-        <rect x="-23.67451" y="-1304.0542" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-23.67451" y="-1304.0542" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-18.674511 -1300.0542)" fill="black">
+        <rect x="-23.18322" y="-1208.1048" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-23.18322" y="-1208.1048" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-18.183219 -1204.1048)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_98">
-        <rect x="10.837393" y="-1132.3516" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1132.3516" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(15.837393 -1128.3516)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="11.328685" y="-1036.4021" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.328685" y="-1036.4021" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(16.328685 -1032.4021)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_97">
-        <rect x="-22.078366" y="-1189.5858" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-22.078366" y="-1189.5858" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-17.078366 -1185.5858)" fill="black">
+        <rect x="-21.587073" y="-1093.6364" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-21.587073" y="-1093.6364" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-16.587073 -1089.6364)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_96">
-        <rect x="10.837393" y="-1017.8832" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="10.837393" y="-1017.8832" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(15.837393 -1013.8832)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="11.328685" y="-921.9337" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="11.328685" y="-921.9337" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(16.328685 -917.9337)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_95">
-        <rect x="-22.078366" y="-1075.1174" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-22.078366" y="-1075.1174" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-17.078366 -1071.1174)" fill="black">
+        <rect x="-21.587073" y="-979.1679" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-21.587073" y="-979.1679" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-16.587073 -975.1679)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_102">
-        <rect x="5.89329" y="-903.4148" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="5.89329" y="-903.4148" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(10.89329 -899.4148)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="6.3845826" y="-807.4653" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="6.3845826" y="-807.4653" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(11.384583 -803.4653)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_101">
-        <rect x="-27.02247" y="-960.649" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-27.02247" y="-960.649" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-22.022468 -956.649)" fill="black">
+        <rect x="-26.531176" y="-864.6995" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-26.531176" y="-864.6995" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-21.531176 -860.6995)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_100">
-        <rect x="5.89329" y="-788.9464" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="5.89329" y="-788.9464" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(10.89329 -784.9464)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="6.3845826" y="-692.9969" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="6.3845826" y="-692.9969" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(11.384583 -688.9969)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_99">
-        <rect x="-27.02247" y="-846.1806" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-27.02247" y="-846.1806" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-22.022468 -842.1806)" fill="black">
+        <rect x="-26.531176" y="-750.2311" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-26.531176" y="-750.2311" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-21.531176 -746.2311)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
       <g id="Graphic_106">
-        <rect x="5.89329" y="-668.8474" width="130" height="50" fill="#c0ffc0"/>
-        <rect x="5.89329" y="-668.8474" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(10.89329 -664.8474)" fill="black">
-          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">沟通决策</tspan>
+        <rect x="6.3845826" y="-572.89795" width="130" height="50" fill="#c0ffc0"/>
+        <rect x="6.3845826" y="-572.89795" width="130" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(11.384583 -568.89795)" fill="black">
+          <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">避碰沟通</tspan>
         </text>
       </g>
       <g id="Graphic_105">
-        <rect x="-27.02247" y="-726.0816" width="195.83152" height="50" fill="#ffffc0"/>
-        <rect x="-27.02247" y="-726.0816" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(-22.022468 -722.0816)" fill="black">
+        <rect x="-26.531176" y="-630.13216" width="195.83152" height="50" fill="#ffffc0"/>
+        <rect x="-26.531176" y="-630.13216" width="195.83152" height="50" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-21.531176 -626.13216)" fill="black">
           <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="2.9157584" y="32">避碰效果确认</tspan>
         </text>
       </g>
@@ -680,67 +692,91 @@
         <line x1="-162.91576" y1="-1622.4595" x2="-23.078366" y2="-1622.4595" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_108">
-        <path d="M -594.5911 -1581.9495 L -594.5911 -1570.9495 L -594.37994 -1526.284 L -594.37994 -1507.481 L -351.49 -1507.481" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -595.1011 -1581.4595 L -595.1011 -1411.7506 L -592.6557 -1411.7506 L -350.9987 -1411.5316" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_109">
-        <line x1="-162.91576" y1="-1507.991" x2="-23.078366" y2="-1507.991" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-162.42447" y1="-1412.0416" x2="-22.587073" y2="-1412.0416" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_110">
-        <line x1="-162.91576" y1="-821.1806" x2="-28.02247" y2="-821.1806" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-162.42447" y1="-725.2311" x2="-27.531176" y2="-725.2311" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_111">
-        <line x1="-162.91576" y1="-935.649" x2="-27.02247" y2="-935.649" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-162.42447" y1="-839.6995" x2="-26.531176" y2="-839.6995" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_112">
-        <line x1="-161.91576" y1="-1050.8919" x2="-23.078366" y2="-1050.123" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-161.42447" y1="-954.9424" x2="-22.587073" y2="-954.1735" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_113">
-        <line x1="-161.91576" y1="-1164.5858" x2="-22.078366" y2="-1164.5858" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-161.42447" y1="-1068.6364" x2="-21.587073" y2="-1068.6364" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_114">
-        <line x1="-162.91576" y1="-1279.0542" x2="-24.67451" y2="-1279.0542" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-162.42447" y1="-1183.1048" x2="-24.18322" y2="-1183.1048" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_115">
-        <line x1="-162.91576" y1="-1393.5227" x2="-24.67451" y2="-1393.5227" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-162.42447" y1="-1297.5732" x2="-24.18322" y2="-1297.5732" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_116">
-        <line x1="-162.91576" y1="-701.0816" x2="-27.02247" y2="-701.0816" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-162.42447" y1="-605.13216" x2="-26.531176" y2="-605.13216" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_117">
-        <path d="M -260.83152 -1482.991 L -260.83152 -1451.2174 L -259.6735 -1451.2174 L -.16260732 -1450.7569 L 9.837393 -1450.7569" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -1387.0416 L -260.34022 -1355.2679 L -259.18222 -1355.2679 L .32868538 -1354.8074 L 10.328685 -1354.8074" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_118">
-        <path d="M -260.83152 -1368.5227 L -260.83152 -1357.5227 L -260.76026 -1345.0855 L -260.76026 -1336.2884 L 9.241247 -1336.2884" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -1272.5732 L -260.34022 -1261.5732 L -260.26897 -1249.136 L -260.26897 -1240.339 L 9.73254 -1240.339" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_119">
-        <path d="M -260.83152 -1368.5227 L -260.83152 -1357.5227 L -260.71026 -1345.0355 L -260.71026 -1336.2884 L 9.241247 -1336.2884" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -1272.5732 L -260.34022 -1261.5732 L -260.21897 -1249.086 L -260.21897 -1240.339 L 9.73254 -1240.339" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_120">
-        <path d="M -260.83152 -1253.0542 L -260.83152 -1243.0542 L -260.89166 -1230.5615 L -260.89166 -1221.82 L 9.241247 -1221.82" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -1157.1048 L -260.34022 -1147.1048 L -260.40037 -1134.612 L -260.40037 -1125.8706 L 9.73254 -1125.8706" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_121">
-        <path d="M -260.83152 -1139.5858 L -260.83152 -1128.5858 L -260.40772 -1118.0893 L -260.40772 -1107.3516 L 9.837393 -1107.3516" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -1043.6364 L -260.34022 -1032.6364 L -259.91642 -1022.1398 L -259.91642 -1011.4021 L 10.328685 -1011.4021" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_122">
-        <path d="M -260.83152 -1025.8974 L -260.83152 -1014.8974 L -260.54684 -1002.9887 L -260.54684 -992.8832 L 10.837393 -992.8832" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -929.948 L -260.34022 -918.948 L -260.05555 -907.0392 L -260.05555 -896.9337 L 11.328685 -896.9337" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_123">
-        <path d="M -260.83152 -909.649 L -260.83152 -899.649 L -260.99633 -888.1449 L -260.99633 -878.4148 L 4.89329 -878.4148" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -813.6995 L -260.34022 -803.6995 L -260.50504 -792.1955 L -260.50504 -782.4653 L 5.3845826 -782.4653" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_124">
-        <path d="M -260.83152 -675.0816 L -260.83152 -665.0816 L -260.65605 -662.1635 L -260.65605 -643.8474 L 4.89329 -643.8474" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -579.13216 L -260.34022 -569.13216 L -260.16476 -566.21404 L -260.16476 -547.89795 L 5.3845826 -547.89795" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_125">
-        <path d="M -260.83152 -796.1806 L -260.83152 -785.1806 L -260.6377 -777.1252 L -260.6377 -763.9464 L 5.89329 -763.9464" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -260.34022 -700.2311 L -260.34022 -689.2311 L -260.1464 -681.17576 L -260.1464 -667.9969 L 6.3845826 -667.9969" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_128">
-        <path d="M -1024.6729 -840.5064 L -977.9136 -840.5064 L -977.9136 -892.0845 L -925.0731 -892.0845" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -1024.1816 -744.5569 L -977.4223 -744.5569 L -977.4223 -796.135 L -924.5819 -796.135" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_127">
-        <line x1="-1024.6729" y1="-840.5064" x2="-925.0731" y2="-840.6394" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <line x1="-1024.1816" y1="-744.5569" x2="-924.5819" y2="-744.6899" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
       <g id="Line_126">
-        <path d="M -1024.6729 -840.5064 L -977.8087 -840.5064 L -977.8087 -786.3041 L -925.0731 -786.3041" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M -1024.1816 -744.5569 L -977.3174 -744.5569 L -977.3174 -690.3546 L -924.5819 -690.3546" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Group_313">
+        <g id="Graphic_308">
+          <path d="M 349.2105 -1383 L 409.2105 -1503 L 469.2105 -1383 Z" fill="#ffc0c0"/>
+          <path d="M 349.2105 -1383 L 409.2105 -1503 L 469.2105 -1383 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_309">
+          <text transform="translate(379.2105 -1461.3333)" fill="black">
+            <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">发生</tspan>
+            <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="74">碰撞</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_312">
+        <g id="Graphic_311">
+          <path d="M 345.81212 -1561 L 405.8121 -1681 L 465.8121 -1561 Z" fill="#c0ffc0"/>
+          <path d="M 345.81212 -1561 L 405.8121 -1681 L 465.8121 -1561 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_310">
+          <text transform="translate(375.81212 -1639.3333)" fill="black">
+            <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="32">成功</tspan>
+            <tspan font-family="PingFang SC" font-size="30" font-weight="400" fill="black" x="0" y="74">避碰</tspan>
+          </text>
+        </g>
       </g>
     </g>
     <g id="版面___1: label">
@@ -760,18 +796,18 @@
       <g id="Group_207">
         <g id="Group_209">
           <g id="Graphic_211">
-            <text transform="translate(-527.82464 -1551.5)" fill="black">
+            <text transform="translate(-527.33335 -1455.5505)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_210">
-            <text transform="translate(-507.9894 -1532.7338)" fill="black">
+            <text transform="translate(-507.49813 -1436.7843)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
             </text>
           </g>
         </g>
         <g id="Line_208">
-          <line x1="-531.0872" y1="-1549.2376" x2="-508.0872" y2="-1549.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-530.5959" y1="-1453.2881" x2="-507.5959" y2="-1453.5505" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_212">
@@ -789,12 +825,12 @@
       </g>
       <g id="Group_132">
         <g id="Graphic_134">
-          <text transform="translate(-1531.0648 -1215.9358)" fill="black">
+          <text transform="translate(-1530.5735 -1119.9864)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_133">
-          <text transform="translate(-1520.8938 -1198.7021)" fill="black">
+          <text transform="translate(-1520.4026 -1102.7526)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR1</tspan>
           </text>
         </g>
@@ -802,45 +838,45 @@
       <g id="Group_138">
         <g id="Group_140">
           <g id="Graphic_142">
-            <text transform="translate(-141.37125 -1606.5)" fill="black">
+            <text transform="translate(-141 -1552.235)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_141">
-            <text transform="translate(-128.53603 -1587.7338)" fill="black">
+            <text transform="translate(-128.16478 -1533.4687)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_139">
-          <line x1="-144.6338" y1="-1604.2376" x2="-121.63381" y2="-1604.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-144.26256" y1="-1549.9725" x2="-121.26256" y2="-1550.235" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_146">
         <g id="Group_148">
           <g id="Graphic_150">
-            <text transform="translate(-141.37125 -1493.5405)" fill="black">
+            <text transform="translate(-140.87995 -1397.591)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_149">
-            <text transform="translate(-128.53603 -1474.7743)" fill="black">
+            <text transform="translate(-128.04474 -1378.8248)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_147">
-          <line x1="-144.6338" y1="-1491.278" x2="-121.63381" y2="-1491.5405" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-144.14252" y1="-1395.3286" x2="-121.14252" y2="-1395.591" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_143">
         <g id="Graphic_145">
-          <text transform="translate(-145.1919 -1551.5)" fill="black">
+          <text transform="translate(-144.70061 -1455.5505)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_144">
-          <text transform="translate(-135.02092 -1534.2662)" fill="black">
+          <text transform="translate(-134.52963 -1438.3168)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -848,28 +884,28 @@
       <g id="Group_154">
         <g id="Group_156">
           <g id="Graphic_158">
-            <text transform="translate(-137.55059 -1376.0891)" fill="black">
+            <text transform="translate(-137.0593 -1280.1396)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_157">
-            <text transform="translate(-124.71537 -1357.3228)" fill="black">
+            <text transform="translate(-124.22408 -1261.3734)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_155">
-          <line x1="-140.81315" y1="-1373.8266" x2="-117.81315" y2="-1374.0891" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-140.32186" y1="-1277.8772" x2="-117.32186" y2="-1278.1396" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_151">
         <g id="Graphic_153">
-          <text transform="translate(-141.37125 -1434.0486)" fill="black">
+          <text transform="translate(-140.87995 -1338.0991)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_152">
-          <text transform="translate(-131.20026 -1416.8148)" fill="black">
+          <text transform="translate(-130.70897 -1320.8653)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -877,28 +913,28 @@
       <g id="Group_162">
         <g id="Group_164">
           <g id="Graphic_166">
-            <text transform="translate(-133.72993 -1261.478)" fill="black">
+            <text transform="translate(-133.23864 -1165.5285)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_165">
-            <text transform="translate(-120.89472 -1242.7118)" fill="black">
+            <text transform="translate(-120.40342 -1146.7623)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_163">
-          <line x1="-136.9925" y1="-1259.2156" x2="-113.9925" y2="-1259.478" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-136.5012" y1="-1163.2661" x2="-113.5012" y2="-1163.5285" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_159">
         <g id="Graphic_161">
-          <text transform="translate(-137.55059 -1319.4375)" fill="black">
+          <text transform="translate(-137.0593 -1223.488)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_160">
-          <text transform="translate(-127.3796 -1302.2037)" fill="black">
+          <text transform="translate(-126.88831 -1206.2543)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -906,28 +942,28 @@
       <g id="Group_170">
         <g id="Group_172">
           <g id="Graphic_174">
-            <text transform="translate(-130.79972 -1147.5691)" fill="black">
+            <text transform="translate(-130.30842 -1051.6196)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_173">
-            <text transform="translate(-117.9645 -1128.8029)" fill="black">
+            <text transform="translate(-117.47321 -1032.8534)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_171">
-          <line x1="-134.06228" y1="-1145.3067" x2="-111.06228" y2="-1145.5691" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-133.57099" y1="-1049.3572" x2="-110.57099" y2="-1049.6196" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_167">
         <g id="Graphic_169">
-          <text transform="translate(-134.62037 -1205.5286)" fill="black">
+          <text transform="translate(-134.12908 -1109.5791)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_168">
-          <text transform="translate(-124.44939 -1188.2948)" fill="black">
+          <text transform="translate(-123.9581 -1092.3454)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -935,28 +971,28 @@
       <g id="Group_178">
         <g id="Group_180">
           <g id="Graphic_182">
-            <text transform="translate(-128.62018 -1031.3386)" fill="black">
+            <text transform="translate(-128.12888 -935.3891)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_181">
-            <text transform="translate(-115.78496 -1012.5724)" fill="black">
+            <text transform="translate(-115.29367 -916.6229)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_179">
-          <line x1="-131.88274" y1="-1029.0762" x2="-108.88274" y2="-1029.3386" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-131.39145" y1="-933.1267" x2="-108.39145" y2="-933.3891" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_175">
         <g id="Graphic_177">
-          <text transform="translate(-132.44083 -1089.2981)" fill="black">
+          <text transform="translate(-131.94954 -993.3486)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_176">
-          <text transform="translate(-122.26985 -1072.0643)" fill="black">
+          <text transform="translate(-121.77856 -976.1149)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -964,28 +1000,28 @@
       <g id="Group_186">
         <g id="Group_188">
           <g id="Graphic_190">
-            <text transform="translate(-126.97906 -917.7934)" fill="black">
+            <text transform="translate(-126.48777 -821.8439)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_189">
-            <text transform="translate(-114.14384 -899.0272)" fill="black">
+            <text transform="translate(-113.65255 -803.0777)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_187">
-          <line x1="-130.24162" y1="-915.531" x2="-107.24162" y2="-915.7934" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-129.75033" y1="-819.5815" x2="-106.75033" y2="-819.8439" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_183">
         <g id="Graphic_185">
-          <text transform="translate(-130.79972 -975.7529)" fill="black">
+          <text transform="translate(-130.30842 -879.8034)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_184">
-          <text transform="translate(-120.62873 -958.5191)" fill="black">
+          <text transform="translate(-120.13744 -862.5697)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -993,28 +1029,28 @@
       <g id="Group_194">
         <g id="Group_196">
           <g id="Graphic_198">
-            <text transform="translate(-125.06873 -804.0405)" fill="black">
+            <text transform="translate(-124.57744 -708.09104)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_197">
-            <text transform="translate(-112.23352 -785.2743)" fill="black">
+            <text transform="translate(-111.74222 -689.3248)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_195">
-          <line x1="-128.3313" y1="-801.7781" x2="-105.3313" y2="-802.0405" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-127.84" y1="-705.8286" x2="-104.84" y2="-706.09104" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_191">
         <g id="Graphic_193">
-          <text transform="translate(-128.88939 -862)" fill="black">
+          <text transform="translate(-128.3981 -766.0505)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_192">
-          <text transform="translate(-118.7184 -844.7662)" fill="black">
+          <text transform="translate(-118.22711 -748.8168)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -1022,28 +1058,28 @@
       <g id="Group_202">
         <g id="Group_204">
           <g id="Graphic_206">
-            <text transform="translate(-125.06873 -684)" fill="black">
+            <text transform="translate(-124.57744 -588.0505)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_205">
-            <text transform="translate(-112.23352 -665.23376)" fill="black">
+            <text transform="translate(-111.74222 -569.2843)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
             </text>
           </g>
         </g>
         <g id="Line_203">
-          <line x1="-128.3313" y1="-681.7376" x2="-105.3313" y2="-682" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-127.84" y1="-585.7881" x2="-104.84" y2="-586.0505" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_199">
         <g id="Graphic_201">
-          <text transform="translate(-126.97906 -740.5)" fill="black">
+          <text transform="translate(-126.48777 -644.5505)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_200">
-          <text transform="translate(-116.80808 -723.2662)" fill="black">
+          <text transform="translate(-116.31679 -627.3168)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x="0" y="19">HR3</tspan>
           </text>
         </g>
@@ -1051,29 +1087,29 @@
       <g id="Group_242">
         <g id="Group_244">
           <g id="Graphic_246">
-            <text transform="translate(-527.82464 -1323.6108)" fill="black">
+            <text transform="translate(-527.33335 -1227.6613)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_245">
-            <text transform="translate(-507.9894 -1304.8446)" fill="black">
+            <text transform="translate(-507.49813 -1208.8951)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
             </text>
           </g>
         </g>
         <g id="Line_243">
-          <line x1="-531.0872" y1="-1321.3484" x2="-508.0872" y2="-1321.6108" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-530.5959" y1="-1225.3989" x2="-507.5959" y2="-1225.6613" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_239">
         <g id="Graphic_241">
-          <text transform="translate(-527.82464 -1436.7892)" fill="black">
+          <text transform="translate(-527.33335 -1340.8397)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_240">
           <title>Eq</title>
-          <text transform="translate(-510.65366 -1419.5554)" fill="black">
+          <text transform="translate(-510.16237 -1323.606)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
           </text>
         </g>
@@ -1081,29 +1117,29 @@
       <g id="Group_250">
         <g id="Group_252">
           <g id="Graphic_254">
-            <text transform="translate(-536.18474 -980.796)" fill="black">
+            <text transform="translate(-535.69344 -884.8465)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_253">
-            <text transform="translate(-516.3495 -962.0297)" fill="black">
+            <text transform="translate(-515.8582 -866.0802)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
             </text>
           </g>
         </g>
         <g id="Line_251">
-          <line x1="-539.4473" y1="-978.5335" x2="-516.4473" y2="-978.796" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-538.956" y1="-882.584" x2="-515.956" y2="-882.8465" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_247">
         <g id="Graphic_249">
-          <text transform="translate(-536.18474 -1093.9743)" fill="black">
+          <text transform="translate(-535.69344 -998.0248)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_248">
           <title>Eq</title>
-          <text transform="translate(-519.01375 -1076.7405)" fill="black">
+          <text transform="translate(-518.52246 -980.7911)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
           </text>
         </g>
@@ -1111,29 +1147,29 @@
       <g id="Group_258">
         <g id="Group_260">
           <g id="Graphic_262">
-            <text transform="translate(-536.18474 -747.45134)" fill="black">
+            <text transform="translate(-535.69344 -651.5019)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_261">
-            <text transform="translate(-516.3495 -728.6851)" fill="black">
+            <text transform="translate(-515.8582 -632.7356)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
             </text>
           </g>
         </g>
         <g id="Line_259">
-          <line x1="-539.4473" y1="-745.1889" x2="-516.4473" y2="-745.45134" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-538.956" y1="-649.2394" x2="-515.956" y2="-649.5019" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_255">
         <g id="Graphic_257">
-          <text transform="translate(-536.18474 -860.6297)" fill="black">
+          <text transform="translate(-535.69344 -764.6802)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_256">
           <title>Eq</title>
-          <text transform="translate(-519.01375 -843.3959)" fill="black">
+          <text transform="translate(-518.52246 -747.4465)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2685547" y="19">Eq</tspan>
           </text>
         </g>
@@ -1141,18 +1177,18 @@
       <g id="Group_266">
         <g id="Group_268">
           <g id="Graphic_270">
-            <text transform="translate(-709 -1437.5554)" fill="black">
+            <text transform="translate(-708.5087 -1341.606)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_269">
-            <text transform="translate(-691.1648 -1418.7892)" fill="black">
+            <text transform="translate(-690.6735 -1322.8397)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".06152344" y="19">Ma</tspan>
             </text>
           </g>
         </g>
         <g id="Line_267">
-          <line x1="-712.2626" y1="-1435.293" x2="-689.2626" y2="-1435.5554" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-711.7713" y1="-1339.3435" x2="-688.7713" y2="-1339.606" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_263">
@@ -1171,29 +1207,29 @@
       <g id="Group_274">
         <g id="Group_276">
           <g id="Graphic_278">
-            <text transform="translate(-709 -866.3608)" fill="black">
+            <text transform="translate(-708.5087 -770.4113)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_277">
-            <text transform="translate(-691.1648 -847.5946)" fill="black">
+            <text transform="translate(-690.6735 -751.6451)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".06152344" y="19">Ma</tspan>
             </text>
           </g>
         </g>
         <g id="Line_275">
-          <line x1="-712.2626" y1="-864.0984" x2="-689.2626" y2="-864.3608" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-711.7713" y1="-768.1489" x2="-688.7713" y2="-768.4113" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
       </g>
       <g id="Group_271">
         <g id="Graphic_273">
-          <text transform="translate(-709 -1095.2311)" fill="black">
+          <text transform="translate(-708.5087 -999.2816)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_272">
           <title>Eq</title>
-          <text transform="translate(-693.829 -1077.9973)" fill="black">
+          <text transform="translate(-693.3377 -982.0478)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".06152344" y="19">Ma</tspan>
           </text>
         </g>
@@ -1213,78 +1249,78 @@
       </g>
       <g id="Group_282">
         <g id="Graphic_284">
-          <text transform="translate(-872.6209 -1093.9743)" fill="black">
+          <text transform="translate(-872.1296 -998.0248)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_283">
           <title>Eq</title>
-          <text transform="translate(-859.277 -1076.7405)" fill="black">
+          <text transform="translate(-858.7857 -980.7911)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".33007812" y="19">L5</tspan>
           </text>
         </g>
       </g>
       <g id="Group_285">
         <g id="Graphic_287">
-          <text transform="translate(-875.5 -1208.5)" fill="black">
+          <text transform="translate(-875.0087 -1112.5505)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_286">
           <title>Eq</title>
-          <text transform="translate(-859.3979 -1191.2662)" fill="black">
+          <text transform="translate(-858.9066 -1095.3168)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".06152344" y="19">M0</tspan>
           </text>
         </g>
       </g>
       <g id="Group_294">
         <g id="Graphic_296">
-          <text transform="translate(-960.82 -936.3182)" fill="black">
+          <text transform="translate(-960.3287 -840.3687)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_295">
           <title>Eq</title>
-          <text transform="translate(-948.4761 -919.0845)" fill="black">
+          <text transform="translate(-947.9848 -823.135)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2783203" y="19">R5</tspan>
           </text>
         </g>
       </g>
       <g id="Group_291">
         <g id="Graphic_293">
-          <text transform="translate(-957.9409 -831.428)" fill="black">
+          <text transform="translate(-957.4496 -735.4786)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_292">
           <title>Eq</title>
-          <text transform="translate(-944.597 -814.1943)" fill="black">
+          <text transform="translate(-944.1057 -718.2448)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".33007812" y="19">L5</tspan>
           </text>
         </g>
       </g>
       <g id="Group_288">
         <g id="Graphic_290">
-          <text transform="translate(-960.82 -883.8731)" fill="black">
+          <text transform="translate(-960.3287 -787.92365)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_289">
           <title>Eq</title>
-          <text transform="translate(-944.7179 -866.6394)" fill="black">
+          <text transform="translate(-944.2266 -770.6899)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".06152344" y="19">M0</tspan>
           </text>
         </g>
       </g>
       <g id="Group_297">
         <g id="Graphic_299">
-          <text transform="translate(-1350.5797 -1208.5)" fill="black">
+          <text transform="translate(-1350.0884 -1112.5505)" fill="black">
             <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
           </text>
         </g>
         <g id="Graphic_298">
           <title>Eq</title>
-          <text transform="translate(-1338.2358 -1191.2662)" fill="black">
+          <text transform="translate(-1337.7445 -1095.3168)" fill="black">
             <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2783203" y="19">Co</tspan>
           </text>
         </g>
@@ -1292,19 +1328,28 @@
       <g id="Group_300">
         <g id="Group_302">
           <g id="Graphic_304">
-            <text transform="translate(-1369.5 -881)" fill="black">
+            <text transform="translate(-1369.0087 -785.0505)" fill="black">
               <tspan font-family="Times" font-size="30" font-weight="700" fill="black" x=".33740234" y="29">P</tspan>
             </text>
           </g>
           <g id="Graphic_303">
-            <text transform="translate(-1349.6648 -862.2338)" fill="black">
+            <text transform="translate(-1349.1735 -766.2843)" fill="black">
               <tspan font-family="Times" font-size="20" font-weight="700" fill="black" x=".2783203" y="19">Co</tspan>
             </text>
           </g>
         </g>
         <g id="Line_301">
-          <line x1="-1372.7626" y1="-878.7376" x2="-1349.7626" y2="-879" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <line x1="-1372.2713" y1="-782.7881" x2="-1349.2713" y2="-783.0505" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         </g>
+      </g>
+      <g id="Line_322">
+        <line x1="174.75315" y1="-1622.4532" x2="374.79164" y2="-1621.195" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,8.0,2.0,8.0" stroke-width="2"/>
+      </g>
+      <g id="Line_323">
+        <line x1="142.20864" y1="-1510.7066" x2="381.594" y2="-1450.003" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,8.0,2.0,8.0" stroke-width="2"/>
+      </g>
+      <g id="Line_324">
+        <line x1="-1406.1" y1="-1772.016" x2="-447.132" y2="-1772.984" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledArrow_Marker_3)" stroke="#3185c0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
       </g>
     </g>
   </g>
