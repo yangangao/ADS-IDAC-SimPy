@@ -2,6 +2,7 @@ import sim_res
 import sim_env
 import numpy as np
 import math
+import time
 import LineCircleIntersection
 
 import matplotlib as plt
@@ -25,7 +26,7 @@ class Ship(object):
         self.gama_old  = 0         #船舶上一时刻角速度
         self.gama      = 0         #船舶当前时刻角速度
         
-        ship_login = self.login()
+        ship_login = self.login() # 向资源池注册自身
         ship_run = self.env.process(self.run()) # 初始化时即默认run()
         pass
 
@@ -66,8 +67,10 @@ class Ship(object):
             # sim_res.SHIPINFO[mmsi+'lat'].append(self.lat)
 
             status_info = {'mmsi': self.mmsi, 'lon': self.lon, 'lat': self.lat, 'speed': self.speed, \
-            'heading': self.heading}
+            'heading': self.heading, 'timestamp': round(time.time()*1000)}
             sim_res.SHIPSTATUS.append(status_info) # 添加一条记录
+
+
             
     def TurnRight(self,):
         if self.delta <= self.RUDDER_MAX - 5:

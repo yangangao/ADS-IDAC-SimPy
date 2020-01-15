@@ -35,7 +35,7 @@ class Water(Env):
         '''
         if method == 'constant':
             # 加入恒定的水流
-            self.water = np.ones((10000, 10000))
+            self.water = np.ones((10000, 1000))
             sim_res.RIVER = sim_res.RIVER + self.water
 
         if method == 'turbulent':

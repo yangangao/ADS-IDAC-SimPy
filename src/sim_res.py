@@ -14,7 +14,7 @@ A record in SHIPSTATUS is like:
 SHIPSTATUS = []
 
 # river作为公共资源共享, 初始即创建河床，不再在sim_env中初始河床.
-RIVER = np.zeros((10000, 10000))
+RIVER = np.zeros((10000, 1000))
 
 '''
 船舶资源注册表 Register
