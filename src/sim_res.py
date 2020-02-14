@@ -12,6 +12,7 @@ A record in SHIPSTATUS is like:
 {'mmsi': mmsi, 'lon': lon, 'lat': lat, 'shipspeed': shipspeed, 'heading': heading, 'sog': sog}
 '''
 SHIPSTATUS = []
+SHIPJSON = []
 
 # river作为公共资源共享, 初始即创建河床，不再在sim_env中初始河床.
 RIVER = np.zeros((10000, 1000))

@@ -24,8 +24,7 @@ def main():
     # fig = watcher.plottrace(20)
 
     data = sim_res.SHIPSTATUS # Some Python object
-    f = open('./somefile', 'wb')
-    pickle.dump(data, f)
+    print(data)
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ import numpy as np
 import math
 import time
 import LineCircleIntersection
-
+import json
 import matplotlib as plt
 from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
@@ -68,7 +68,9 @@ class Ship(object):
 
             status_info = {'mmsi': self.mmsi, 'lon': self.lon, 'lat': self.lat, 'speed': self.speed, \
             'heading': self.heading, 'timestamp': round(time.time()*1000)}
+            
             sim_res.SHIPSTATUS.append(status_info) # 添加一条记录
+            sim_res.SHIPJSON.append(json.dumps(status_info))
 
 
             
