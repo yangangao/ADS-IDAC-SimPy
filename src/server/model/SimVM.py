@@ -145,6 +145,8 @@ class SimVM:
 
 def SimTest():
     VM = SimVM(id = 1, interval = 0.2, timeratio = 100)
+    # interval: 仿真虚拟机运行的时间间隔
+    # timeratio: 一步仿真的离散步长
     for i in range(3): # Register 3 Ships
         sid = str(random.randint(100000000,999999999))
         lon = random.random()*20
