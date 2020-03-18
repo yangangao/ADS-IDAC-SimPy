@@ -3,7 +3,7 @@
 # Purpose:     实现一个线程安全仿真环境，其中包含多条自主航行船舶、观测者、环境数据
 #
 # Author:      Youan
-#
+
 # Created:     27-01-2020
 # Copyright:   (c) Youan 2020
 # Licence:     <your licence>
@@ -34,10 +34,12 @@ class SimShip:
         pass
 
     def __RunOneStep(self):
+        # 创建一个以"__"双下划线开始的方法时，这意味着这个方法不能被重写，它只允许在该类的内部中使用
+
         # 简单计算，详细有待航海学相关内容
         # lon, lat: 起始坐标
         # speed: 航速，待统一转换，初步单位为 m/s
-        # heding: 航向角，以正北为基准顺时针度量到航向线的角度
+        # heading: 航向角，以正北为基准顺时针度量到航向线的角度
         # distance：本周期内，船舶行走的距离长度，初步单位为米
         # math.radians()将角度转换为弧度
         # 返回值：新的坐标点
@@ -54,7 +56,7 @@ class SimShip:
         pass
 
     def GetShipStatus(self):
-        shipStatus = {}
+        shipStatus = {} # 创建一个空字典
         shipStatus['time'] = self.tick
         shipStatus['VMid'] = self.VMid
         shipStatus['shipid'] = self.id
@@ -74,7 +76,7 @@ class SimVM:
         # 定义虚拟机内船舶清单
         # ShipStatus内存数据表，一台VM带一个
         # 初始化参数
-        self.id = id
+        self.id = id # VMID
         self.interval = interval
         self.timeratio = timeratio
         # 定义和启动VM线程
@@ -85,11 +87,11 @@ class SimVM:
         self.__SimShipRegistered.append(ship)
 
     def delShip(self, ship):
-        # 移除注册船舶
+        # 移除注册船舶 By ship object
         self.__SimShipRegistered.remove(ship)
 
     def delShip(self, shipid):
-        # 移除注册船舶
+        # 移除注册船舶 By shipid
         for ship in self.__SimShipRegistered:
             if ship.id == shipid:
                 self.__SimShipRegistered.remove(ship)
@@ -109,7 +111,7 @@ class SimVM:
         pass
 
     # TODO: 实现监视器功能，计算风险值，船舶超出当前范围即可移除
-    
+
     def RunMultiTime(self):
         self.__GoHead = True
         while self.__GoHead:
@@ -151,6 +153,12 @@ def SimTest():
     VM.Run(-1)
 
 def NextStep(x, y, speed, angle, duration):
+    # 发现风险(物理状态：DCPA/TCPA 小于某个值:风险，概率 -> 人因: 根据DCPA/TCPA 是否 做出决策)
+    # -> 做出决策(结果：产生分支) (-> 多船沟通)
+    
+    # 单船决策: 1.独立决策
+    # 多船决策: 1.独立决策 (2.集体决策: 沟通)
+
     # 简单计算，详细有待航海学相关内容
     # x, y: 起始坐标
     # speed: 航速，待统一转换，初步单位为 m/s
@@ -158,11 +166,12 @@ def NextStep(x, y, speed, angle, duration):
     # duration: 从上一观察时刻到当前时刻所花费的时间，初步单位为秒
     # distance：本周期内，船舶行走的距离长度，初步单位为米
     distance = speed * duration # 单位为米
-    # xx = x + distance * math.sin(angle)
-    # yy = y + distance * math.cos(angle)
-    # 2020年2月14日20点20分 Bruce 将上述坐标计算两行代码修改如下：
-    xx = x + distance * math.sin(math.radians(angle))
-    yy = y + distance * math.cos(math.radians(angle))
+    xx = x + distance * math.sin(angle)
+    yy = y + distance * math.cos(angle)
+    # math.radians()将角度转换为弧度
+    # 2020年2月14日 Bruce 将上述坐标计算两行代码修改如下：
+    # xx = x + distance * math.sin(math.radians(angle))
+    # yy = y + distance * math.cos(math.radians(angle))
     print(x, y, speed, angle, duration, distance, xx, yy)
     return xx, yy
 
