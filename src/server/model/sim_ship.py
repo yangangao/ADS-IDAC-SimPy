@@ -1,13 +1,13 @@
 import sim_res
-import sim_env
+# import sim_env
 import numpy as np
-import math
+# import math
 import time
-import LineCircleIntersection
+# import LineCircleIntersection
 import json
-import matplotlib as plt
-from matplotlib.patches import Polygon
-from matplotlib.collections import PatchCollection
+# import matplotlib as plt
+# from matplotlib.patches import Polygon
+# from matplotlib.collections import PatchCollection
 
 class Ship(object): 
     def __init__(self, env, mmsi, lon, lat, speed, heading):
@@ -20,7 +20,7 @@ class Ship(object):
         self.heading   = heading   #船艏向，°，正北方向为0，顺时针旋转为正
         
         self.RUDDER_MAX = 30       #最大操舵角度为30°
-        self.K         = 20    #船舶旋回性指数
+        self.K         = 20        #船舶旋回性指数
         self.T         = 69.9784   #船舶追随性指数
         self.delta     = 0         #船舶当前时刻的操舵角度,向右为正，向左为负
         self.gama_old  = 0         #船舶上一时刻角速度
@@ -87,7 +87,7 @@ class Ship(object):
         #x, y是目标船的经度坐标和纬度坐标
         #speed是目标船的速度,m/s
         #heading是目标船的航向，°
-        
+        # TODO: 将本函数内的self作用变量换成参数变量作用变量
         #本船的速度向量
         x_1 = self.speed * np.sin(self.heading * np.pi /180)
         y_1 = self.speed * np.cos(self.heading * np.pi /180)

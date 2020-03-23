@@ -4,13 +4,31 @@ Created on Sun Dec 15 19:52:33 2019
 
 @author: Jinfen Zhang
 Edit by Bruce
-
 """
 import numpy as np
 import GetVoPolygons as gvp
+
 from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
 import matplotlib.pyplot as plt
+
+pos1 = [1000,-5134]
+course1 = 0
+# 这里的course就是ship的heading,即航艏向
+# course1 = 90
+speed1 = 5.144
+
+pos2 = [1950,1964]
+# pos2 = [5446,2567]
+course2 = 180
+speed2 = 5.144
+
+
+# posship1 = [[1000, 1000], [980, 980], [960, 960], [940, 940], [920, 920], [900, 900], [880, 880], [860, 860] ]
+# course1 = 135
+
+# posship2 = [[1550,1964], [1350, 1940], [1160, 1940], [980, 1940], [780, 1940], [580, 1940], [380, 1940], [180, 1940]]
+# course2 = 270
 
 
 def PolygonTransform(polygon):
@@ -26,14 +44,13 @@ def PolygonTransform(polygon):
     return polygon_transform
 
 
-def GenVOImg(pos1, course1, speed1, pos2, course2, speed2, ImgID):
-    """ 
-    绘制并生成VO图 .
-    生成的VO图存储在 "/res/VOImg/" 路径下.
-    图片名称格式为 XXXX.png 其中XXXX为ImgID, 也即是虚拟机下某个船舶对应某次运行的ID.
-    """
-    fig, ax = plt.subplots()
 
+fig, ax = plt.subplots()
+for i in range(8):
+    # pos1 = posship1[i]
+    # pos2 = posship2[i]
+    print('pos1:-', pos1)
+    print('pos2:-', pos2)
     poly_vo,poly_front,poly_rear,poly_diverging = gvp.GetVoPolygons(pos1,course1,speed1,pos2,course2,speed2)
 
     patches = []
@@ -75,30 +92,11 @@ def GenVOImg(pos1, course1, speed1, pos2, course2, speed2, ImgID):
     plt.xlim(pos1[0]-4000, pos1[0]+4000)
     plt.ylim(pos1[1], pos1[1]+8000)
 
-    # plt.ion()
-    # plt.plot()
-    # plt.pause(1)
-    # plt.cla()
-    plt.savefig("./res/VOImg/{}.png".format(str(ImgID)))
-    # plt.show()
-    print('[DrawVoAreas]: Call DrawVoAreas succeed & VO Img {}.png saved.'.format(str(ImgID)))
-    pass
+    plt.ion()
+    plt.plot()
+    plt.pause(1)
+    plt.cla()
 
-
-# 使用这里的数值测试，course就是ship的heading,即航艏向
-# pos1 = [1000,-5134]
-# course1 = 0
-# speed1 = 5.144
-
-# pos2 = [1950,1964]
-# course2 = 180
-# speed2 = 5.144
-
-# def main():
-#     GenVOImg(pos1, course1, speed1, pos2, course2, speed2, 1000010086)
-#     pass
-
-
-# if __name__ == '__main__':
-#     main()
+plt.show()
+plt.pause(0)
     
