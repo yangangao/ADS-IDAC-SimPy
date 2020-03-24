@@ -11,7 +11,7 @@
 
 import math, random, time, copy
 import threading
-import CPA
+import server.model.CPA as CPA
 # random.uniform(3,4) # 3到4之间的均匀分布。
 # random.gauss(5,1) # 以5为均值，1为方差的高斯分布。
 # random.normalvariate(5,1) # 以5为均值，1为方差的正态分布。
@@ -238,12 +238,30 @@ class SimVM:
         return self.__RunFlag, DeciResult
     
 
-    # def TODO(self, ShipStatus):
-        ShipStatus = [{'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}]
+    def TODO(self, ShipStatus):
+        """ 
+        : ShipStatus : 船舶的状态数据，数据格式如下所示.
+        ：return : DeciProb 决策的结果，字典，格式如下给出.
+        """
+        # ShipStatus = [{'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}]
         # TODO: 
         # firstly calculate risk value between two ships.
         # secondly if value bigger than some threshold, decision was touched off.
-        # thirdly goes into decide function to generate a decition result and return as a dictionary.
+        # thirdly goes into decide function to generate a decition result and return it as a dictionary.
+        
+        FLAG = 0 # 0: 没有达到决策条件，未做出决策，1: 做出决策
+        # 如果 FLAG ==1 将下面的 '' 替换为你的计算结果
+        GH = ''
+        TL = ''
+        TR = ''
+        DeciProb = {
+            "FLAG": FLAG,
+            "GoHead": GH,
+            "TurnLeft": TL,
+            "TurnRight": TR
+        }
+        # TCPA
+        return DeciProb
 
     def ProbDeciEngine(self, HD):
         time.sleep(0.1)
