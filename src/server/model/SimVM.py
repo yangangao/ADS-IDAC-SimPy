@@ -11,7 +11,10 @@
 
 import math, random, time, copy
 import threading
-import server.model.CPA as CPA
+import CPA, TransBCD
+import HumanActivity as HA
+# import server.model.CPA as CPA
+# import server.model.HumanActivity as HA
 # random.uniform(3,4) # 3到4之间的均匀分布。
 # random.gauss(5,1) # 以5为均值，1为方差的高斯分布。
 # random.normalvariate(5,1) # 以5为均值，1为方差的正态分布。
@@ -44,10 +47,12 @@ class SimShip:
         # distance：本周期内，船舶行走的距离长度，初步单位为米
         # math.radians()将角度转换为弧度
         # 返回值：新的坐标点
-        distance = self.speed * self.interval * 0.001  # 单位为米
-        # TODO: 处理从距离到 经纬度坐标的转换，目前 * 0.001 处理
+        distance = self.speed * self.interval  # 单位为米
         xx = self.lon + distance * math.sin(math.radians(self.heading))
         yy = self.lat + distance * math.cos(math.radians(self.heading))
+        # 将距离转换为坐标差值
+        x = TransBCD.DeltaMeter2DeltaLon(xx, self.lat)
+        y = TransBCD.DeltaMeter2DeltaLat(yy)
         # heading, speed 不做出改变
         # print(self.lon, self.lat, self.speed, self.heading, distance, xx, yy)
         return xx, yy
@@ -58,8 +63,8 @@ class SimShip:
         distance = self.speed * self.interval * 0.001  # 单位为米
         # TODO: 目前处理策略为，左右转只是临时改变船艏向，操作之后会自动纠正到原始方向上，
         # 所以这里只是在计算坐标时 临时 改变船艏向
-        xx = self.lon + distance * math.sin(math.radians(self.heading - 45))
-        yy = self.lat + distance * math.cos(math.radians(self.heading - 45))
+        xx = self.lon + distance * math.sin(math.radians(self.heading - 5))
+        yy = self.lat + distance * math.cos(math.radians(self.heading - 5))
         # TODO: 调用船舶动力学模型计算船舶位置等状态信息
 
         return xx, yy
@@ -70,8 +75,8 @@ class SimShip:
         distance = self.speed * self.interval * 0.001  # 单位为米
         # TODO: 目前处理策略为，左右转只是临时改变船艏向，操作之后会自动纠正到原始方向上，
         # 所以这里只是在计算坐标时 临时 改变船艏向
-        xx = self.lon + distance * math.sin(math.radians(self.heading + 45))
-        yy = self.lat + distance * math.cos(math.radians(self.heading + 45))
+        xx = self.lon + distance * math.sin(math.radians(self.heading + 5))
+        yy = self.lat + distance * math.cos(math.radians(self.heading + 5))
         return xx, yy
         pass
 
@@ -188,106 +193,109 @@ class SimVM:
                 self.__SimShipRegistered.remove(ship)
 
     def RunOneTime(self, ):
-        # TODO()
-        # 执行一次操作，用户自定义
-        for ship in self.__SimShipRegistered:
-            # 改变speed以及heading应当放在SimShip的RunOneDecition()之中
-            # ship.speed = random.random() * 1.0
-            # ship.heading = random.random() * 360
-            ship.RunOneDecision(self.__RunFlag)
+        thisShipStatus = self.GetShipStatus()
+        DeciResult = HA.ProbDeciEngie(thisShipStatus)
+        return DeciResult
 
-        ship1 = self.__SimShipRegistered[0]
-        ship2 = self.__SimShipRegistered[1]
+        # # 执行一次操作，用户自定义
+        # for ship in self.__SimShipRegistered:
+        #     # 改变speed以及heading应当放在SimShip的RunOneDecition()之中
+        #     # ship.speed = random.random() * 1.0
+        #     # ship.heading = random.random() * 360
+        #     ship.RunOneDecision(self.__RunFlag)
 
-        # DCPA = CPA.ComputeDCPA(
-        #     [ship1.lon, ship1.lat], ship1.heading, ship1.speed, [ship2.lon, ship2.lat], ship2.heading, ship2.speed
+        # ship1 = self.__SimShipRegistered[0]
+        # ship2 = self.__SimShipRegistered[1]
+
+        # # DCPA = CPA.ComputeDCPA(
+        # #     [ship1.lon, ship1.lat], ship1.heading, ship1.speed, [ship2.lon, ship2.lat], ship2.heading, ship2.speed
+        # #     ) * 100
+        # # print("[DCPA]: ", DCPA)
+        # TCPA = CPA.ComputeTCPA(
+        #     [ship1.lon, ship1.lat], ship1.heading, ship1.speed, 
+        #     [ship2.lon, ship2.lat], ship2.heading, ship2.speed
         #     ) * 100
-        # print("[DCPA]: ", DCPA)
-        TCPA = CPA.ComputeTCPA(
-            [ship1.lon, ship1.lat], ship1.heading, ship1.speed, 
-            [ship2.lon, ship2.lat], ship2.heading, ship2.speed
-            ) * 100
-        print("[TCPA]: ", TCPA)
+        # print("[TCPA]: ", TCPA)
 
-        if TCPA < 0:
-            self.Stop()
+        # if TCPA < 0:
+        #     self.Stop()
             
-            # TODO: 调用函数 NextStep()计算下一步
-            pass
+        #     # TODO: 调用函数 NextStep()计算下一步
+        #     pass
 
-        # 计算两条船的DCPA, 对 两条船 的风险做出判断
-        if (TCPA > 0 and TCPA < 20): # 假设数值，有待航海学计算
-            # 考虑人因因素, Human Decision
-            HD = random.random()
-            """ 
-            (0-0.2): 0 不做出决策
-            [0.2-0.5)：1 直行
-            左转和右转 均触发事件树分支，使得当前仿真虚拟机停止
-            [0.5-0.8)：2 左转
-            [0.8-1)：3 右转 
-            """
-            # 概率化决策引擎： 假设经过人因决策得到上述结果
-            DeciResult = self.ProbDeciEngine(HD)
-        else:
-            DeciResult = self.ProbDeciEngine(0.2)
-        # time.sleep(self.interval)
-        # self.GetShipStatus()
-        # 将仿真数据存入数据表
-        self.__SimData.append(self.GetShipStatus())
-        print("__RunFlag: ", self.__RunFlag)
-        return self.__RunFlag, DeciResult
+        # # 计算两条船的DCPA, 对 两条船 的风险做出判断
+        # if (TCPA > 0 and TCPA < 20): # 假设数值，有待航海学计算
+        #     # 考虑人因因素, Human Decision
+        #     HD = random.random()
+        #     """ 
+        #     (0-0.2): 0 不做出决策
+        #     [0.2-0.5)：1 直行
+        #     左转和右转 均触发事件树分支，使得当前仿真虚拟机停止
+        #     [0.5-0.8)：2 左转
+        #     [0.8-1)：3 右转 
+        #     """
+        #     # 概率化决策引擎： 假设经过人因决策得到上述结果
+        #     DeciResult = self.ProbDeciEngine(HD)
+        # else:
+        #     DeciResult = self.ProbDeciEngine(0.2)
+        # # time.sleep(self.interval)
+        # # self.GetShipStatus()
+        # # 将仿真数据存入数据表
+        # self.__SimData.append(self.GetShipStatus())
+        # print("__RunFlag: ", self.__RunFlag)
+        # return self.__RunFlag, DeciResult
     
 
-    def TODO(self, ShipStatus):
-        """ 
-        : ShipStatus : 船舶的状态数据，数据格式如下所示.
-        ：return : DeciProb 决策的结果，字典，格式如下给出.
-        """
-        # ShipStatus = [{'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}]
-        # TODO: 
-        # firstly calculate risk value between two ships.
-        # secondly if value bigger than some threshold, decision was touched off.
-        # thirdly goes into decide function to generate a decition result and return it as a dictionary.
+    # def TODO(self, ShipStatus):
+    #     """ 
+    #     : ShipStatus : 船舶的状态数据，数据格式如下所示.
+    #     ：return : DeciProb 决策的结果，字典，格式如下给出.
+    #     """
+    #     # ShipStatus = [{'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}]
+    #     # TODO: 
+    #     # firstly calculate risk value between two ships.
+    #     # secondly if value bigger than some threshold, decision was touched off.
+    #     # thirdly goes into decide function to generate a decition result and return it as a dictionary.
         
-        FLAG = 0 # 0: 没有达到决策条件，未做出决策，1: 做出决策
-        # 如果 FLAG ==1 将下面的 '' 替换为你的计算结果
-        GH = ''
-        TL = ''
-        TR = ''
-        DeciProb = {
-            "FLAG": FLAG,
-            "GoHead": GH,
-            "TurnLeft": TL,
-            "TurnRight": TR
-        }
-        # TCPA
-        return DeciProb
+    #     FLAG = 0 # 0: 没有达到决策条件，未做出决策，1: 做出决策
+    #     # 如果 FLAG ==1 将下面的 '' 替换为你的计算结果
+    #     GH = ''
+    #     TL = ''
+    #     TR = ''
+    #     DeciProb = {
+    #         "FLAG": FLAG,
+    #         "GoHead": GH,
+    #         "TurnLeft": TL,
+    #         "TurnRight": TR
+    #     }
+    #     # TCPA
+    #     return DeciProb
 
-    def ProbDeciEngine(self, HD):
-        time.sleep(0.1)
-        """ 
-        此函数的位置在SimVM中，注意作用域
-        概率化决策引擎，以字典的形式返回决策结果
-        目前是以参数代替模型，有待航海学计算, 改用模型计算
-        : HD:Human Decition, 人因决策因素
-         """
-        # 将决策标志置位，标识做出决策
-        GH = 0.5
-        TL = 0.3
-        TR = 0.2
-        DeciProb = {
-            "GoHead": GH,
-            "TurnLeft": TL,
-            "TurnRight": TR
-        }
-        # print('log: inner deciprob ', DeciProb)
-        if ( HD >= 0.5 and HD < 0.8):
-            self.__RunFlag = 2
-        if ( HD >= 0.8 and HD < 1):
-            self.__RunFlag = 3
-        else: 
-            pass
-        return DeciProb
+    # def ProbDeciEngine(self, HD):
+    #     time.sleep(0.1)
+    #     """ 
+    #     此函数的位置在SimVM中，注意作用域
+    #     概率化决策引擎，以字典的形式返回决策结果
+    #     目前是以参数代替模型，有待航海学计算, 改用模型计算
+    #     : HD:Human Decition, 人因决策因素
+    #      """
+    #     # 将决策标志置位，标识做出决策
+    #     GH = 0.5
+    #     TL = 0.3
+    #     TR = 0.2
+    #     DeciProb = {
+    #         "GoHead": GH,
+    #         "TurnLeft": TL,
+    #         "TurnRight": TR
+    #     }
+    #     # print('log: inner deciprob ', DeciProb)
+    #     if ( HD >= 0.5 and HD < 0.8):
+    #         self.__RunFlag = 2
+    #     if ( HD >= 0.8 and HD < 1):
+    #         self.__RunFlag = 3
+    #     else: 
+    #         pass
+    #     return DeciProb
 
 
     def GetShipStatus(self):
@@ -315,12 +323,11 @@ class SimVM:
             if self.__Times > 0:
                 self.__Times = self.__Times - 1
             if self.__GoHead:
-                self.__RunFlag, DeciProb = self.RunOneTime()
-                # 下面为测试决策内容
-                if self.__RunFlag > 1: 
-                    # 进入下一步
+                thisDeciResult = self.RunOneTime() # 更新之后的
+                # self.__RunFlag, DeciProb = self.RunOneTime() # 原来的
+                if thisDeciResult["FLAG"] == 1: 
                     self.Stop()
-                    self.NextStep(DeciProb)
+                    self.NextStep(thisDeciResult)
                     
 
     def NextStep(self, DeciProb):
@@ -336,11 +343,12 @@ class SimVM:
 
         传入参数格式：
         DeciProb = {
+            "FLAG": FLAG,
             "GoHead": GH,
             "TurnLeft": TL,
             "TurnRight": TR
         }
-        其中GH, TL, TR均为概率数值
+        其中GH, TL, TR均为概率数值,进入这里的FLAG 均为1，在这里已经没有用
         """
         DeciProb = copy.deepcopy(DeciProb)
         OldShipStatus = copy.deepcopy(self.GetShipStatus()) # ShipStatus
@@ -375,12 +383,11 @@ class SimVM:
         """ 
         在功能上与RunOneTime相似，但又与之不同，单独作用一次，独立计算每种情况下的下一步的状态 
         """
+        # ship1 = self.__SimShipRegistered[0]
+        # ship2 = self.__SimShipRegistered[1]
         for ship in self.__SimShipRegistered:
             ship.RunOneDecision(tempflag)
 
-        # ship1 = self.__SimShipRegistered[0]
-        # ship2 = self.__SimShipRegistered[1]
-        
         SomeShipStatus = self.GetShipStatus()
         # print('\nThis SomeShipStatus: ', SomeShipStatus)
         return SomeShipStatus
@@ -419,9 +426,10 @@ def SimTest():
     #     VM.addShip(sid, Lon = lon, Lat = lat)
     # VM.Run(10)
     # 先做只有主客两条船的案例, 该案例中只有主船单独决策
-    VM.addShip(ShipID='10086', Lon=122.026654, Lat=31.210672, Speed=1, Heading=90) # 主船
-    VM.addShip(ShipID='10010', Lon=122.326654, Lat=32.110672, Speed=0, Heading=270) # 目标船，客船
-    VM.Run(-1)
+    # [123, 35.1], 90, 7, [123.5, 36], 270, 7
+    VM.addShip(ShipID='10086', Lon=123, Lat=35.1, Speed=7, Heading=0) # 主船
+    VM.addShip(ShipID='10010', Lon=123, Lat=35.17, Speed=7, Heading=180) # 目标船，客船
+    VM.Run(8)
     VMData = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData()}
     print('\nVMData: ', VMData)
 

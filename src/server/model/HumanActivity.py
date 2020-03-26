@@ -1,6 +1,7 @@
 import numpy as np
 import random
-import server.model.CPA as CPA
+# import server.model.CPA as CPA
+import CPA
 
 
 """ 
@@ -34,7 +35,7 @@ def DeltaLon2DeltaMeter(DeltaLon, CurrentLat):
     return DeltaMeter
 
 
-def ProbDeciEngie(self, ShipStatus):
+def ProbDeciEngie(ShipStatus):
     """ 
     : ShipStatus : 船舶的状态数据，数据格式如下所示.
     ：return : DeciProb 决策的结果，字典，格式如下给出.
