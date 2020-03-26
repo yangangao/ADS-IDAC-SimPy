@@ -52,11 +52,13 @@ def ComputeDCPA(pos1, heading1, speed1, pos2, heading2, speed2):
         t = d / (x**2+y**2)**0.5
     # print("t: ", t)
 
+    # 先将待计算的距离转换为坐标差值
     foo1 = TransBCD.DeltaMeter2DeltaLon(speed1*np.sin(heading1 * np.pi /180) * t, pos_own[0])
     foo2 = TransBCD.DeltaMeter2DeltaLat(speed1*np.cos(heading1 * np.pi /180) * t)
     bar1 = TransBCD.DeltaMeter2DeltaLon(speed2*np.sin(heading2 * np.pi /180) * t, pos_target[0])
     bar2 = TransBCD.DeltaMeter2DeltaLat(speed2*np.cos(heading2 * np.pi /180) * t)
 
+    # 带入计算
     pos1=np.array([pos_own[0] + foo1,\
                     pos_own[1] + foo2])
     pos2=np.array([pos_target[0] + bar1,\
