@@ -1,12 +1,38 @@
 import numpy as np
+import random
 import server.model.CPA as CPA
-# 工具包 涉及人的工作内容及概率化的结果
-# 1.(1.0)只有一艘主船决策，两个人员角色，观察者OOW和决策者master
-#        角色1:OOW——观测及确认风险，确认风险后事件树产生新的节点，将信息传递给决策者
-#        角色2:master——决策者，根据当前状态判断本船是让路船还是直航船，作出相应决策
-# 2.(2.0)两艘船都有决策，此时加入两船之间的沟通和理解
-# 3.(3.0)按照IDAC模型细化每一个角色的内容
-# 4.(4.0)增加远程驾驶船舶远程控制中心操作员的行为
+
+
+""" 
+工具包 涉及人的工作内容及概率化的结果
+1.(1.0)只有一艘主船决策，两个人员角色，观察者OOW和决策者master
+       角色1:OOW——观测及确认风险，确认风险后事件树产生新的节点，将信息传递给决策者
+       角色2:master——决策者，根据当前状态判断本船是让路船还是直航船，作出相应决策
+2.(2.0)两艘船都有决策，此时加入两船之间的沟通和理解
+3.(3.0)按照IDAC模型细化每一个角色的内容
+4.(4.0)增加远程驾驶船舶远程控制中心操作员的行为 
+
+-> 当前版本为1.0版
+"""
+def DeltaLat2DeltaMeter(DeltaLat):
+    """ 
+    将纬度差转换为距离差(单位:米), 0.1纬度取1852m.
+    : DeltaLat: 纬度差,
+    : return DeltaMeter.
+    """
+    DeltaMeter = DeltaLat * 18520
+    return DeltaMeter
+
+def DeltaLon2DeltaMeter(DeltaLon, CurrentLat):
+    """ 
+    将纬度差转换为距离差(单位:米), 0.1维度取1852m.
+    : DeltaLat: 纬度差,
+    : CurrentLat: 当前实际纬度,
+    : return DeltaMeter.
+    """
+    DeltaMeter = DeltaLon * 111 * np.cos(CurrentLat) * 1000
+    return DeltaMeter
+
 
 def ProbDeciEngie(self, ShipStatus):
     """ 
@@ -14,7 +40,6 @@ def ProbDeciEngie(self, ShipStatus):
     ：return : DeciProb 决策的结果，字典，格式如下给出.
     """
     # ShipStatus = [{'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}]
-    # TODO: 
     # firstly calculate risk value between two ships.
     # secondly if value bigger than some threshold, decision was touched off.
     # thirdly goes into decide function to generate a decition result and return it as a dictionary.
@@ -136,7 +161,6 @@ def Master(pos1, heading1, speed1, pos2, heading2, speed2):
                右转5°(+5°),概率0.6
      """
     # 将目标船的坐标转换成以本船为坐标原点的坐标系中
-    # pos2_temp0 = pos2-pos1
     pos2_temp0 = [pos2[0]-pos1[0], pos2[1]-pos1[1]]
 
     # 将转化后的目标船的坐标通过旋转，进一步转化为本船航向指向y轴正向的坐标系中
@@ -164,6 +188,7 @@ def Master(pos1, heading1, speed1, pos2, heading2, speed2):
 
 
 def coord_conv(x, y, theta):
+    # TODO: 这里计算公式还有问题
     # 国际海上避碰规则 COLREGs
     #  坐标系中某一个点(x1,y1)围绕某一点(Xr,Yr)旋转任意角度a后，得到一个新的坐标(x,y)，求(x,y)的通用公式
     #     逆时针旋转的公式为
