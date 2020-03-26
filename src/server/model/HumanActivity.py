@@ -106,10 +106,10 @@ def Master(pos1, heading1, speed1, pos2, heading2, speed2):
     # 将转化后的目标船的坐标通过旋转，进一步转化为本船航向指向y轴正向的坐标系中
     pos2_temp = coord_conv(pos2_temp0[0],pos2_temp0[1],heading1)
     
-    # 将目标船的航向转化为以本船航向为y轴正向的坐标系中
-    heading2_temp = heading2-heading1
-    if heading2_temp<0
-        heading2_temp=heading2_temp+360
+    # # 将目标船的航向转化为以本船航向为y轴正向的坐标系中
+    # heading2_temp = heading2-heading1
+    # if heading2_temp<0
+    #     heading2_temp=heading2_temp+360
     if pos2_temp0[0]>0    # x>0即目标船在本船坐标系的第一或第四象限，即在本船的左侧，本船为让路船
        Pr.r=0.6
        Pr.s=0.3
