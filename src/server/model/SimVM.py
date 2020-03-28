@@ -10,6 +10,7 @@
 #-------------------------------------------------------------------------------
 
 import math, random, time, copy
+# from numpy import sin, cos
 import threading
 import CPA, TransBCD
 import HumanActivity as HA
@@ -48,36 +49,49 @@ class SimShip:
         # math.radians()将角度转换为弧度
         # 返回值：新的坐标点
         distance = self.speed * self.interval  # 单位为米
-        xx = self.lon + distance * math.sin(math.radians(self.heading))
-        yy = self.lat + distance * math.cos(math.radians(self.heading))
-        # 将距离转换为坐标差值
-        x = TransBCD.DeltaMeter2DeltaLon(xx, self.lat)
-        y = TransBCD.DeltaMeter2DeltaLat(yy)
+        # xx = self.lon + distance * math.sin(math.radians(self.heading))
+        # yy = self.lat + distance * math.cos(math.radians(self.heading))
+
+        x_com = distance * math.sin(math.radians(self.heading))
+        y_com = distance * math.cos(math.radians(self.heading))
+        xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
+        yy = TransBCD.DeltaMeter2DeltaLat(y_com)
+        x = self.lon + xx
+        y = self.lat + yy
+
         # heading, speed 不做出改变
         # print(self.lon, self.lat, self.speed, self.heading, distance, xx, yy)
-        return xx, yy
-        pass
+        return x, y
 
     def __TurnLeft(self):
         time.sleep(0.1)
-        distance = self.speed * self.interval * 0.001  # 单位为米
-        # TODO: 目前处理策略为，左右转只是临时改变船艏向，操作之后会自动纠正到原始方向上，
-        # 所以这里只是在计算坐标时 临时 改变船艏向
-        xx = self.lon + distance * math.sin(math.radians(self.heading - 5))
-        yy = self.lat + distance * math.cos(math.radians(self.heading - 5))
-        # TODO: 调用船舶动力学模型计算船舶位置等状态信息
+        distance = self.speed * self.interval  # 单位为米
+        # xx = self.lon + distance * math.sin(math.radians(self.heading - 5))
+        # yy = self.lat + distance * math.cos(math.radians(self.heading - 5))
 
-        return xx, yy
+        x_com = distance * math.sin(math.radians(self.heading - 5))
+        y_com = distance * math.cos(math.radians(self.heading - 5))
+        xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
+        yy = TransBCD.DeltaMeter2DeltaLat(y_com)
+        x = self.lon + xx
+        y = self.lat + yy
+        # TODO: 调用船舶动力学模型计算船舶位置等状态信息
+        return x, y
         pass
     
     def __TurnRight(self):
         time.sleep(0.1)
-        distance = self.speed * self.interval * 0.001  # 单位为米
-        # TODO: 目前处理策略为，左右转只是临时改变船艏向，操作之后会自动纠正到原始方向上，
-        # 所以这里只是在计算坐标时 临时 改变船艏向
-        xx = self.lon + distance * math.sin(math.radians(self.heading + 5))
-        yy = self.lat + distance * math.cos(math.radians(self.heading + 5))
-        return xx, yy
+        distance = self.speed * self.interval  # 单位为米
+        # xx = self.lon + distance * math.sin(math.radians(self.heading + 5))
+        # yy = self.lat + distance * math.cos(math.radians(self.heading + 5))
+        x_com = distance * math.sin(math.radians(self.heading))
+        y_com = distance * math.cos(math.radians(self.heading))
+        xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
+        yy = TransBCD.DeltaMeter2DeltaLat(y_com)
+        x = self.lon + xx
+        y = self.lat + yy
+        # TODO: 调用船舶动力学模型计算船舶位置等状态信息
+        return x, y
         pass
 
     # def RunOneDecision(self, FuncRunDecision = __RunOneStep):
@@ -126,6 +140,7 @@ class SimVM:
     __Times = 10
     __GoHead = True
     __RunFlag = 0 # 测试决策
+    __METFlag = 0 # 标识是否已经相遇，相遇则此虚拟机停止运行
     __SimData = []
     __NextStepData = {}
 
@@ -170,6 +185,8 @@ class SimVM:
             i += 1
         pass
 
+    def GetMetFlag(self):
+        return self.__METFlag
 
     def GetSimData(self):
         time.sleep(0.1)
@@ -193,8 +210,12 @@ class SimVM:
                 self.__SimShipRegistered.remove(ship)
 
     def RunOneTime(self, ):
+        for ship in self.__SimShipRegistered:
+            ship.RunOneDecision(self.__RunFlag)
         thisShipStatus = self.GetShipStatus()
         DeciResult = HA.ProbDeciEngie(thisShipStatus)
+        self.__SimData.append(self.GetShipStatus())
+        print("FLAG: ", DeciResult["FLAG"])
         return DeciResult
 
         # # 执行一次操作，用户自定义
@@ -324,10 +345,16 @@ class SimVM:
                 self.__Times = self.__Times - 1
             if self.__GoHead:
                 thisDeciResult = self.RunOneTime() # 更新之后的
-                # self.__RunFlag, DeciProb = self.RunOneTime() # 原来的
-                if thisDeciResult["FLAG"] == 1: 
+                self.__METFlag = thisDeciResult["MET"]
+                if self.__METFlag == 1:
                     self.Stop()
-                    self.NextStep(thisDeciResult)
+                    print("\nAttention:船已汇遇，当前虚拟机已经停止运行!")
+                else:
+                    self.__RunFlag = thisDeciResult["FLAG"]
+                    # self.__RunFlag, DeciProb = self.RunOneTime() # 原来的
+                    if thisDeciResult["FLAG"] == 1: 
+                        self.Stop()
+                        self.NextStep(thisDeciResult)
                     
 
     def NextStep(self, DeciProb):
@@ -414,23 +441,54 @@ class SimVM:
     #             self.RunOneTime()
 
 
+def RunVM(initData, interval = 0.2, timeRatio = 100, runTimes = -1):
+    """ 
+    : initData: data that init ships in this VM, and initData looks like :
+    initData = {
+        ship0: {
+            ShipID: "10086",
+            Tick: 0,
+            Lon: 123,
+            Lat: 35,
+            Speed: 10,
+            Heading: 90
+        },
+        ship1: {ShipID: "10010", Tick: 0, Lon: 123.1, Lat: 35.01, Speed: 7, Heading: 90}
+    }
+    : interval = 0.2,
+    : timeRatio = 100,
+    : runTimes = -1 : running times, -1 to loop,
+    : return: VMData
+    """
+    GenVMID = time.strftime("%y%m%d%H%M%S") + str(random.randint(1000, 9999))
+    print("VMID: ", GenVMID)
+    VM = SimVM(id = GenVMID, interval = interval, timeratio = timeRatio)
+    VM.addShip(
+        ShipID = initData["ship0"]["ShipID"], 
+        Tick = initData["ship0"]["Tick"],
+        Lon = initData["ship0"]["Lon"],
+        Lat = initData["ship0"]["Lat"],
+        Speed = initData["ship0"]["Speed"],
+        Heading = initData["ship0"]["Heading"]
+    ) # 主船
+    VM.addShip(ShipID = initData["ship1"]["ShipID"], Tick = initData["ship1"]["Tick"], Lon = initData["ship1"]["Lon"], Lat = initData["ship1"]["Lat"], Speed = initData["ship1"]["Speed"], Heading = initData["ship1"]["Heading"]) # 目标船，客船
+    VM.Run(runTimes)
+    VMData = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
+    # print('\nVMData: ', VMData)
+    return VMData
+
+
 def SimTest():
     GenVMID = time.strftime("%y%m%d%H%M%S") + str(random.randint(1000, 9999))
     print("VMID: ", GenVMID)
     VM = SimVM(id = GenVMID, interval = 0.2, timeratio = 100)
     # interval: 仿真虚拟机运行的时间间隔, timeratio: 一步仿真的离散步长
-    # for i in range(3): # Register 3 Ships
-    #     sid = str(random.randint(100000000,999999999))
-    #     lon = random.random()*20
-    #     lat = random.random()*10
-    #     VM.addShip(sid, Lon = lon, Lat = lat)
-    # VM.Run(10)
     # 先做只有主客两条船的案例, 该案例中只有主船单独决策
-    # [123, 35.1], 90, 7, [123.5, 36], 270, 7
-    VM.addShip(ShipID='10086', Lon=123, Lat=35.1, Speed=7, Heading=0) # 主船
-    VM.addShip(ShipID='10010', Lon=123, Lat=35.17, Speed=7, Heading=180) # 目标船，客船
+    # [123, 35.1], 90, 70, [123.1, 35], 270, 7
+    VM.addShip(ShipID='10086', Lon=123, Lat=35.001, Speed=10, Heading=90) # 主船
+    VM.addShip(ShipID='10010', Lon=123.1, Lat=35, Speed=7, Heading=270) # 目标船，客船
     VM.Run(8)
-    VMData = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData()}
+    VMData = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
     print('\nVMData: ', VMData)
 
 # def NextStep(x, y, speed, angle, duration):
@@ -465,20 +523,20 @@ def SimTest():
 # SimShipRegistered = []
 
 # class SimItem(object):
-    # 仿真实体基础类，实现注册和注销
-    # def __init__(self, RegisteredList = SimItemRegistered):
-    #     __RegisterList = RegisteredList
+#     # 仿真实体基础类，实现注册和注销
+#     def __init__(self, RegisteredList = SimItemRegistered):
+#         __RegisterList = RegisteredList
 
-    # def Register():
-    #     __RegisterList.append(self)
-    #     pass
+#     def Register():
+#         __RegisterList.append(self)
+#         pass
 
-    # def unRegister():
-    #     __RegisterList.remove(self)
-    #     pass
+#     def unRegister():
+#         __RegisterList.remove(self)
+#         pass
 
-    # def RunOneDecision():
-    #     pass
+#     def RunOneDecision():
+#         pass
 
 
 def main():

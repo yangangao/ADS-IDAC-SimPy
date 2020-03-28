@@ -99,6 +99,33 @@ def test_insert_many():
     
     pass
 
+import base64, os
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.dirname(current_dir)  # 获得current_dir所在的目录,
+grandparent_dir = os.path.dirname(parent_dir)
+print("current_dir: ", current_dir)
+# print("parent_dir: ", parent_dir)
+# print("grandparent_dir: ", grandparent_dir)
+
+def EncodeImg2B64Stream(path2img, imgID):
+    """ 
+    读取图片文件，并将其编码为b64字节流.
+    : path2img : looks like grandparent_dir +'/res/VOImg/',
+    : imgID 
+    : return : b64ImgStream
+    """
+    imgName = '{}.png'.format(imgID)
+    imgPath = path2img + imgName
+    with open(imgPath, 'rb') as f:
+        # f.read()
+        # print(f.read())
+        b64ImgStream = base64.b64encode(f.read())
+        # print(type(b64))
+    return b64ImgStream
+
+thispath = grandparent_dir + '/res/VOImg/'
+b64img = EncodeImg2B64Stream(thispath, 10086)
+print(b64img)
 
 # test_select_all()
 # import base64

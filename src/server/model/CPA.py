@@ -68,12 +68,12 @@ def ComputeDCPA(pos1, heading1, speed1, pos2, heading2, speed2):
     # pos2=np.array([pos_target[0]+speed2*np.sin(heading2 * np.pi /180) * t,\
     #                 pos_target[1]+speed2*np.cos(heading2 * np.pi /180) * t])
     deltapos = pos1-pos2
-    print("转换前deltapos: ", deltapos)
+    # print("转换前deltapos: ", deltapos)
     deltapos[0] = TransBCD.DeltaLon2DeltaMeter(deltapos[0], pos_own[0])
     deltapos[1] = TransBCD.DeltaLat2DeltaMeter(deltapos[1])
-    print("\ndeltapos: ", deltapos)
+    # print("\ndeltapos: ", deltapos)
     DCPA = np.linalg.norm(deltapos)
-    # print("DCPA: ", DCPA)
+    print("DCPA: ", DCPA)
     return DCPA
 
 
@@ -117,15 +117,16 @@ def ComputeTCPA(pos1, heading1, speed1, pos2, heading2, speed2):
                   - x * (y * pos[0] - x * pos[1]) / (x ** 2 + y ** 2)])
 
     d = np.linalg.norm(p_x-pos)  #两个坐标的距离
-    print("this d: ", d)
+    # print("this d: ", d)
     TCPA = 0 #初始化TCPA        
     if x * pos[0]+y * pos[1] <= 0: #说明两船逐渐远离
         TCPA = -d / (x**2+y**2)**0.5
     else:
         TCPA = d / (x**2+y**2)**0.5
-    return TCPA
+    print("TCPA: ", -TCPA)
+    return -TCPA
 
-mydcpa = ComputeDCPA([123, 35.1], 90, 7, [123.1, 35], 270, 7)
-print('MyDCPA: ', mydcpa)
-mytcpa = ComputeTCPA([123, 35.1], 90, 7, [123.1, 35], 270, 7)
-print('MyTCPA: ', mytcpa)
+# mydcpa = ComputeDCPA([123, 35.1], 90, 10, [123.1, 35], 270, 7)
+# print('MyDCPA: ', mydcpa)
+# mytcpa = ComputeTCPA([123, 35.1], 90, 10, [123.1, 35], 270, 7)
+# print('MyTCPA: ', mytcpa)

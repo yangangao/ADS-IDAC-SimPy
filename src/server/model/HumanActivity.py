@@ -15,24 +15,24 @@ import CPA
 
 -> 当前版本为1.0版
 """
-def DeltaLat2DeltaMeter(DeltaLat):
-    """ 
-    将纬度差转换为距离差(单位:米), 0.1纬度取1852m.
-    : DeltaLat: 纬度差,
-    : return DeltaMeter.
-    """
-    DeltaMeter = DeltaLat * 18520
-    return DeltaMeter
+# def DeltaLat2DeltaMeter(DeltaLat):
+#     """ 
+#     将纬度差转换为距离差(单位:米), 0.1纬度取1852m.
+#     : DeltaLat: 纬度差,
+#     : return DeltaMeter.
+#     """
+#     DeltaMeter = DeltaLat * 18520
+#     return DeltaMeter
 
-def DeltaLon2DeltaMeter(DeltaLon, CurrentLat):
-    """ 
-    将纬度差转换为距离差(单位:米), 0.1维度取1852m.
-    : DeltaLat: 纬度差,
-    : CurrentLat: 当前实际纬度,
-    : return DeltaMeter.
-    """
-    DeltaMeter = DeltaLon * 111 * np.cos(CurrentLat) * 1000
-    return DeltaMeter
+# def DeltaLon2DeltaMeter(DeltaLon, CurrentLat):
+#     """ 
+#     将纬度差转换为距离差(单位:米), 0.1维度取1852m.
+#     : DeltaLat: 纬度差,
+#     : CurrentLat: 当前实际纬度,
+#     : return DeltaMeter.
+#     """
+#     DeltaMeter = DeltaLon * 111 * np.cos(CurrentLat) * 1000
+#     return DeltaMeter
 
 
 def ProbDeciEngie(ShipStatus):
@@ -45,6 +45,9 @@ def ProbDeciEngie(ShipStatus):
     # secondly if value bigger than some threshold, decision was touched off.
     # thirdly goes into decide function to generate a decition result and return it as a dictionary.
     
+    # 测试： 
+    print("ShipStatus: ", ShipStatus)
+
     pos1 = [ShipStatus[0]['lon'], ShipStatus[0]['lat']]
     heading1 = ShipStatus[0]['heading']
     speed1 = ShipStatus[0]['speed']
@@ -93,17 +96,25 @@ def OOW(pos1, heading1, speed1, pos2, heading2, speed2):
     # 1.计算DCPA和TCPA
     DCPA = CPA.ComputeDCPA(pos1, heading1, speed1, pos2, heading2, speed2)
     TCPA = CPA.ComputeTCPA(pos1, heading1, speed1, pos2, heading2, speed2)
+    MET = 0
+    if TCPA < 0:
+        # 两船已经错过，或者已经碰撞
+        # 回馈标志，将使得全局虚拟机结束
+        MET = 1
+
     # 2.random产生当前OOW的风险阈值
-    RiskThreshold = random.random() # (0, 1)
+    RiskThreshold = 0.7 + 0.3 * random.random() # (0, 1)
     # 3. 计算RiskCurrent
     # D0,T0分别为DCPA和TCPA危险的标准阈值，即认为小于这个值就非常紧急，必须决策了;
     # Dmax,Tmax分别为DCPA和TCPA安全的标准阈值，即认为大于这个值就是安全的;
     # D和T的单位分别为 米 和 秒
-    Dmax = 1852
+    Dmax = 1852 * 3
     D0 = 200
     Tmax = 1800
-    T0 = 600
+    # T0 = 600
+    T0 = 300
     RiskCurrent=0.5*((Dmax-DCPA)/(Dmax-D0))+0.5*((Tmax-TCPA)/(Tmax-T0))
+    print("RiskCurrent: ", RiskCurrent)
     # 4.分支概率计算
     # 先计算 Master决策出的概率
     DeciProb = Master(pos1, heading1, speed1, pos2, heading2, speed2)
@@ -115,10 +126,19 @@ def OOW(pos1, heading1, speed1, pos2, heading2, speed2):
         "TurnRight": TR
     } 
     """
+    print("当前风险值：", RiskCurrent, "  风险阈值：", RiskThreshold)
+
     if RiskCurrent > RiskThreshold:
-        PrAlert = (RiskCurrent-RiskThreshold)/RiskThreshold
+        PrAlert = (RiskCurrent-RiskThreshold)/(1-RiskThreshold)
+
+        if PrAlert > 0.999999:
+            PrAlert = 0.999999
+        # PrAlert归一化处理
+        # PrAlert = (RiskCurrent-RiskThreshold)/RiskCurrent
+        print("PrAlert: ", PrAlert)
         # Master做出了决策
-        DeciProb["FLAG"] = 1
+        DeciProb["FLAG"] = 1 # 添加一个键值对 标识已经做出决策
+        DeciProb["MET"] = MET # 添加一个键值对 标识是否汇遇
         # 船将直行的概率=当前的概率+ Master未决策的概率
         DeciProb["GoHead"] = DeciProb["GoHead"] * PrAlert + 1-PrAlert
         DeciProb["TurnLeft"] = DeciProb["TurnLeft"] * PrAlert
@@ -127,6 +147,7 @@ def OOW(pos1, heading1, speed1, pos2, heading2, speed2):
         PrAlert = 0
         # Master没有做出决策，船将直行
         DeciProb["FLAG"] = 0
+        DeciProb["MET"] = MET
         # DeciProb["GoHead"] = 1
         # DeciProb["TurnLeft"] = 0
         # DeciProb["TurnRight"] = 0
@@ -172,11 +193,14 @@ def Master(pos1, heading1, speed1, pos2, heading2, speed2):
     # if heading2_temp < 0:
     #     heading2_temp = heading2_temp+360
 
-    if pos2_temp[0] > 0:    # x>0即目标船在本船坐标系的第一或第四象限，即在本船的左侧，本船为让路船
+    if pos2_temp[0] > 0:    # x>0即目标船在本船坐标系的第一或第四象限，即在本船的右侧，本船为让路船
+        print("我是让路船...")
         TR = 0.6
         GH = 0.3
         TL = 0.1
-    else:                  # 否则本船为直航船
+    else: # 否则本船为直航船
+        # 目标在左边，他让路，我直航，我应该直着走或者左转，目标都是尽快从他船头过
+        print("我是直航船...")
         TR = 0.1
         GH = 0.6
         TL = 0.3
@@ -189,7 +213,6 @@ def Master(pos1, heading1, speed1, pos2, heading2, speed2):
 
 
 def coord_conv(x, y, theta):
-    # TODO: 这里计算公式还有问题
     # 国际海上避碰规则 COLREGs
     #  坐标系中某一个点(x1,y1)围绕某一点(Xr,Yr)旋转任意角度a后，得到一个新的坐标(x,y)，求(x,y)的通用公式
     #     逆时针旋转的公式为

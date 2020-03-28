@@ -140,7 +140,28 @@
 # data = copy.deepcopy(olddata)
 # print("\nnew data: ", data)
 
-delta1 = [30 for _ in range(5)]
-delta2 = [-30 for _ in range(5)]
-delta = delta1 + delta2
-print(delta)
+# delta1 = [30 for _ in range(5)]
+# delta2 = [-30 for _ in range(5)]
+# delta = delta1 + delta2
+# print(delta)
+
+# coding: utf-8
+
+# import os
+
+# current_dir= os.path.dirname(__file__)
+# print("current_dir: ", current_dir)
+
+# parent_dir= os.path.dirname(current_dir)  # 获得current_dir所在的目录,
+# print("parent_dir: ", parent_dir)
+
+# parent_parent_dir= os.path.dirname(parent_dir)  # 获得parent_dir所在的目录
+# print(parent_parent_dir)
+
+NextStepData = {
+    "GoHead": 1,
+    "TurnLeft": 2,
+    "TurnRight": 3,
+}
+for item in NextStepData:
+    print(item, NextStepData[item])

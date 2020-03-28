@@ -63,7 +63,7 @@ def insert_into_mysql(val, param="one"):
         print("1 record inserted.")
         mydb.close()  # 关闭数据库连接
         return
-    if param == "many":
+    elif param == "many":
         cursor.executemany(sql_insert, val)
         mydb.commit() # 提交插入操作
         print(cursor.rowcount, "records inserted.")
@@ -86,7 +86,7 @@ def select_all_from_mysql():
 
 
 def test_select_all():
-    mydata = select_from_mysql()
+    mydata = select_all_from_mysql()
     for item in mydata:
         print(item, '\n')
         item_data = json.loads(item[1])

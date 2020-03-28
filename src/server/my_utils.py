@@ -8,9 +8,9 @@
 
 # if __name__ == "__main__":
 #     print(get_time())
-import base64
-with open('./static/res/ship1.png', 'rb') as f:
-    # f.read()
-    # print(f.read())
-    b64 = base64.b64encode(f.read())
-    print(type(b64))
+# import base64
+# with open('./res/static/ship1.png', 'rb') as f:
+#     # f.read()
+#     # print(f.read())
+#     b64 = base64.b64encode(f.read())
+#     print(type(b64))
