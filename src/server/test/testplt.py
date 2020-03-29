@@ -158,10 +158,53 @@
 # parent_parent_dir= os.path.dirname(parent_dir)  # 获得parent_dir所在的目录
 # print(parent_parent_dir)
 
-NextStepData = {
-    "GoHead": 1,
-    "TurnLeft": 2,
-    "TurnRight": 3,
-}
-for item in NextStepData:
-    print(item, NextStepData[item])
+# NextStepData = {
+#     'GoHead': {'probability': 0.5132643909682215, 'status': [{'time': 500, 'VMid': '2003291529531708', 'shipid': '10086', 'lon': 123.05499051838406, 'lat': 35.001, 'speed': 10, 'heading': 90, 'interval': 100}, {'time': 500, 'VMid': '2003291529531708', 'shipid': '10010', 'lon': 123.06150710756154, 'lat': 35.0, 'speed': 7, 'heading': 270, 'interval': 100}]}, 
+#     'TurnLeft': {'probability': 0.06953365843311121, 'status': [{'time': 500, 'VMid': '2003291529531708', 'shipid': '10086', 'lon': 123.05494866727916, 'lat': 35.00178433893761, 'speed': 10, 'heading': 90, 'interval': 100}, {'time': 500, 'VMid': '2003291529531708', 'shipid': '10010', 'lon': 123.06153640297696, 'lat': 34.99945096274367, 'speed': 7, 'heading': 270, 'interval': 100}]}, 
+#     'TurnRight': {'probability': 0.41720195059866727, 'status': [{'time': 500, 'VMid': '2003291529531708', 'shipid': '10086', 'lon': 123.05499051838406, 'lat': 35.001, 'speed': 10, 'heading': 90, 'interval': 100}, {'time': 500, 'VMid': '2003291529531708', 'shipid': '10010', 'lon': 123.06150710756154, 'lat': 35.0, 'speed': 7, 'heading': 270, 'interval': 100}]}
+#     }
+# for item in NextStepData:
+#     print(item, NextStepData[item])
+
+# 测试多线程
+import threading
+
+class VM:
+    __Data = []
+    __Dict = {}
+    def __init__(self):
+        super().__init__()
+
+    def GetVMData(self):
+        return self.__Data
+
+    def SetVMData(self, data):
+        self.__Data.append(data)
+
+    def Start(self, data):
+        # self.SetVMData(data)
+        self.__VMThread = threading.Thread(target=self.SetVMData(data), args=(self, ))
+        self.__VMThread.start()
+
+    def Test1(self):
+        for i in range(100):
+            # print(i)
+            self.Start(i)
+    def Test2(self):
+        for i in range(100):
+            self.Start(99)
+    
+    def main(self):
+        self.Test1()
+        self.Test2()
+    
+    def out(self):
+        for item in self.__Data:
+            print(item)
+    
+    def my(self):
+        print("hello")
+
+vm1 = VM()
+vm1.main()
+vm1.out()

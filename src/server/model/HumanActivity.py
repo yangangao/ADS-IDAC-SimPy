@@ -46,7 +46,7 @@ def ProbDeciEngie(ShipStatus):
     # thirdly goes into decide function to generate a decition result and return it as a dictionary.
     
     # 测试： 
-    print("ShipStatus: ", ShipStatus)
+    # print("ShipStatus: ", ShipStatus)
 
     pos1 = [ShipStatus[0]['lon'], ShipStatus[0]['lat']]
     heading1 = ShipStatus[0]['heading']

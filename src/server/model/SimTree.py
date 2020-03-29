@@ -11,7 +11,8 @@
 
 from treelib import Node, Tree
 import pickle, json, copy
-import SimVM
+import SimVM_copy as SimVM
+# import SimVM
 
 
 def store(data, filename):
@@ -39,30 +40,10 @@ def Tree_to_eChartsJSON(tree):
     return json.dumps(eChartsDict)
     pass
 
-# def Test1():
-#     tree = Tree()
-#     tree.create_node("Root", "1")  # root node
-#     tree.create_node("root-child1", "2", parent="1")
-#     tree.create_node("root-child1-child1", "5", parent="2")
-#     tree.create_node("root-child2", "3", parent="1")
-#     tree.create_node("root-child2-child1", "4", parent="3")
-#     tree.create_node("root-child2-child2", "6", parent="3")
-#     tree.show()
-#     # store(tree, "test.dat")
-#     return tree
-
-# VMData = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
-# NextStepData = {
-#     "GoHead": GoHead,
-#     "TurnLeft": TurnLeft,
-#     "TurnRight": TurnRight
-# }
-# GoHead:  {'probability': 0.818733374651966, 'status': [{'time': 400, 'VMid': '2003282016042971', 'shipid': '10086', 'lon': 123.04399241470725, 'lat': 35.001, 'speed': 10, 'heading': 90, 'interval': 100}, {'time': 400, 'VMid': '2003282016042971', 'shipid': '10010', 'lon': 123.06920568604923, 'lat': 35.0, 'speed': 7, 'heading': 270, 'interval': 100}]}
-
 
 def MySimTree():
     tree = Tree()
-    initData = ''
+    data = {'probability': 1, 'status': [{'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 35.001, 'speed': 10, 'heading': 90, 'interval': 100}, {'time': 0, 'shipid': '10010', 'lon': 123.1, 'lat': 35.0, 'speed': 7, 'heading': 270, 'interval': 100}]}
     parent = None
 
     def CreatVMTree(tree, data, parent):
@@ -78,21 +59,21 @@ def MySimTree():
             sta0 = data["status"][0]
             sta1 = data["status"][1]
             shipData = {
-                ship0: {
-                    ShipID: sta0["shipid"],
-                    Tick: sta0["time"], 
-                    Lon: sta0["lon"],
-                    Lat: sta0["lat"],
-                    Speed: sta0["speed"],
-                    Heading: sta0["heading"]
+                "ship0": {
+                    "ShipID": sta0["shipid"],
+                    "Tick": sta0["time"], 
+                    "Lon": sta0["lon"],
+                    "Lat": sta0["lat"],
+                    "Speed": sta0["speed"],
+                    "Heading": sta0["heading"]
                 },
-                ship1: {ShipID: sta1["shipid"], Tick: sta1["time"], Lon: sta1["lon"], Lat: sta1["lat"], Speed: sta1["speed"], Heading: sta1["heading"]}
+                "ship1": {"ShipID": sta1["shipid"], "Tick": sta1["time"], "Lon": sta1["lon"], "Lat": sta1["lat"], "Speed": sta1["speed"], "Heading": sta1["heading"]}
             }
             initData = copy.deepcopy(shipData)
             return initData
 
         VMInitData = GetInitData(data)
-        Data = SimVM.RunVM(VMInitData, interval = 0.2, timeRatio = 100, runTimes = 8)
+        Data = SimVM.RunVM(VMInitData, interval = 0, timeRatio = 100, runTimes = 8)
         tree.create_node(identifier=Data["VMID"], parent=parent)
         """
         方案1. tree.create_node(identifier=Data["VMID"], parent=parent)
@@ -105,21 +86,22 @@ def MySimTree():
         """
         if Data["MET"] == 0:
             # 船还未相遇，仿真继续，分支
-            for item, data in Data["NextStepData"]:
+            for item in Data["NextStepData"]:
                 # Recursion: 递归调用 生成新的结点
-                CreatVMTree(tree, data, parent=Data["VMID"])
+                CreatVMTree(tree, Data["NextStepData"][item], parent=Data["VMID"])
         else:
             # 船已经相遇，仿真停止，不再分支
             pass
-    
+    CreatVMTree(tree, data, parent)
     return tree
 
 
 
 
 def main():
-    # sTree = Test1()
+    sTree = MySimTree()
     # print(Tree_to_eChartsJSON(sTree))
+    sTree.show()
     pass
 
 if __name__ == '__main__':
