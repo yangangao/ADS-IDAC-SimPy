@@ -7,11 +7,11 @@ import mysql.connector
 import json
 
 # 测试数据
-data0 = {"data": [{"name": "root", "value": 0}]}
-data1 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3}]}]}
-data2 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4}, {"name": "root-child2-child2", "value": 5}]}]}]}
-data3 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5}]}]}]}
-data4 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5, "children": [{"name": "root-child2-child2-child1", "value": 8}, {"name": "root-child2-child2-child2", "value": 9}]}]}]}]}
+# data0 = {"data": [{"name": "root", "value": 0}]}
+# data1 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3}]}]}
+# data2 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4}, {"name": "root-child2-child2", "value": 5}]}]}]}
+# data3 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5}]}]}]}
+# data4 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5, "children": [{"name": "root-child2-child2-child1", "value": 8}, {"name": "root-child2-child2-child2", "value": 9}]}]}]}]}
 
 
 def link_mysql(db="idac"):
@@ -85,7 +85,7 @@ def select_from_simtree(TREEID):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT TREEID, data FROM sim_tree WHERE TREEID = {}".format(TREEID)
+    sql_select = "SELECT TREEID, data FROM sim_tree WHERE TREEID = '{}'".format(TREEID)
     cursor.execute(sql_select)
     # data = cursor.fetchall()
     data = cursor.fetchone() # TREEID是唯一的，两者结果是一致的
@@ -100,7 +100,7 @@ def select_from_simvm(VMID):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT VMID, data FROM sim_vm WHERE VMID = {}".format(VMID)
+    sql_select = "SELECT VMID, data FROM sim_vm WHERE VMID = '{}'".format(VMID)
     cursor.execute(sql_select)
     # data = cursor.fetchall()
     data = cursor.fetchone() # VMID是唯一的，两者结果是一致的
@@ -116,14 +116,18 @@ def select_from_voimg(VMID):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE VMID = {}".format(VMID)
+    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE VMID = '{}'".format(VMID)
     cursor.execute(sql_select)
     data = cursor.fetchall() # 一个VMID下有多个voimg
     mydb.close()
     return data
 
-
-
+treeid = 'Tree2003311933229081'
+data = select_from_simtree(treeid)[1]
+print(data)
+VMID = '2003311921331014'
+data2 = select_from_simvm(VMID)[1]
+print(data2)
 
 # ---------------------------------------------------------------
 # Old method

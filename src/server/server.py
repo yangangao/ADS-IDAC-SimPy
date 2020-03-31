@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, send_file
 import random, json, base64, os
 # import my_utils as utils
-# import opt_sql
+import opt_db
 
 
 # 获取server.py当前路径，以及父路径、祖父路径
@@ -71,10 +71,19 @@ def index():
 def get_tree():
     return(jsonify({"data": get_data()}))
 
+@app.route("/tree/<treeid>")
+def get_tree_by_id(treeid):
+    data = opt_db.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
+    return data
 
 @app.route("/map")
 def get_map():
     return(jsonify({"data": get_map_data()}))
+
+@app.route("/vm/<vmid>")
+def get_vm_by_id(vmid):
+    data = opt_db.select_from_simvm(vmid)[1] # 此时是JSON格式的字符串
+    return data
 
 
 @app.route("/img/<imageid>")
