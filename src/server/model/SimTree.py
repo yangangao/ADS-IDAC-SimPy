@@ -10,9 +10,8 @@
 #-------------------------------------------------------------------------------
 
 from treelib import Node, Tree
-import pickle, json, copy
-import SimVM_copy as SimVM
-# import SimVM
+import pickle, json, copy, time, random
+import SimVM, opt_db
 
 
 def store(data, filename):
@@ -40,10 +39,22 @@ def Tree_to_eChartsJSON(tree):
     return json.dumps(eChartsDict)
     pass
 
+def write2db(SimTreeID, sTree, VMpool):
+    JSONTree = Tree_to_eChartsJSON(sTree)
+    opt_db.insert_into_simtree(SimTreeID, JSONTree)
+    for item in VMpool:
+        opt_db.insert_into_simvm(item["VMID"], json.dumps(item))
+    print("已经将仿真树和其中的结点数据写入数据库.")
+    pass
 
-def MySimTree():
+def SimTree():
+    SimTreeID = "Tree" + time.strftime("%y%m%d%H%M%S") + str(random.randint(1000, 9999))
     tree = Tree()
-    data = {'probability': 1, 'status': [{'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 35.001, 'speed': 10, 'heading': 90, 'interval': 100}, {'time': 0, 'shipid': '10010', 'lon': 123.1, 'lat': 35.0, 'speed': 7, 'heading': 270, 'interval': 100}]}
+    VMpool = []
+    data = {'probability': 1, 'status': [
+        {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 35, 'speed': 7, 'heading': 85, 'interval': 100}, 
+        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 35.001, 'speed': 7, 'heading': 270, 'interval': 100}
+        ]}
     parent = None
 
     def CreatVMTree(tree, data, parent):
@@ -73,8 +84,13 @@ def MySimTree():
             return initData
 
         VMInitData = GetInitData(data)
-        Data = SimVM.RunVM(VMInitData, interval = 0, timeRatio = 100, runTimes = 8)
+        VM = SimVM.RunVM(VMInitData, interval = 0, timeRatio = 50, runTimes = 64)
+        Data = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
+
+        # tree.create_node(identifier=Data["VMID"], parent=parent)
         tree.create_node(identifier=Data["VMID"], parent=parent)
+        VMpool.append(Data)
+        # tree.append({"identifier": Data["VMID"], "parent": parent, "VMIns": VM})
         """
         方案1. tree.create_node(identifier=Data["VMID"], parent=parent)
         即 tree 的结点中只放仿真虚拟机的ID和父子关系，前端需要用到某的结点的Data时，再向后台请求，
@@ -84,25 +100,29 @@ def MySimTree():
         即 tree的结点中一次性将包括结点(仿真虚拟机)VMID,Data和父子关系全部存放，
         将一棵带有数据的完整的事件树作为一个整体存入一张表中.
         """
+        # print("__SimShipRegistered: ", VM._SimVM__SimShipRegistered)
         if Data["MET"] == 0:
             # 船还未相遇，仿真继续，分支
             for item in Data["NextStepData"]:
                 # Recursion: 递归调用 生成新的结点
-                CreatVMTree(tree, Data["NextStepData"][item], parent=Data["VMID"])
+                tree = CreatVMTree(tree, Data["NextStepData"][item], parent=Data["VMID"])
         else:
             # 船已经相遇，仿真停止，不再分支
             pass
-    CreatVMTree(tree, data, parent)
-    return tree
-
-
+        return tree
+    tree = CreatVMTree(tree, data, parent)
+    return tree, SimTreeID, VMpool
 
 
 def main():
-    sTree = MySimTree()
+    sTree, SimTreeID, VMpool = SimTree()
     # print(Tree_to_eChartsJSON(sTree))
     sTree.show()
-    pass
+    write2db(SimTreeID, sTree, VMpool)
+    # for item in VMpool:
+    #     print("VMID: ", item["VMID"])
+    print("pause.")
+
 
 if __name__ == '__main__':
     main()

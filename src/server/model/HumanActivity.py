@@ -99,20 +99,21 @@ def OOW(pos1, heading1, speed1, pos2, heading2, speed2):
     MET = 0
     if TCPA < 0:
         # 两船已经错过，或者已经碰撞
-        # 回馈标志，将使得全局虚拟机结束
+        # 反馈标志，将使得全局虚拟机结束
         MET = 1
 
     # 2.random产生当前OOW的风险阈值
-    RiskThreshold = 0.7 + 0.3 * random.random() # (0, 1)
+    RiskThreshold = 0.5 + 0.5 * random.random() # (0, 1)
     # 3. 计算RiskCurrent
     # D0,T0分别为DCPA和TCPA危险的标准阈值，即认为小于这个值就非常紧急，必须决策了;
     # Dmax,Tmax分别为DCPA和TCPA安全的标准阈值，即认为大于这个值就是安全的;
     # D和T的单位分别为 米 和 秒
-    Dmax = 1852 * 3
+    Dmax = 1852 * 2
+    # Dmax = 1852 
     D0 = 200
     Tmax = 1800
-    # T0 = 600
-    T0 = 300
+    T0 = 600
+    # T0 = 300
     RiskCurrent=0.5*((Dmax-DCPA)/(Dmax-D0))+0.5*((Tmax-TCPA)/(Tmax-T0))
     print("RiskCurrent: ", RiskCurrent)
     # 4.分支概率计算

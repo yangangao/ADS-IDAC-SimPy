@@ -35,7 +35,7 @@ def ComputeDCPA(pos1, heading1, speed1, pos2, heading2, speed2):
     pos = pos_target - pos_own
     # print("pos: ", pos[0], pos[1])
 
-    pos[0] = TransBCD.DeltaLon2DeltaMeter(pos[0], pos_own[0])
+    pos[0] = TransBCD.DeltaLon2DeltaMeter(pos[0], pos_own[1])
     pos[1] = TransBCD.DeltaLat2DeltaMeter(pos[1])
     # print("pos: ", pos[0], pos[1])
 
@@ -69,7 +69,7 @@ def ComputeDCPA(pos1, heading1, speed1, pos2, heading2, speed2):
     #                 pos_target[1]+speed2*np.cos(heading2 * np.pi /180) * t])
     deltapos = pos1-pos2
     # print("转换前deltapos: ", deltapos)
-    deltapos[0] = TransBCD.DeltaLon2DeltaMeter(deltapos[0], pos_own[0])
+    deltapos[0] = TransBCD.DeltaLon2DeltaMeter(deltapos[0], pos_own[1])
     deltapos[1] = TransBCD.DeltaLat2DeltaMeter(deltapos[1])
     # print("\ndeltapos: ", deltapos)
     DCPA = np.linalg.norm(deltapos)
@@ -109,7 +109,8 @@ def ComputeTCPA(pos1, heading1, speed1, pos2, heading2, speed2):
     pos = pos_target - pos_own
 
 
-    pos[0] = TransBCD.DeltaLon2DeltaMeter(pos[0], pos_own[0])
+    # pos[0] = TransBCD.DeltaLon2DeltaMeter(pos[0], pos_own[0]) # 这里有问题，应该是下面一句
+    pos[0] = TransBCD.DeltaLon2DeltaMeter(pos[0], pos_own[1])
     pos[1] = TransBCD.DeltaLat2DeltaMeter(pos[1])
 
     #相对距离在相对速度上的投影
@@ -123,8 +124,8 @@ def ComputeTCPA(pos1, heading1, speed1, pos2, heading2, speed2):
         TCPA = -d / (x**2+y**2)**0.5
     else:
         TCPA = d / (x**2+y**2)**0.5
-    print("TCPA: ", -TCPA)
-    return -TCPA
+    print("TCPA: ", TCPA)
+    return TCPA
 
 # mydcpa = ComputeDCPA([123, 35.1], 90, 10, [123.1, 35], 270, 7)
 # print('MyDCPA: ', mydcpa)
