@@ -1,3 +1,4 @@
+// 用echarts实现map，此方案已弃用，改用百度地图，见my_bmap.js
 var ec_map = echarts.init(document.getElementById('map'));
 
 // var my_map_data = // 从 3.2.0 起改为如下配置

@@ -52,8 +52,8 @@ def SimTree():
     tree = Tree()
     VMpool = []
     data = {'probability': 1, 'status': [
-        {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 35, 'speed': 7, 'heading': 85, 'interval': 100}, 
-        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 35.001, 'speed': 7, 'heading': 270, 'interval': 100}
+        {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 31, 'speed': 7, 'heading': 85, 'interval': 100}, 
+        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 31.001, 'speed': 7, 'heading': 270, 'interval': 100}
         ]}
     parent = None
 
@@ -116,6 +116,7 @@ def SimTree():
 
 def main():
     sTree, SimTreeID, VMpool = SimTree()
+    print('SimTreeID: ', SimTreeID)
     # print(Tree_to_eChartsJSON(sTree))
     sTree.show()
     write2db(SimTreeID, sTree, VMpool)

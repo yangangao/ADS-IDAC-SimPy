@@ -171,40 +171,16 @@ import threading
 
 class VM:
     __Data = []
-    __Dict = {}
-    def __init__(self):
-        super().__init__()
+    def __init__(self, VMID, tick):
+        self.id = VMID
+        self.tick = tick
+        self.__selfdata = []
 
-    def GetVMData(self):
-        return self.__Data
+    def run(self):
+        self.__Data.append(self.tick)
+        self.__selfdata.append(self.tick)
 
-    def SetVMData(self, data):
-        self.__Data.append(data)
-
-    def Start(self, data):
-        # self.SetVMData(data)
-        self.__VMThread = threading.Thread(target=self.SetVMData(data), args=(self, ))
-        self.__VMThread.start()
-
-    def Test1(self):
-        for i in range(100):
-            # print(i)
-            self.Start(i)
-    def Test2(self):
-        for i in range(100):
-            self.Start(99)
-    
-    def main(self):
-        self.Test1()
-        self.Test2()
-    
-    def out(self):
-        for item in self.__Data:
-            print(item)
-    
-    def my(self):
-        print("hello")
-
-vm1 = VM()
-vm1.main()
-vm1.out()
+VM1 = VM(10086, 100)
+VM2 = VM(10010, 50)
+VM1.run()
+VM2.run()

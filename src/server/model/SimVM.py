@@ -30,7 +30,7 @@ class SimShip:
         pass
 
     def __RunOneStep(self):
-        # time.sleep(0.1)
+        time.sleep(0.1)
         # 创建一个以"__"双下划线开始的方法时，这意味着这个方法不能被重写，它只允许在该类的内部中使用
 
         # 简单计算，详细有待航海学相关内容
@@ -56,7 +56,7 @@ class SimShip:
         return x, y
 
     def __TurnLeft(self):
-        # time.sleep(0.1)
+        time.sleep(0.1)
         distance = self.speed * self.interval  # 单位为米
         # xx = self.lon + distance * math.sin(math.radians(self.heading - 5))
         # yy = self.lat + distance * math.cos(math.radians(self.heading - 5))
@@ -72,7 +72,7 @@ class SimShip:
         pass
     
     def __TurnRight(self):
-        # time.sleep(0.1)
+        time.sleep(0.1)
         distance = self.speed * self.interval  # 单位为米
         # xx = self.lon + distance * math.sin(math.radians(self.heading + 5))
         # yy = self.lat + distance * math.cos(math.radians(self.heading + 5))
@@ -131,7 +131,7 @@ class SimVM:
     def __init__(self, id, interval = 0.5, timeratio = 10):
         # 定义虚拟机内船舶清单
         # ShipStatus内存数据表，一台VM带一个
-        # 初始化参数
+        # 初始化参数 其中的私有变量可以改为公有
         self.id = id # VMID
         self.interval = interval
         self.timeratio = timeratio
@@ -387,9 +387,9 @@ def SimTest():
 #         pass
 
 
-def main():
-    SimTest()
-    pass
+# def main():
+#     SimTest()
+#     pass
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

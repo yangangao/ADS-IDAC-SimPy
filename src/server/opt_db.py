@@ -122,12 +122,12 @@ def select_from_voimg(VMID):
     mydb.close()
     return data
 
-treeid = 'Tree2003311933229081'
-data = select_from_simtree(treeid)[1]
-print(data)
-VMID = '2003311921331014'
-data2 = select_from_simvm(VMID)[1]
-print(data2)
+# treeid = 'Tree2003311933229081'
+# data = select_from_simtree(treeid)[1]
+# print(data)
+# VMID = '2003311921331014'
+# data2 = select_from_simvm(VMID)[1]
+# print(data2)
 
 # ---------------------------------------------------------------
 # Old method

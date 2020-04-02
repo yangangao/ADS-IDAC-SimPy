@@ -1,5 +1,7 @@
 var ec_tree = echarts.init(document.getElementById('tree'),);
 
+
+// 鼠标点击事件放在utiLs.js中
 var mydata = [{
 	'name': 'root',
 	'value': 10086,
