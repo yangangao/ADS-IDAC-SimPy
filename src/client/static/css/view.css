@@ -87,3 +87,5 @@ body{
 	right: 0;
 	/* background-color: #028EE1; */
 }
+
+html, body {height:100%;overflow:auto;margin: 0;}

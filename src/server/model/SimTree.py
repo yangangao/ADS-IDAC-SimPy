@@ -48,16 +48,20 @@ def write2db(SimTreeID, sTree, VMpool):
     pass
 
 def SimTree():
+    count = [0]
     SimTreeID = "Tree" + time.strftime("%y%m%d%H%M%S") + str(random.randint(1000, 9999))
     tree = Tree()
     VMpool = []
     data = {'probability': 1, 'status': [
-        {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 31, 'speed': 7, 'heading': 85, 'interval': 100}, 
-        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 31.001, 'speed': 7, 'heading': 270, 'interval': 100}
+        {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 30.99, 'speed': 7, 'heading': 75, 'interval': 100}, 
+        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 31.01, 'speed': 7, 'heading': 270, 'interval': 100}
         ]}
     parent = None
 
-    def CreatVMTree(tree, data, parent):
+    def CreatVMTree(tree, data, parent, count):
+        count[0] += 1
+        if count[0] > 365:
+            return tree
         """ 
         data looks like: 
         GoHead:  {'probability': 0.818733374651966, 'status': [
@@ -84,7 +88,7 @@ def SimTree():
             return initData
 
         VMInitData = GetInitData(data)
-        VM = SimVM.RunVM(VMInitData, interval = 0, timeRatio = 50, runTimes = 64)
+        VM = SimVM.RunVM(VMInitData, interval = 0, timeRatio = 200, runTimes = 32)
         Data = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
 
         # tree.create_node(identifier=Data["VMID"], parent=parent)
@@ -101,16 +105,17 @@ def SimTree():
         将一棵带有数据的完整的事件树作为一个整体存入一张表中.
         """
         # print("__SimShipRegistered: ", VM._SimVM__SimShipRegistered)
+        print("\n\n当前timer标识已经创建的节点数: {}\n\n".format(count))
         if Data["MET"] == 0:
             # 船还未相遇，仿真继续，分支
             for item in Data["NextStepData"]:
                 # Recursion: 递归调用 生成新的结点
-                tree = CreatVMTree(tree, Data["NextStepData"][item], parent=Data["VMID"])
+                tree = CreatVMTree(tree, Data["NextStepData"][item], parent=Data["VMID"], count=count)
         else:
             # 船已经相遇，仿真停止，不再分支
             pass
         return tree
-    tree = CreatVMTree(tree, data, parent)
+    tree = CreatVMTree(tree, data, parent, count)
     return tree, SimTreeID, VMpool
 
 
@@ -124,6 +129,7 @@ def main():
     #     print("VMID: ", item["VMID"])
     print("pause.")
 
-
+# TODO: 优化数据库操作：引入连接池
+# TODO: 模型调参等。
 if __name__ == '__main__':
     main()

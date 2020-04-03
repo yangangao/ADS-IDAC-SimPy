@@ -8,7 +8,7 @@ from numpy import cos, pi
 
 def DeltaLat2DeltaMeter(DeltaLat):
     """ 
-    将纬度差转换为距离差(单位:米), 0.1纬度取1852m.
+    将纬度差转换为距离差(单位:米), 1′纬度取平均值1852m.
     : DeltaLat: 纬度差,
     : return DeltaMeter.
     """
@@ -18,7 +18,7 @@ def DeltaLat2DeltaMeter(DeltaLat):
 
 def DeltaLon2DeltaMeter(DeltaLon, CurrentLat):
     """ 
-    将纬度差转换为距离差(单位:米), 0.1维度取1852m.
+    将纬度差转换为距离差(单位:米), 1′纬度取平均值1852m.
     : DeltaLat: 纬度差,
     : CurrentLat: 当前实际纬度,
     : return DeltaMeter.

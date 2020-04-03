@@ -106,7 +106,16 @@ def select_from_simvm(VMID):
     data = cursor.fetchone() # VMID是唯一的，两者结果是一致的
     mydb.close()
     return data
-    
+
+def select_lastest_tree():
+    mydb = link_mysql()
+    cursor = mydb.cursor()
+    sql_select = "SELECT TREEID, data FROM sim_tree ORDER BY TREEID DESC LIMIT 1"
+    cursor.execute(sql_select)
+    data = cursor.fetchone() 
+    mydb.close()
+    return data
+
 # 从数据路中查询图片先不用
 def select_from_voimg(VMID):
     """ 
@@ -122,12 +131,7 @@ def select_from_voimg(VMID):
     mydb.close()
     return data
 
-# treeid = 'Tree2003311933229081'
-# data = select_from_simtree(treeid)[1]
-# print(data)
-# VMID = '2003311921331014'
-# data2 = select_from_simvm(VMID)[1]
-# print(data2)
+# print(select_lastest_tree())
 
 # ---------------------------------------------------------------
 # Old method

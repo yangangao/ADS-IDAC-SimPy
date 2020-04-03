@@ -21,7 +21,7 @@ ec_tree.on('click', function (params) {
 // 清除绘图 按钮点击事件
 $("#clearPolyline").click(function(event) {
 	// alert("clear polyline")
-	map.clearOverlays()
+	map.clearOverlays();
 });
 
 // 测试动态更新VO图 点击事件
@@ -29,17 +29,22 @@ $("#testDynamicImg").click(function(event) {
 	updateVoImg("ship0");
 });
 
-// 测试动态获取仿真树
+// 获取最新仿真树
 $("#getSimTree").click(function(event) {
+	// 先清理掉当前的绘图PolyLine
+	map.clearOverlays();
 	// var treeid = "Tree2004022208017821";
-	var treeid = "Tree2004022316511498";
-	treeUrl = "/tree/" + treeid;
+	// var treeid = "Tree2004022316511498";
+	// treeUrl = "/tree/" + treeid;
+	lastestTreeUrl = "/tree/lastest";
 	$.ajax('', {
-		url: treeUrl,
+		url: lastestTreeUrl,
 		dataType:"json",
 		success:function(data){
-			ec_tree_option.series[0].data = data.data;
+			ec_tree_option.series[0].data = data.TREEData.data;
 			ec_tree.setOption(ec_tree_option);
+			// 将TREEID填写到treeId输入框中
+			$('#treeId').attr('value', data.TREEID);
 		},
 		error:function(xhr,type,errorThrown){
 			alert(error);

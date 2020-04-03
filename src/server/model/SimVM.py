@@ -30,7 +30,7 @@ class SimShip:
         pass
 
     def __RunOneStep(self):
-        time.sleep(0.1)
+        # time.sleep(0.1)
         # 创建一个以"__"双下划线开始的方法时，这意味着这个方法不能被重写，它只允许在该类的内部中使用
 
         # 简单计算，详细有待航海学相关内容
@@ -56,13 +56,13 @@ class SimShip:
         return x, y
 
     def __TurnLeft(self):
-        time.sleep(0.1)
+        # time.sleep(0.1)
         distance = self.speed * self.interval  # 单位为米
         # xx = self.lon + distance * math.sin(math.radians(self.heading - 5))
         # yy = self.lat + distance * math.cos(math.radians(self.heading - 5))
 
-        x_com = distance * math.sin(math.radians(self.heading - 5))
-        y_com = distance * math.cos(math.radians(self.heading - 5))
+        x_com = distance * math.sin(math.radians(self.heading - 20))
+        y_com = distance * math.cos(math.radians(self.heading - 20))
         xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
         yy = TransBCD.DeltaMeter2DeltaLat(y_com)
         x = self.lon + xx
@@ -72,12 +72,12 @@ class SimShip:
         pass
     
     def __TurnRight(self):
-        time.sleep(0.1)
+        # time.sleep(0.1)
         distance = self.speed * self.interval  # 单位为米
         # xx = self.lon + distance * math.sin(math.radians(self.heading + 5))
         # yy = self.lat + distance * math.cos(math.radians(self.heading + 5))
-        x_com = distance * math.sin(math.radians(self.heading))
-        y_com = distance * math.cos(math.radians(self.heading))
+        x_com = distance * math.sin(math.radians(self.heading + 20))
+        y_com = distance * math.cos(math.radians(self.heading + 20))
         xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
         yy = TransBCD.DeltaMeter2DeltaLat(y_com)
         x = self.lon + xx
@@ -262,20 +262,20 @@ class SimVM:
         # print('\nOldShipData: ', OldShipStatus)
 
         ShipStatus3 = self.RunNextStep(3)
-        TurnRight = {"probability": DeciProb.get("TurnRight"), "status": ShipStatus3}
-        print('\nTurnRight: ', TurnRight)
+        TurnRight = {"probability": DeciProb.get("TurnRight"), "status": OldShipStatus + ShipStatus3}
+        # print('\nTurnRight: ', TurnRight)
         self.SetShipStatus(OldShipStatus)
         # print('\nAfterTurnRight ShipStatus: ', self.GetShipStatus())
 
         ShipStatus2 = self.RunNextStep(2)
-        TurnLeft = {"probability": DeciProb.get("TurnLeft"), "status": ShipStatus2}
-        print('\nTurnLeft: ', TurnLeft)
+        TurnLeft = {"probability": DeciProb.get("TurnLeft"), "status": OldShipStatus + ShipStatus2}
+        # print('\nTurnLeft: ', TurnLeft)
         self.SetShipStatus(OldShipStatus)
 
         ShipStatus1 = self.RunNextStep(1)
-        GoHead = {"probability": DeciProb["GoHead"], "status": ShipStatus1}
+        GoHead = {"probability": DeciProb["GoHead"], "status": OldShipStatus + ShipStatus1}
         # print('Prob: ', DeciProb["GoHead"])
-        print('\nGoHead: ', GoHead)
+        # print('\nGoHead: ', GoHead)
         self.SetShipStatus(OldShipStatus) # 将shipStatus 复原
 
         NextStepData = {

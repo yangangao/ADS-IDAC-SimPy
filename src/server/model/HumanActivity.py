@@ -108,12 +108,12 @@ def OOW(pos1, heading1, speed1, pos2, heading2, speed2):
     # D0,T0分别为DCPA和TCPA危险的标准阈值，即认为小于这个值就非常紧急，必须决策了;
     # Dmax,Tmax分别为DCPA和TCPA安全的标准阈值，即认为大于这个值就是安全的;
     # D和T的单位分别为 米 和 秒
-    Dmax = 1852 * 2
+    Dmax = 1852
     # Dmax = 1852 
     D0 = 200
     Tmax = 1800
-    T0 = 600
-    # T0 = 300
+    # T0 = 600
+    T0 = 300
     RiskCurrent=0.5*((Dmax-DCPA)/(Dmax-D0))+0.5*((Tmax-TCPA)/(Tmax-T0))
     print("RiskCurrent: ", RiskCurrent)
     # 4.分支概率计算

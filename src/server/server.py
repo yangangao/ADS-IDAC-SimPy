@@ -71,6 +71,13 @@ def index():
 def get_tree():
     return(jsonify({"data": get_data()}))
 
+# 获取最新的仿真树
+@app.route("/tree/lastest")
+def get_lastest_tree():
+    sourcedata = opt_db.select_lastest_tree()
+    return(jsonify({"TREEID": sourcedata[0], "TREEData": json.loads(sourcedata[1])}))
+    # return opt_db.select_lastest_tree()[1]
+
 @app.route("/tree/<treeid>")
 def get_tree_by_id(treeid):
     data = opt_db.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
