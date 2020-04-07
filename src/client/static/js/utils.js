@@ -18,6 +18,16 @@ ec_tree.on('click', function (params) {
 	// draw_dynamic_polyLine(VMData);
 });
 
+
+// // 切换为英文 按钮点击事件
+// $("#S2E").click(function(event) {
+// 	window.location.href="/en_version"
+// });
+// // 切换为中文 按钮点击事件
+// $("#S2Z").click(function(event) {
+
+// });
+
 // 清除绘图 按钮点击事件
 $("#clearPolyline").click(function(event) {
 	// alert("clear polyline")
@@ -93,10 +103,11 @@ function get_pois(){
 //感谢杨总 倾情相助
 function draw_dynamic_polyLine(pois) {
 	// 首先将初始位置的点添加进去
+	console.log('pois传入参数测试：', pois)
 	my_add_polyline([pois[0][0], pois[0][1]]);
 	my_add_polyline([pois[1][0], pois[1][1]]);
 	updateVoImg("ship0")
-	console.log(0, pois[0][0], pois[0][1]);
+	// console.log(0, pois[0][0], pois[0][1]);
 	var lineDataIndex = 1;
 	if (pois[0].length > 0) {
 		var intervalId = setInterval(() => {
@@ -108,7 +119,7 @@ function draw_dynamic_polyLine(pois) {
 				my_add_polyline([pois[0][lineDataIndex], pois[0][lineDataIndex + 1]]);
 				my_add_polyline([pois[1][lineDataIndex], pois[1][lineDataIndex + 1]]);
 				// updateVoImg("ship"+lineDataIndex.toString())
-				console.log(lineDataIndex, pois[0][lineDataIndex], pois[0][lineDataIndex + 1]);
+				// console.log(lineDataIndex, pois[0][lineDataIndex], pois[0][lineDataIndex + 1]);
 			}
 			lineDataIndex++;
 		}, 1000);
@@ -138,15 +149,13 @@ function updateVoImg(imgName){
 // 输入VMID，输出符合绘制PolyLine的点集
 function getVMData(VMID, fun){
 	vmUrl = "/vm/" + VMID.toString();
-	// var SimData;
-	// var shipPos = new Array();
 	$.ajax('', {
 		url: vmUrl,
 		dataType:"json",
 		success:function(data){
 			var SimData = data.SimData;
 			var shipPos = new Array();
-			console.log("VMData 测试: ", SimData)
+			// console.log("VMData 测试: ", SimData)
 			var shipNum = data.SimData[0].length; // 当前虚拟机中船的数量，由于每组中数据的量和格式是一致的，只需要解读第0组即可
 			// 下面初始化用于绘制PolyLine的array
 			for (var i=0; i<shipNum; i++){ 
@@ -161,7 +170,7 @@ function getVMData(VMID, fun){
 				}
 			}
 			// 从这里开始已经处理好数据，shipPos里面就是可以直接绘制PolyLine的数据了
-			console.log('测试return shipPos: ', shipPos);
+			// console.log('测试return shipPos: ', shipPos);
 			var f = function(){
 				return draw_dynamic_polyLine(shipPos);
 			}

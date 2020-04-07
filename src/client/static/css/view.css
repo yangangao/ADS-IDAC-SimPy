@@ -88,4 +88,6 @@ body{
 	/* background-color: #028EE1; */
 }
 
+/* 解决窗口抖动的问题 */
 html, body {height:100%;overflow:auto;margin: 0;}
+html{overflow-y:scroll;}

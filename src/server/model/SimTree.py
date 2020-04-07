@@ -53,9 +53,11 @@ def SimTree():
     tree = Tree()
     VMpool = []
     data = {'probability': 1, 'status': [
+        {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 30.9900001, 'speed': 7, 'heading': 75, 'interval': 100}, 
+        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 31.0100001, 'speed': 7, 'heading': 270, 'interval': 100},
         {'time': 0, 'shipid': '10086', 'lon': 123, 'lat': 30.99, 'speed': 7, 'heading': 75, 'interval': 100}, 
-        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 31.01, 'speed': 7, 'heading': 270, 'interval': 100}
-        ]}
+        {'time': 0, 'shipid': '10010', 'lon': 123.15, 'lat': 31.01, 'speed': 7, 'heading': 270, 'interval': 100},
+       ]}
     parent = None
 
     def CreatVMTree(tree, data, parent, count):
@@ -71,8 +73,9 @@ def SimTree():
          """
         def GetInitData(data):
             data = copy.deepcopy(data)
-            sta0 = data["status"][0]
-            sta1 = data["status"][1]
+            sta0 = data["status"][2]
+            sta1 = data["status"][3]
+            initStatus4DrawLines = [data["status"][0], data["status"][1]]
             shipData = {
                 "ship0": {
                     "ShipID": sta0["shipid"],
@@ -85,16 +88,17 @@ def SimTree():
                 "ship1": {"ShipID": sta1["shipid"], "Tick": sta1["time"], "Lon": sta1["lon"], "Lat": sta1["lat"], "Speed": sta1["speed"], "Heading": sta1["heading"]}
             }
             initData = copy.deepcopy(shipData)
-            return initData
+            return initData, initStatus4DrawLines
 
-        VMInitData = GetInitData(data)
-        VM = SimVM.RunVM(VMInitData, interval = 0, timeRatio = 200, runTimes = 32)
+        VMInitData, initStatus4DrawLines = GetInitData(data)
+        VM = SimVM.RunVM(VMInitData, initStatus4DrawLines, interval = 0, timeRatio = 200, runTimes = 32)
         Data = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
 
         # tree.create_node(identifier=Data["VMID"], parent=parent)
         tree.create_node(identifier=Data["VMID"], parent=parent)
         VMpool.append(Data)
         # tree.append({"identifier": Data["VMID"], "parent": parent, "VMIns": VM})
+        # 采用方案1
         """
         方案1. tree.create_node(identifier=Data["VMID"], parent=parent)
         即 tree 的结点中只放仿真虚拟机的ID和父子关系，前端需要用到某的结点的Data时，再向后台请求，
@@ -124,6 +128,7 @@ def main():
     print('SimTreeID: ', SimTreeID)
     # print(Tree_to_eChartsJSON(sTree))
     sTree.show()
+    # TODO: 仿真完成之后将父节点最后一个时刻的仿真数据加入到子节点的仿真数据头部
     write2db(SimTreeID, sTree, VMpool)
     # for item in VMpool:
     #     print("VMID: ", item["VMID"])

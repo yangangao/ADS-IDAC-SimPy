@@ -61,8 +61,8 @@ class SimShip:
         # xx = self.lon + distance * math.sin(math.radians(self.heading - 5))
         # yy = self.lat + distance * math.cos(math.radians(self.heading - 5))
 
-        x_com = distance * math.sin(math.radians(self.heading - 20))
-        y_com = distance * math.cos(math.radians(self.heading - 20))
+        x_com = distance * math.sin(math.radians(self.heading - 10))
+        y_com = distance * math.cos(math.radians(self.heading - 10))
         xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
         yy = TransBCD.DeltaMeter2DeltaLat(y_com)
         x = self.lon + xx
@@ -76,8 +76,8 @@ class SimShip:
         distance = self.speed * self.interval  # 单位为米
         # xx = self.lon + distance * math.sin(math.radians(self.heading + 5))
         # yy = self.lat + distance * math.cos(math.radians(self.heading + 5))
-        x_com = distance * math.sin(math.radians(self.heading + 20))
-        y_com = distance * math.cos(math.radians(self.heading + 20))
+        x_com = distance * math.sin(math.radians(self.heading + 10))
+        y_com = distance * math.cos(math.radians(self.heading + 10))
         xx = TransBCD.DeltaMeter2DeltaLon(x_com, self.lat)
         yy = TransBCD.DeltaMeter2DeltaLat(y_com)
         x = self.lon + xx
@@ -261,26 +261,29 @@ class SimVM:
         OldShipStatus = copy.deepcopy(self.GetShipStatus()) # ShipStatus
         # print('\nOldShipData: ', OldShipStatus)
 
-        ShipStatus3 = self.RunNextStep(3)
-        TurnRight = {"probability": DeciProb.get("TurnRight"), "status": OldShipStatus + ShipStatus3}
-        # print('\nTurnRight: ', TurnRight)
-        self.SetShipStatus(OldShipStatus)
-        # print('\nAfterTurnRight ShipStatus: ', self.GetShipStatus())
-
         ShipStatus2 = self.RunNextStep(2)
+        # TurnLeft = {"probability": DeciProb.get("TurnLeft"), "status": ShipStatus2}
         TurnLeft = {"probability": DeciProb.get("TurnLeft"), "status": OldShipStatus + ShipStatus2}
         # print('\nTurnLeft: ', TurnLeft)
         self.SetShipStatus(OldShipStatus)
 
         ShipStatus1 = self.RunNextStep(1)
+        # GoHead = {"probability": DeciProb["GoHead"], "status": ShipStatus1}
         GoHead = {"probability": DeciProb["GoHead"], "status": OldShipStatus + ShipStatus1}
         # print('Prob: ', DeciProb["GoHead"])
         # print('\nGoHead: ', GoHead)
         self.SetShipStatus(OldShipStatus) # 将shipStatus 复原
 
+        ShipStatus3 = self.RunNextStep(3)
+        # TurnRight = {"probability": DeciProb.get("TurnRight"), "status": ShipStatus3}
+        TurnRight = {"probability": DeciProb.get("TurnRight"), "status": OldShipStatus + ShipStatus3}
+        # print('\nTurnRight: ', TurnRight)
+        self.SetShipStatus(OldShipStatus)
+        # print('\nAfterTurnRight ShipStatus: ', self.GetShipStatus())
+
         NextStepData = {
-            "GoHead": GoHead,
             "TurnLeft": TurnLeft,
+            "GoHead": GoHead,
             "TurnRight": TurnRight
         }
         self.__NextStepData = copy.deepcopy(NextStepData)
@@ -300,8 +303,9 @@ class SimVM:
         return SomeShipStatus
         pass
 
-    def Run(self, Times = 0):
-        self.__SimData.append(self.GetShipStatus()) # 先将当前的起始状态添加到状态列表
+    def Run(self, initStatus4DrawLines, Times = 0):
+        self.__SimData.append(initStatus4DrawLines) # 先将上一次仿真的结束状态添加到状态列表
+        self.__SimData.append(self.GetShipStatus()) # 再将当前的起始状态添加到状态列表
         # 启动线程
         self.__Times = Times
         self.__VMThread = threading.Thread(target=self.RunMultiTime(), args=(self,))
@@ -316,7 +320,7 @@ class SimVM:
 
 
 # 这个函数用于外部调用
-def RunVM(initData, interval = 0.2, timeRatio = 100, runTimes = -1):
+def RunVM(initData, initStatus4DrawLines, interval = 0.2, timeRatio = 100, runTimes = -1):
     """ 
     : initData: data that init ships in this VM, and initData looks like :
     initData = {
@@ -347,7 +351,7 @@ def RunVM(initData, interval = 0.2, timeRatio = 100, runTimes = -1):
         Heading = initData["ship0"]["Heading"]
     ) # 主船
     VM.addShip(ShipID = initData["ship1"]["ShipID"], Tick = initData["ship1"]["Tick"], Lon = initData["ship1"]["Lon"], Lat = initData["ship1"]["Lat"], Speed = initData["ship1"]["Speed"], Heading = initData["ship1"]["Heading"]) # 目标船，客船
-    VM.Run(runTimes)
+    VM.Run(initStatus4DrawLines, runTimes)
     # VMData = {"VMID": VM.id, "SimData": VM.GetSimData(), "NextStepData": VM.GetNextStepData(), "MET": VM.GetMetFlag()}
     # print('\nVMData: ', VMData)
     # return VMData

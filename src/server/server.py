@@ -62,9 +62,9 @@ def index():
     return render_template("view.html")
 
 
-# @app.route("/time")
-# def get_time():
-#     return utils.get_time()
+@app.route("/en_version")
+def index_en():
+    return render_template("view-en.html")
 
 
 @app.route("/tree")
