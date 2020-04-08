@@ -39,7 +39,7 @@ def insert_into_simtree(TREEID, data):
     # print(sql_insert)
     cursor.execute(sql_insert, (TREEID, data))
     mydb.commit() # 提交插入操作
-    print("1 record inserted.")
+    print("1 record inserted into sim_tree.")
     mydb.close()  # 关闭数据库连接
     pass
 
@@ -55,7 +55,7 @@ def insert_into_simvm(VMID, data):
     # print(sql_insert)
     cursor.execute(sql_insert, (VMID, data))
     mydb.commit() # 提交插入操作
-    print("1 record inserted.")
+    print("1 record inserted into sim_vm.")
     mydb.close()  # 关闭数据库连接
     pass
 
@@ -69,11 +69,11 @@ def insert_into_voimg(imgID, VMID, data):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_insert = "INSERT INTO voimg (imgID, VMID, data) VALUES (%s, %s)"
+    sql_insert = "INSERT INTO voimg (imgID, VMID, data) VALUES (%s, %s, %s)"
     # print(sql_insert)
     cursor.execute(sql_insert, (imgID, VMID, data))
     mydb.commit() # 提交插入操作
-    print("1 record inserted.")
+    print("1 record inserted into voimg.")
     mydb.close()  # 关闭数据库连接
     pass
 
@@ -92,12 +92,27 @@ def select_from_simtree(TREEID):
     mydb.close()
     return data
 
+
+def select_lastest_tree():
+    """
+    从表sim_tree中查询最新的一条tree数据
+    : return: (TREEID, data)
+    """
+    mydb = link_mysql()
+    cursor = mydb.cursor()
+    sql_select = "SELECT TREEID, DATA FROM sim_tree WHERE TREEID = (SELECT MAX(TREEID) FROM sim_tree)"
+    cursor.execute(sql_select)
+    data = cursor.fetchone() 
+    mydb.close()
+    return data
+
 def select_from_simvm(VMID):
     """ 
     从表sim_vm中查询VM数据 
     :VMID : 查询的VM,
     :return : data = (VMID, data)
     """
+    # print("进入数据库操作函数vm")
     mydb = link_mysql()
     cursor = mydb.cursor()
     sql_select = "SELECT VMID, data FROM sim_vm WHERE VMID = {}".format(VMID)
@@ -107,23 +122,22 @@ def select_from_simvm(VMID):
     mydb.close()
     return data
     
-# 从数据路中查询图片先不用
-def select_from_voimg(VMID):
+# 从数据库中查询一张图片
+def select_from_voimg(imgID):
     """ 
-    从表voimg中查询属于VMID标识的VM的imgs 
-    :VMID : 查询img所属的VM,
+    从表voimg中查询标识为 imgID 的VM的imgs 
+    :imageid : 查询img所属的ID,
     :return : data = (imgID, VMID, data)
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE VMID = {}".format(VMID)
+    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE imgID = {}".format(imgID)
     cursor.execute(sql_select)
-    data = cursor.fetchall() # 一个VMID下有多个voimg
+    data = cursor.fetchone() # 
     mydb.close()
     return data
 
-
-
+# print('latest treeid: ', select_lastest_tree())
 
 # ---------------------------------------------------------------
 # Old method

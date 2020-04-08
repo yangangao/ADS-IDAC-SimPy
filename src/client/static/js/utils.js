@@ -36,7 +36,18 @@ $("#clearPolyline").click(function(event) {
 
 // 测试动态更新VO图 点击事件
 $("#testDynamicImg").click(function(event) {
-	updateVoImg("ship0");
+	updateVoImg("1000010086312797");
+	// 方式2 Ajax方式
+	// $.ajax('', {
+	// 	url: "/testS2F/1000010086312797",
+	// 	success:function(data){
+	// 		console.log("data: ", data)
+	// 		$('#voImg').attr('src', "data:image/png;base64,"+data);
+	// 	},
+	// 	error:function(xhr,type,errorThrown){
+	// 		alert(error);
+	// 	}
+	// });
 });
 
 // 获取最新仿真树
@@ -129,21 +140,25 @@ function draw_dynamic_polyLine(pois) {
 // 更新VO图功能函数
 function updateVoImg(imgName){
 	// imgName: String
-	imgUrl = "/img/"+ imgName.toString();
-	// imgUrl = "/img/"+ imgName;
+	// imgUrl = "/img/"+ imgName.toString();
+	
+	// TODO: 有毒！！！
+	// imgUrl = "/vm/2004071252277034";
+	imgUrl = "/img/"+ imgName;
 	// 方式1：DOM操作img 属性
-	$('#voImg').attr('src', imgUrl);
+	// $('#voImg').attr('src', imgUrl);
 	
 	// 方式2 Ajax方式
-	// $.ajax('', {
-	// 	url: imgUrl,
-	// 	success:function(data){
-	// 		$('#voImg').attr('src', "data:image/png;base64,"+data);
-	// 	},
-	// 	error:function(xhr,type,errorThrown){
-	// 		alert(error);
-	// 	}
-	// });
+	$.ajax('', {
+		url: imgUrl,
+		success:function(data){
+			console.log("前端调用测试data:", data)
+			$('#voImg').attr('src', "data:image/png;base64,"+data);
+		},
+		error:function(xhr,type,errorThrown){
+			alert(error);
+		}
+	});
 }
 
 // 输入VMID，输出符合绘制PolyLine的点集

@@ -3,16 +3,14 @@
 # Purpose:     实现一个线程安全仿真环境，其中包含多条自主航行船舶、观测者、环境数据
 #
 # Author:      Youan
-
+# Helper:      Bruce
 # Created:     27-01-2020
 # Copyright:   (c) Youan 2020
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 
-import math, random, time, copy
-# from numpy import sin, cos
-import threading
-import CPA, TransBCD
+import math, random, time, copy, uuid, threading
+import CPA, TransBCD, DrawVoAreas, opt_db
 import HumanActivity as HA
 
 class SimShip:
@@ -27,6 +25,7 @@ class SimShip:
         self.heading  = Heading   #船艏向，°，正北方向为 0，顺时针旋转为正
         self.interval = TimeRatio #一次离散步长所对应的时间间隔
         self.tick     = Tick      #当前虚拟时钟
+        self.VOImgID = None
         pass
 
     def __RunOneStep(self):
@@ -116,6 +115,7 @@ class SimShip:
         shipStatus['speed'] = self.speed
         shipStatus['heading'] = self.heading
         shipStatus['interval'] = self.interval
+        shipStatus['VOImgID'] = self.VOImgID
         return shipStatus
 
 class SimVM:
@@ -215,6 +215,24 @@ class SimVM:
         pass
 
 
+    def StoreVOImgDataAndAddID2ShipStatus(self):
+        ShipStatus = self.GetShipStatus()
+        pos1 = [ShipStatus[0]['lon'], ShipStatus[0]['lat']]
+        heading1 = ShipStatus[0]['heading']
+        speed1 = ShipStatus[0]['speed']
+
+        pos2 = [ShipStatus[1]['lon'], ShipStatus[1]['lat']]
+        heading2 = ShipStatus[1]['heading']
+        speed2 = ShipStatus[1]['speed']
+        # imgID 由 '11'和36位的uuid拼接而成
+        imgID = '11' + str(uuid.uuid5(uuid.NAMESPACE_URL, str(time.time())))
+        b64ImgData = DrawVoAreas.GenVOImgB64(pos1, heading1, speed1, pos2, heading2, speed2, imgID)
+        # 将 b64压缩编码后的数据存入数据库，一次连接存储一条，有待优化
+        # TODO:有待优化数据库操作
+        opt_db.insert_into_voimg(imgID, self.id, b64ImgData)
+        return imgID
+
+
     def RunMultiTime(self):
         self.__GoHead = True
         # self.__RunFlag = True # 测试决策
@@ -224,6 +242,12 @@ class SimVM:
             if self.__Times > 0:
                 self.__Times = self.__Times - 1
             if self.__GoHead:
+                # 调用上面的函数，存储图片数据，返回图片的ID
+                imgID = self.StoreVOImgDataAndAddID2ShipStatus()
+                # 目前只有主船决策，两艘船的VOImg 图一样，向每一艘船中添加VOImgID
+                # 更好的方案应该是...不，不是...>这玩意儿就应该在虚拟机层面操作.
+                for ship in self.SimShipRegistered:
+                    ship.VOImgID = imgID # 向每一艘船中添加VOImgID
                 thisDeciResult = self.RunOneTime() # 更新之后的
                 self.__METFlag = thisDeciResult["MET"]
                 if self.__METFlag == 1:

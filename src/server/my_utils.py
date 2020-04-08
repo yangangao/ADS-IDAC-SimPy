@@ -14,3 +14,17 @@
 #     # print(f.read())
 #     b64 = base64.b64encode(f.read())
 #     print(type(b64))
+
+# def EncodeImg2B64Stream(imageid):
+#     """
+#     ????:
+#     ??????base64?
+#     :param imageid:???????id
+#     :return: ???
+#     """
+#     import base64
+#     img_stream = ''
+#     with open('path_to_img/{}.png'.format(imageid), 'rb') as img_f:
+#         img_stream = img_f.read()
+#         img_stream = base64.b64encode(img_stream)
+#     return img_stream

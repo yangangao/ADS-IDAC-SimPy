@@ -3,9 +3,12 @@
 Created on Sun Dec 15 19:45:43 2019
 
 @author: Jinfen Zhang
+@edit by Bruce
 """
 import numpy as np
 import math
+import TransBCD
+# TODO: TransBCD
 
 def GetArcPoints(center_point,start_point,end_point):
     # center_point是圆弧的圆心坐标

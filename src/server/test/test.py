@@ -167,20 +167,27 @@
 #     print(item, NextStepData[item])
 
 # 测试多线程
-import threading
+# import threading
 
-class VM:
-    __Data = []
-    def __init__(self, VMID, tick):
-        self.id = VMID
-        self.tick = tick
-        self.__selfdata = []
+# class VM:
+#     __Data = []
+#     def __init__(self, VMID, tick):
+#         self.id = VMID
+#         self.tick = tick
+#         self.__selfdata = []
 
-    def run(self):
-        self.__Data.append(self.tick)
-        self.__selfdata.append(self.tick)
+#     def run(self):
+#         self.__Data.append(self.tick)
+#         self.__selfdata.append(self.tick)
 
-VM1 = VM(10086, 100)
-VM2 = VM(10010, 50)
-VM1.run()
-VM2.run()
+# VM1 = VM(10086, 100)
+# VM2 = VM(10010, 50)
+# VM1.run()
+# VM2.run()
+
+# mytu = (0,1,2)
+# print(mytu[2])
+
+import uuid, time
+print(uuid.uuid5(uuid.NAMESPACE_URL, str(time.time())))
+# 81b19b9a-a4cb-531e-b725-741fe2cf890c

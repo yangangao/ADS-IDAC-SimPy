@@ -40,7 +40,11 @@ def ProbDeciEngie(ShipStatus):
     : ShipStatus : 船舶的状态数据，数据格式如下所示.
     ：return : DeciProb 决策的结果，字典，格式如下给出.
     """
-    # ShipStatus = [{'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}]
+    # 虽然后面又在船的数据中加入了VOImgID 一项，但并不影响到这里的操作
+    # ShipStatus = [
+    #     {'time': 300, 'VMid': '2003231533468776', 'shipid': '10086', 'lon': 122.32665399999998, 'lat': 31.210672, 'speed': 1, 'heading': 90, 'interval': 100}, 
+    #     {'time': 300, 'VMid': '2003231533468776', 'shipid': '10010', 'lon': 122.326654, 'lat': 32.110672, 'speed': 0, 'heading': 270, 'interval': 100}
+    #     ]
     # firstly calculate risk value between two ships.
     # secondly if value bigger than some threshold, decision was touched off.
     # thirdly goes into decide function to generate a decition result and return it as a dictionary.

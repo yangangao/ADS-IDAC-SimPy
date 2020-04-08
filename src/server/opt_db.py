@@ -7,11 +7,11 @@ import mysql.connector
 import json
 
 # 测试数据
-# data0 = {"data": [{"name": "root", "value": 0}]}
-# data1 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3}]}]}
-# data2 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4}, {"name": "root-child2-child2", "value": 5}]}]}]}
-# data3 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5}]}]}]}
-# data4 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5, "children": [{"name": "root-child2-child2-child1", "value": 8}, {"name": "root-child2-child2-child2", "value": 9}]}]}]}]}
+data0 = {"data": [{"name": "root", "value": 0}]}
+data1 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3}]}]}
+data2 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4}, {"name": "root-child2-child2", "value": 5}]}]}]}
+data3 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5}]}]}]}
+data4 = {"data": [{"name": "root", "value": 1, "children":[{"name": "root-child1", "value": 2}, {"name": "root-child2", "value": 3, "children": [{"name": "root-child2-child1", "value": 4, "children": [{"name": "root-child2-child1-child1", "value": 6}, {"name": "root-child2-child1-child3", "value": 7}]}, {"name": "root-child2-child2", "value": 5, "children": [{"name": "root-child2-child2-child1", "value": 8}, {"name": "root-child2-child2-child2", "value": 9}]}]}]}]}
 
 
 def link_mysql(db="idac"):
@@ -69,7 +69,7 @@ def insert_into_voimg(imgID, VMID, data):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_insert = "INSERT INTO voimg (imgID, VMID, data) VALUES (%s, %s)"
+    sql_insert = "INSERT INTO voimg (imgID, VMID, data) VALUES (%s, %s, %s)"
     # print(sql_insert)
     cursor.execute(sql_insert, (imgID, VMID, data))
     mydb.commit() # 提交插入操作
@@ -85,10 +85,24 @@ def select_from_simtree(TREEID):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT TREEID, data FROM sim_tree WHERE TREEID = '{}'".format(TREEID)
+    sql_select = "SELECT TREEID, data FROM sim_tree WHERE TREEID = {}".format(TREEID)
     cursor.execute(sql_select)
     # data = cursor.fetchall()
     data = cursor.fetchone() # TREEID是唯一的，两者结果是一致的
+    mydb.close()
+    return data
+
+
+def select_lastest_tree():
+    """
+    从表sim_tree中查询最新的一条tree数据
+    : return: (TREEID, data)
+    """
+    mydb = link_mysql()
+    cursor = mydb.cursor()
+    sql_select = "SELECT TREEID, DATA FROM sim_tree WHERE TREEID = (SELECT MAX(TREEID) FROM sim_tree)"
+    cursor.execute(sql_select)
+    data = cursor.fetchone() 
     mydb.close()
     return data
 
@@ -98,40 +112,32 @@ def select_from_simvm(VMID):
     :VMID : 查询的VM,
     :return : data = (VMID, data)
     """
+    # print("进入数据库操作函数vm")
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT VMID, data FROM sim_vm WHERE VMID = '{}'".format(VMID)
+    sql_select = "SELECT VMID, data FROM sim_vm WHERE VMID = {}".format(VMID)
     cursor.execute(sql_select)
     # data = cursor.fetchall()
     data = cursor.fetchone() # VMID是唯一的，两者结果是一致的
     mydb.close()
     return data
-
-def select_lastest_tree():
-    mydb = link_mysql()
-    cursor = mydb.cursor()
-    sql_select = "SELECT TREEID, data FROM sim_tree ORDER BY TREEID DESC LIMIT 1"
-    cursor.execute(sql_select)
-    data = cursor.fetchone() 
-    mydb.close()
-    return data
-
-# 从数据路中查询图片先不用
-def select_from_voimg(VMID):
+    
+# 从数据库中查询一张图片
+def select_from_voimg(imgID):
     """ 
-    从表voimg中查询属于VMID标识的VM的imgs 
-    :VMID : 查询img所属的VM,
+    从表voimg中查询标识为 imgID 的VM的imgs 
+    :imageid : 查询img所属的ID,
     :return : data = (imgID, VMID, data)
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE VMID = '{}'".format(VMID)
+    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE imgID = {}".format(imgID)
     cursor.execute(sql_select)
-    data = cursor.fetchall() # 一个VMID下有多个voimg
+    data = cursor.fetchone() # 
     mydb.close()
     return data
 
-# print(select_lastest_tree())
+# print('latest treeid: ', select_lastest_tree())
 
 # ---------------------------------------------------------------
 # Old method

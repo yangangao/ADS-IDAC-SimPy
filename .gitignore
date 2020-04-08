@@ -646,3 +646,37 @@ src/test/test_flask/templates/wrap_8_admin-wrap/html/table-basic.html
 .idea/workspace.xml
 ADS-IDAC SRC20200324.zip
 ADS-IDAC 20200331SRC.zip
+idac-venv/pyvenv.cfg
+idac-venv/Scripts/activate
+idac-venv/Scripts/activate_this.py
+idac-venv/Scripts/activate.bat
+idac-venv/Scripts/activate.fish
+idac-venv/Scripts/activate.ps1
+idac-venv/Scripts/activate.xsh
+idac-venv/Scripts/deactivate.bat
+idac-venv/Scripts/easy_install-3.7.exe
+idac-venv/Scripts/easy_install.exe
+idac-venv/Scripts/easy_install3.exe
+idac-venv/Scripts/libcrypto-1_1.dll
+idac-venv/Scripts/libssl-1_1.dll
+idac-venv/Scripts/pip-3.7.exe
+idac-venv/Scripts/pip.exe
+idac-venv/Scripts/pip3.7.exe
+idac-venv/Scripts/pip3.exe
+idac-venv/Scripts/pydoc.bat
+idac-venv/Scripts/python.exe
+idac-venv/Scripts/python3.dll
+idac-venv/Scripts/python37.dll
+idac-venv/Scripts/pythonw.exe
+idac-venv/Scripts/sqlite3.dll
+idac-venv/Scripts/tcl86t.dll
+idac-venv/Scripts/tk86t.dll
+idac-venv/Scripts/vcruntime140.dll
+idac-venv/Scripts/wheel-3.7.exe
+idac-venv/Scripts/wheel.exe
+idac-venv/Scripts/wheel3.exe
+.vscode/settings.json
+idac-venv/Scripts/f2py.exe
+idac-venv/Scripts/flask.exe
+idac-venv/Scripts/futurize.exe
+idac-venv/Scripts/pasteurize.exe

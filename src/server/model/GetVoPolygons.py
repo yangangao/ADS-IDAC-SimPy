@@ -3,6 +3,7 @@
 Created on Sun Dec 15 19:46:40 2019
 
 @author: Jinfen Zhang
+@edit by: Bruce
 """
 import numpy as np
 import math
@@ -10,6 +11,7 @@ from shapely.geometry import Polygon  #多边形
 
 import LineCircleIntersection as lc
 import GetArcPoints as ga
+# TODO: TransBCD
 
 SCALE = 500           #速度的放大倍数，如果按最大速度画VO，则画的太小，所以需要放大
 V_MAX = 20*1852/3600  #船舶的最大速度为20节，转换成m/s

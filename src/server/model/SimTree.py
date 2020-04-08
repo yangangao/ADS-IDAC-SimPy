@@ -49,7 +49,7 @@ def write2db(SimTreeID, sTree, VMpool):
 
 def SimTree():
     count = [0]
-    SimTreeID = "Tree" + time.strftime("%y%m%d%H%M%S") + str(random.randint(1000, 9999))
+    SimTreeID = "10" + time.strftime("%y%m%d%H%M%S") + str(random.randint(1000, 9999))
     tree = Tree()
     VMpool = []
     data = {'probability': 1, 'status': [
