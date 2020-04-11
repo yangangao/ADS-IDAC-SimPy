@@ -109,7 +109,7 @@ def SimTree():
         将一棵带有数据的完整的事件树作为一个整体存入一张表中.
         """
         # print("__SimShipRegistered: ", VM._SimVM__SimShipRegistered)
-        print("\n\n当前timer标识已经创建的节点数: {}\n\n".format(count))
+        print("\n当前timer标识已经创建的节点数: {}\n".format(count))
         if Data["MET"] == 0:
             # 船还未相遇，仿真继续，分支
             for item in Data["NextStepData"]:
@@ -128,7 +128,6 @@ def main():
     print('SimTreeID: ', SimTreeID)
     # print(Tree_to_eChartsJSON(sTree))
     sTree.show()
-    # TODO: 仿真完成之后将父节点最后一个时刻的仿真数据加入到子节点的仿真数据头部
     write2db(SimTreeID, sTree, VMpool)
     # for item in VMpool:
     #     print("VMID: ", item["VMID"])

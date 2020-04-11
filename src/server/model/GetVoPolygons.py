@@ -11,12 +11,12 @@ from shapely.geometry import Polygon  #多边形
 
 import LineCircleIntersection as lc
 import GetArcPoints as ga
-# TODO: TransBCD
 
 SCALE = 500           #速度的放大倍数，如果按最大速度画VO，则画的太小，所以需要放大
 V_MAX = 20*1852/3600  #船舶的最大速度为20节，转换成m/s
 ALPHA_MAX = 30        #船舶的最大转向角度为30°
 DCPA = 500            #允许的最小会遇距离，单位是m
+
 
 def GetVoPolygons(pos1,course1,speed1,pos2,course2,speed2):
     # 获得四个VO区域的多边形坐标集合

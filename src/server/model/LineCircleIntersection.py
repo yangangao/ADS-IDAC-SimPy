@@ -3,8 +3,11 @@
 Created on Sun Dec 15 19:44:14 2019
 
 @author: Jinfen Zhang
+@edit by: Bruce
 """
 import numpy as np
+
+# TODO: 进行BCD的转换
 
 def LineCircleIntersection(circle_center,circle_radius, point_line, vec_line):
     #计算直线和圆的交点

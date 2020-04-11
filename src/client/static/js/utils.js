@@ -6,7 +6,6 @@ ec_tree.on('click', function (params) {
 	$('#dataId').attr('value', params.value);
 	var vmid = params.value;
 	// var vmid = "2004022208011387";
-	// var vmid = 
 	getVMData(vmid);
 	
 	// getVMData(vmid, function(err, data){
@@ -74,14 +73,14 @@ $("#getSimTree").click(function(event) {
 });
 
 // 绘制动态绘制polyLine 按钮点击事件
-$("#drawPolyline").click(function(event) {
+// $("#drawPolyline").click(function(event) {
 	// var pois = [
 	// 	new BMap.Point(122.326654, 31.110672),
 	// 	new BMap.Point(122.216654, 31.110672),
 	// 	new BMap.Point(122.146654, 31.210672),
 	// 	new BMap.Point(122.426654, 31.260672),
 	// ];
-	var pois = get_pois();
+	// var pois = get_pois();
 
 	// my_add_polyline(pois);
 	// setTimeout(function(){
@@ -91,33 +90,33 @@ $("#drawPolyline").click(function(event) {
 	// 	}, 1000);
 	// }, 1000);
 
-	draw_dynamic_polyLine(pois);
-});
+// 	draw_dynamic_polyLine(pois);
+// });
 
 // 获取用于绘制polyLine的数据集合（数组）
-function get_pois(){
-	return ([[
-		new BMap.Point(122.326654, 31.110672),
-		new BMap.Point(122.216654, 31.110672),
-		new BMap.Point(122.146654, 31.210672),
-		new BMap.Point(122.426654, 31.260672),
-	],[
-		new BMap.Point(122.226654, 31.210672),
-		new BMap.Point(122.316654, 31.210672),
-		new BMap.Point(122.346654, 31.310672),
-		new BMap.Point(122.226654, 31.260672),
-	]]);
-}
+// function get_pois(){
+// 	return ([[
+// 		new BMap.Point(122.326654, 31.110672),
+// 		new BMap.Point(122.216654, 31.110672),
+// 		new BMap.Point(122.146654, 31.210672),
+// 		new BMap.Point(122.426654, 31.260672),
+// 	],[
+// 		new BMap.Point(122.226654, 31.210672),
+// 		new BMap.Point(122.316654, 31.210672),
+// 		new BMap.Point(122.346654, 31.310672),
+// 		new BMap.Point(122.226654, 31.260672),
+// 	]]);
+// }
 
 // 动态绘制polyLine功能函数
 // 目前的是绘制两条船
 //感谢杨总 倾情相助
-function draw_dynamic_polyLine(pois) {
+function draw_dynamic_polyLine(pois, Voarr) {
 	// 首先将初始位置的点添加进去
-	console.log('pois传入参数测试：', pois)
+	// console.log('Voarr传入参数测试：', Voarr);
 	my_add_polyline([pois[0][0], pois[0][1]]);
 	my_add_polyline([pois[1][0], pois[1][1]]);
-	updateVoImg("ship0")
+	updateVoImg(Voarr[0])
 	// console.log(0, pois[0][0], pois[0][1]);
 	var lineDataIndex = 1;
 	if (pois[0].length > 0) {
@@ -129,16 +128,18 @@ function draw_dynamic_polyLine(pois) {
 			if (lineDataIndex < pois[0].length - 1) {
 				my_add_polyline([pois[0][lineDataIndex], pois[0][lineDataIndex + 1]]);
 				my_add_polyline([pois[1][lineDataIndex], pois[1][lineDataIndex + 1]]);
-				// updateVoImg("ship"+lineDataIndex.toString())
+				updateVoImg(Voarr[lineDataIndex])
 				// console.log(lineDataIndex, pois[0][lineDataIndex], pois[0][lineDataIndex + 1]);
 			}
 			lineDataIndex++;
 		}, 1000);
 	}
+	updateVoImg(Voarr[pois[0].length-1])
 }
 
 // 更新VO图功能函数
 function updateVoImg(imgName){
+	console.log("imgName: ", imgName)
 	// imgName: String
 	// imgUrl = "/img/"+ imgName.toString();
 	
@@ -152,7 +153,7 @@ function updateVoImg(imgName){
 	$.ajax('', {
 		url: imgUrl,
 		success:function(data){
-			console.log("前端调用测试data:", data)
+			// console.log("前端调用测试data:", data)
 			$('#voImg').attr('src', "data:image/png;base64,"+data);
 		},
 		error:function(xhr,type,errorThrown){
@@ -161,8 +162,8 @@ function updateVoImg(imgName){
 	});
 }
 
-// 输入VMID，输出符合绘制PolyLine的点集
-function getVMData(VMID, fun){
+// 输入VMID，绘制PolyLine
+function getVMData(VMID){
 	vmUrl = "/vm/" + VMID.toString();
 	$.ajax('', {
 		url: vmUrl,
@@ -172,6 +173,7 @@ function getVMData(VMID, fun){
 			var shipPos = new Array();
 			// console.log("VMData 测试: ", SimData)
 			var shipNum = data.SimData[0].length; // 当前虚拟机中船的数量，由于每组中数据的量和格式是一致的，只需要解读第0组即可
+			var shipVOImg = new Array(); // 用于保存主船的VOImdID
 			// 下面初始化用于绘制PolyLine的array
 			for (var i=0; i<shipNum; i++){ 
 				shipPos.push(new Array());
@@ -179,6 +181,12 @@ function getVMData(VMID, fun){
 			}
 			// console.log('shipPos: ', shipPos)
 			for(var moment=0; moment<SimData.length; moment++){ 
+				if (SimData[moment][0].VOImgID){
+					shipVOImg.push(SimData[moment][0].VOImgID);
+				}
+				else{
+					shipVOImg.push('figure');
+				}
 				for(var ship=0; ship<SimData[moment].length; ship++){
 					shipPos[ship].push(new BMap.Point(SimData[moment][ship].lon, SimData[moment][ship].lat));
 					// console.log("lon, lat", SimData[moment][ship].lon, SimData[moment][ship].lat)
@@ -187,7 +195,7 @@ function getVMData(VMID, fun){
 			// 从这里开始已经处理好数据，shipPos里面就是可以直接绘制PolyLine的数据了
 			// console.log('测试return shipPos: ', shipPos);
 			var f = function(){
-				return draw_dynamic_polyLine(shipPos);
+				return draw_dynamic_polyLine(shipPos, shipVOImg);
 			}
 			f();
 			// return shipPos;
