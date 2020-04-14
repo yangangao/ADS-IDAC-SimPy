@@ -12,7 +12,8 @@ import GetVoPolygons as gvp
 from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
 import matplotlib.pyplot as plt
-import io, base64, opt_db
+import io, base64
+import opt_db, TransBCD
 
 
 def PolygonTransform(polygon):
@@ -32,7 +33,20 @@ def GenVOImgB64(pos1, course1, speed1, pos2, course2, speed2, ImgID):
     """ 
     图片名称格式为 XXXX.png 其中XXXX为ImgID, 也即是虚拟机下某个船舶对应某次运行的ID.
     : return: base64编码的字节流 数据。
+
+    注意 变更说明(Bruce 2020年4月11日):
+    此处使用速度障碍法绘制VO图时，假定的场景位于直角坐标系内，
+    两船的坐标的单位是 米 ，两船的速度单位也是米，角度单位为角度° ，
+    然而在实际场景中，两船位于地理坐标系中，其坐标是经纬度，速度是米，角度是度°。
+    在计算时，用到的是两船的相对位置。
+    我们提出将两船在地理坐标系中的绝对位置转换为临时的直角坐标系的相对位置，
+    如果以主船(ship1)作为临时参考系的原点，那么只需要转换客船相对于主船的坐标差值，其他参数无需转换，
+    所以在这里引入 TransGCS2CCS函数 做上述转换, 而后续操作不需要做出任何改变。
     """
+    pos1,course1,speed1,pos2,course2,speed2 = TransBCD.TransGCS2CCS(pos1,course1,speed1,pos2,course2,speed2)
+
+    # 后面的操作不做任何改变即可
+ 
     fig, ax = plt.subplots()
 
     poly_vo,poly_front,poly_rear,poly_diverging = gvp.GetVoPolygons(pos1,course1,speed1,pos2,course2,speed2)
@@ -73,9 +87,8 @@ def GenVOImgB64(pos1, course1, speed1, pos2, course2, speed2, ImgID):
     ax.arrow(pos1[0], pos1[1], vx, vy, length_includes_head=True,\
             head_width=200, head_length=400, fc='r', ec='r')
 
-    plt.xlim(pos1[0]-4000, pos1[0]+4000)
-    plt.ylim(pos1[1], pos1[1]+8000)
-    # plt.axis('off') # 关闭坐标轴
+    plt.xlim(pos1[0]-1000, pos1[0]+6000)
+    plt.ylim(pos1[1]-3000, pos1[1]+6000)
 
     # plt.ion()
     # plt.plot()
@@ -90,6 +103,7 @@ def GenVOImgB64(pos1, course1, speed1, pos2, course2, speed2, ImgID):
     buffer = io.BytesIO()
     fig.canvas.print_png(buffer)
     b64 = base64.b64encode(buffer.getvalue())
+
     # with open('./res/VOImg/testS2f01.png', 'wb') as f:
     #     f.write(data)
     # data = base64.b64encode(data)
@@ -111,6 +125,15 @@ def GenVOImgB64(pos1, course1, speed1, pos2, course2, speed2, ImgID):
 # pos2 = [1950,1964]
 # course2 = 180
 # speed2 = 5.144
+
+# 使用这里的坐标测试，course就是ship的heading,即航艏向
+# pos1 = [123, 30.9900001]
+# course1 = 75
+# speed1 = 7
+
+# pos2 = [123.15, 31.0100001]
+# course2 = 270
+# speed2 = 7
 
 # def main():
 #     GenVOImgB64(pos1, course1, speed1, pos2, course2, speed2, 1000010086312797)

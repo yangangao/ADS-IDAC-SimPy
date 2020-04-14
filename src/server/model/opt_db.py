@@ -131,7 +131,7 @@ def select_from_voimg(imgID):
     """
     mydb = link_mysql()
     cursor = mydb.cursor()
-    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE imgID = {}".format(imgID)
+    sql_select = "SELECT imgID, VMID, data FROM voimg WHERE imgID = '{}'".format(imgID)
     cursor.execute(sql_select)
     data = cursor.fetchone() # 
     mydb.close()

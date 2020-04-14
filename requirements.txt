@@ -4,3 +4,4 @@ redis==3.3.8
 treelib==1.6.1
 mysql-connector
 matplotlib
+shapely

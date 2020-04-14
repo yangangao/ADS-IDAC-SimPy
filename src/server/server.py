@@ -102,7 +102,6 @@ def get_map():
 # /<int:user_speed><float:user_location_we><float:user_location_sn>
 def get_userparameters():
     if request.method == "POST":
-        # 取到表单中提交上来的参数
         # print("这里是map")
         mastership = request.form.get("mastership")
         user_speed = request.form.get("user_speed")
