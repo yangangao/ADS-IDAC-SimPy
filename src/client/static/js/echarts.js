@@ -75101,7 +75101,7 @@ extendComponentModel({
 
         center: ['50%', '50%'],
 
-        radius: '80%'
+        radius: '100%'
     }
 });
 

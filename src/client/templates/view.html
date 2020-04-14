@@ -1,47 +1,392 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
-	<head>
-		<meta charset="utf-8">
-		<title>风险决策</title>
-		<script src="../static/js/jquery-3.4.1.min.js"></script>
-		<script src="../static/js/echarts.min.js" type="text/javascript"></script>
-		<!-- <script src="../static/js/hubei.js" type="text/javascript"></script> -->
-		<!--引入百度地图的jssdk，这里需要使用你在百度地图开发者平台申请的 ak-->
-		<script src="http://api.map.baidu.com/api?v=2.0&ak=S9AqsqjyKkt9SR4Sn7dGh5ESA7vdyrzg"></script>
-		<!-- 引入百度地图扩展 -->
-		<script src="../static/js/bmap.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="../static/css/view.css" rel="stylesheet" />
-	</head>
-	
-	<body>
-		<div id="title"><h1>演示系统</h1></div>
-		<div id="dashboard">
-			<div class="toolbox"></div>
-			<div class="toolbox">VMID: <input type="text" name="dataId" id="dataId" value="数据未加载..." readonly="readonly"/></div>
-			<div class="toolbox">TreeID: <input type="text" name="treeId" id="treeId" value="数据未加载..." readonly="readonly"/></div>
-			<div class="toolbox">
-				<a href="/en_version" target="_self">
-					<button type="button" id="S2E">Switch to English</button>
-				</a>
-				<button type="button" id="clearPolyline">清除绘图</button>
-				<button type="button" id="drawPolyline">绘制线图</button><br>
-				<button type="button" id="testDynamicImg">测试动态换图</button>
-				<button type="button" id="getSimTree">获取最新仿真树</button>
-			</div>
-			<div class="toolbox">4</div>
-			
-		</div>
-		<div id="vo">
-			<div class="box">
-				<img id="voImg" src="../static/res/Figure1.png" alt="VO img"/>
-			</div>
-		</div>
-		<div id="tree">tree img</div>
-		<div id="map">map img</div>
+<html>
+  <head>
+    <title>风险决策</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <!-- <link href="../static/css/axure_rp_page.css" type="text/css" rel="stylesheet"/> -->
+    <link href="../static/css/data_styles.css" type="text/css" rel="stylesheet"/>
+    <link href="../static/css/styles.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/view.css" />
+    <!-- <link rel="shortcut icon" href="../static/images/index/favicon.ico" type="image/x-icon" /> -->
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/echarts.min.js" type="text/javascript"></script>
+    <!-- <script src="../static/js/hubei.js" type="text/javascript"></script> -->
+    <!--引入百度地图的jssdk，这里需要使用你在百度地图开发者平台申请的 ak-->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=heh5FNHS4WG5ItqInI6x1BlEDPggOXfw"></script>
+    <!-- 引入百度地图扩展 -->
+    <script src="../static/js/bmap.min.js"></script>
+  </head>
+  <!-- <body style="filter: grayscale(100%); zoom: 1;"> -->
+  <body>
+    <div id="base" class="">
+
+      <!-- 地图 boxForBMap (矩形) -->
+      <div id="u0" class="ax_default box_2" data-label="boxForBMap">
+        <div id="u0_div" class="">
+          <div id="map">map img</div>
+        </div>
+        <div id="u0_text" class="text " style="display:none; visibility: hidden"></div>
+      </div>
+      <!-- <div id="map"">map img</div> -->
+
+      <!-- 风险等级 (组合) -->
+      <div id="u1" class="ax_default" data-left="30" data-top="576" data-width="370" data-height="420">
+
+        <!-- boxForVOImage (矩形) -->
+        <div id="u2" class="ax_default box_2" data-label="boxForVOImage">
+          <div id="u2_div" class=""></div>
+          <div id="u2_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- voimage (图片 ) -->
+        <div id="u3" class="ax_default image" data-label="voimage">
+          <!-- <img id="u3_img" class="img " src="images/index/voimage_u3.png"/> -->
+		      <img id="voImg" class="img " src="../static/res/Figure1.png" alt="VO img"/>
+          <div id="u3_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- <div id="vo">
+          <div class="box">
+            <img id="voImg" src="../static/res/Figure1.png" alt="VO img"/>
+          </div>
+        </div> -->
+
+        <!-- Unnamed (矩形) -->
+        <div id="u4" class="ax_default label">
+          <div id="u4_div" class=""></div>
+          <div id="u4_text" class="text ">
+            <p><span>风险等级</span></p>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <!-- LOGO面板 (组合) -->
+      <div id="u9" class="ax_default" data-left="30" data-top="16" data-width="370" data-height="140">
+
+        <!-- boxForLOGO (矩形) -->
+        <div id="u10" class="ax_default box_2" data-label="boxForLOGO">
+          <div id="u10_div" class=""></div>
+          <div id="u10_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- imageLOGO (图片 ) -->
+        <div id="u11" class="ax_default image" data-label="imageLOGO">
+          <img id="u11_img" class="img " src="../static/images/index/imagelogo_u11.png"/></div>
+        </div>
+
+        <!-- versionDisplay (矩形) -->
+        <div id="u12" class="ax_default heading_1" data-label="versionDisplay">
+          <div id="u12_div" class=""></div>
+          <div id="u12_text" class="text ">
+            <p><span>beta</span></p>
+            <a href="/en_version" target="_self">
+              <button type="button" id="S2E">EN</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 辅助信息 (组合) -->
+      <div id="u5" class="ax_default" data-left="30" data-top="1010" data-width="370" data-height="101">
+
+        <!-- boxForInfo (目前是时间显示 矩形) -->
+        <div id="u6" class="ax_default box_2" data-label="boxForInfo">
+          <div id="u6_div" class=""></div>
+          <!-- <div id="u6_text" class="text " style="display:none; visibility: hidden"> -->
+          <div id="u6_text" class="text ">
+            <p>当前时间：</p>
+            <p id='time'></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <!-- <div id="u7" class="ax_default heading_1">
+          <div id="u7_div" class=""></div>
+          <div id="u7_text" class="text ">
+            <p><span>©版权所有</span></p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- boxForTreeMap (矩形) -->
+      <div id="u8" class="ax_default box_2" data-label="boxForTreeMap">
+          <div id="u8_div" class=""></div>
+          <div id="tree">tree img</div>
+          <!-- <div id="u8_text" class="text " style="display:none; visibility: hidden"> -->
+          <div id="u8_text" class="text ">
+              <input type="text" name="dataId" id="dataId" value="dataId数据未加载" readonly="readonly" z-index："+1"/>
+              <input type="text" name="treeId" id="treeId" value="treeId数据未加载" readonly="readonly" z-index："+1"/>
+              <input type="text" name="userparameters_show" id="userparameters_show" value="当前为默认参数" readonly="readonly" z-index："+1"/>
+              <button type="button" id="getSimTree">获取最新仿真树</button>
+            </div>
+      </div>
+
+      <!-- 船的信息 dialog-shipinfo (组合) -->
+      <div id="u13" class="ax_default ax_default_hidden" data-label="dialog-shipinfo" style="display:none; visibility: hidden" data-left="670" data-top="734" data-width="240" data-height="132">
+
+        <!-- 标题 (矩形) -->
+        <div id="u14" class="ax_default el-shadow">
+          <div id="u14_div" class=""></div>
+          <div id="u14_text" class="text ">
+            <p><span>主船</span></p>
+          </div>
+        </div>
+
+        <!-- 图形 (组合) -->
+        <div id="u15" class="ax_default" data-left="0" data-top="0" data-width="0" data-height="0">
+
+          <!-- Unnamed (Triangle Down) -->
+          <div id="u16" class="ax_default shape">
+            <img id="u16_img" class="img " src="../static/images/index/u16.svg"/>
+            <div id="u16_text" class="text " style="display:none; visibility: hidden">
+              <p></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (Triangle Down) -->
+          <div id="u17" class="ax_default shape">
+            <img id="u17_img" class="img " src="../static/images/index/u17.svg"/>
+            <div id="u17_text" class="text " style="display:none; visibility: hidden">
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 内容 content (矩形) -->
+        <div id="u18" class="ax_default paragraph" data-label="content">
+          <div id="u18_div" class=""></div>
+          <div id="u18_text" class="text ">
+            <p><span>在这里显示其他需要显示的信息。注意箭头位置</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 操作板 (组合) -->
+      <div id="u19" class="ax_default" data-left="30" data-top="176" data-width="370" data-height="380">
+
+        <!-- DashBoard 背景 (矩形) -->
+        <div id="u20" class="ax_default box_2" data-label="DashBoard">
+          <div id="u20_div" class=""></div>
+          <div id="u20_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- 静态绘制 (矩形) -->
+        <div id="u21" class="ax_default el-button-m" data-label="静态绘制">
+          <div id="u21_div" class=""></div>
+          <div id="u21_text" class="text ">
+            <p><span  id="drawPolyline">绘制线图</span></p>
+          </div>
+        </div>
+
+        <!-- 动态绘制 (矩形) -->
+        <div id="u22" class="ax_default el-button-m" data-label="动态绘制">
+          <div id="u22_div" class=""></div>
+          <div id="u22_text" class="text ">
+            <p><span id="testDynamicImg">测试动态换图</span></p>
+          </div>
+        </div>
+
+        <!-- 清除绘制 (矩形) -->
+        <div id="u23" class="ax_default el-button-m" data-label="清除绘制">
+          <div id="u23_div" class=""></div>
+          <div id="u23_text" class="text ">
+            <p><span id="clearPolyline">清除绘制</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u24" class="ax_default label">
+          <div id="u24_div" class=""></div>
+          <div id="u24_text" class="text ">
+            <p><span>初始速度</span></p>
+          </div>
+        </div>
+
+        <!-- 初始速度输入框背景 (矩形) -->
+        <div id="u25" class="ax_default input-placeholder">
+          <div id="u25_div" class=""></div>
+          <div id="u25_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u26" class="ax_default label">
+          <div id="u26_div" class=""></div>
+          <div id="u26_text" class="text ">
+            <p><span>初始位置</span></p>
+          </div>
+        </div>
+
+        <!-- 初始位置输入框背景1 (矩形) -->
+        <div id="u27" class="ax_default input-placeholder">
+          <div id="u27_div" class=""></div>
+          <div id="u27_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- 初始位置输入框背景2 (矩形) -->
+        <div id="u28" class="ax_default input-placeholder">
+          <div id="u28_div" class=""></div>
+          <div id="u28_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- radio_m (圆形) -->
+        <!-- <div id="u34" class="ax_default radio-uncheck" data-label="radio_m"> -->
+        <div id="u34" >
+          <!-- <img id="u34_img" class="img " src="../static/images/index/radio_c_u29.svg"/> -->
+          <!-- <label><input id="mastership" name="shipselect" type="radio" value="" />苹果 </label> 
+          <label><input id="slaveship" name="shipselect" type="radio" value="" />桃子 </label> -->
+          <input id="mastership" name="shipselect" type="radio" checked="true"/><p style="width: 40px; align-self: center">主船</p>
+          <input id="slaveship" name="shipselect" type="radio"/><p style="width: 40px; align-self: center">客船</p>
+          <!-- <div id="u34_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div> -->
+        </div>
+
+        <!-- label_m (矩形) -->
+        <!-- <div id="u35" class="ax_default radio-label-uncheck" data-label="label_m">
+          <div id="u35_div" class=""></div>
+          <div id="u35_text" class="text ">
+            <p><span>主船</span></p>
+          </div>
+        </div> -->
+
+        <!-- radio_c (圆形) -->
+        <!-- <div id="u29" class="ax_default radio-uncheck" data-label="radio_c">
+          <img id="u29_img" class="img " src="../static/images/index/radio_c_u29.svg"/>
+          <div id="u29_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div> -->
+
+        <!-- label_c (矩形) -->
+        <!-- <div id="u30" class="ax_default radio-label-uncheck" data-label="label_c">
+          <div id="u30_div" class=""></div>
+          <div id="u30_text" class="text ">
+            <p><span>客船</span></p>
+          </div>
+        </div> -->
+
+        <!-- Unnamed (矩形) -->
+        <div id="u31" class="ax_default label">
+          <div id="u31_div" class=""></div>
+          <div id="u31_text" class="text ">
+            <p><span>自定义设置</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u32" class="ax_default label">
+          <div id="u32_div" class=""></div>
+          <div id="u32_text" class="text ">
+            <p><span>绘图设置</span></p>
+          </div>
+        </div>
+
+        <!-- 分界线 (线段) -->
+        <div id="u33" class="ax_default line">
+          <img id="u33_img" class="img " src="../static/images/index/u33.svg"/>
+          <div id="u33_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+          </div>
+        </div>
+
+        <!-- <form method="post"> -->
+          <!-- <form action="/userparameters" method="post"> -->
+            <!-- user_speed (输入框) -->
+            <div id="u37" class="ax_default text_field" data-label="user_speed">
+              <!-- <img id="u37_img" class="img " src="../static/images/index/user_speed_u37.svg"/> -->
+              <input id="u37_input" type="text" name="user_speed" placeholder="请输入速度" class="u37_input"/>
+            </div>
+
+            <!-- user_location_we (输入框) -->
+            <div id="u38" class="ax_default text_field" data-label="user_location_we">
+              <!-- <img id="u38_img" class="img " src="../static/images/index/user_speed_u37.svg"/> -->
+              <!-- <input id="u38_input" type="text" value="" class="u38_input"/> -->
+              <input id="u38_input" type="text" name="user_location_we" placeholder="请输入东西" class="u38_input"/>
+            </div>
+
+            <!-- user_location_sn (输入框) -->
+            <div id="u39" class="ax_default text_field" data-label="user_location_sn">
+              <!-- <img id="u39_img" class="img " src="../static/images/index/user_speed_u37.svg"/> -->
+              <!-- <input id="u39_input" type="text" value="" class="u39_input"/> -->
+              <input id="u39_input" type="text" name="user_location_sn" placeholder="请输入南北" class="u39_input"/>
+            </div>
+
+            <!-- 提交自定义的确认按钮 (矩形) -->
+            <div id="u36" class="ax_default el-button-m">
+              <div id="u36_div" class=""></div>
+              <div id="u36_text" class="text">
+                <!-- <p><span id="user_confirm" type="submit">确认</span></p> -->
+                <input id="user_confirm" value="确认" readonly="readonly" z-index："+1"/> 
+                <!-- type="submit" -->
+              </div>
+            </div>
+
+        <!-- </form> -->
+
+        <!-- el-popover-action-userwarr “条件不足，请补全自定义条件” (组合) -->
+        <div id="u40" class="ax_default ax_default_hidden" data-label="el-popover-action-userwarr" style="display:none; visibility: hidden" data-left="374.5" data-top="293" data-width="247.5" data-height="88">
+
+          <!-- Unnamed (矩形) -->
+          <div id="u41" class="ax_default shape">
+            <div id="u41_div" class=""></div>
+            <div id="u41_text" class="text ">
+              <p><span>条件不足，请补全自定义条件。</span></p>
+            </div>
+          </div>
+
+          <!-- 背景 (组合) -->
+          <div id="u42" class="ax_default" data-left="0" data-top="0" data-width="0" data-height="0">
+
+            <!-- Unnamed (Triangle Down) -->
+            <div id="u43" class="ax_default shape">
+              <img id="u43_img" class="img " src="../static/images/index/u16.svg"/>
+              <div id="u43_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (Triangle Down) -->
+            <div id="u44" class="ax_default shape">
+              <img id="u44_img" class="img " src="../static/images/index/u17.svg"/>
+              <div id="u44_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u45" class="ax_default el-button-primary">
+            <div id="u45_div" class=""></div>
+            <div id="u45_text" class="text ">
+              <p><span>确定</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 		<script src="../static/js/ec_tree.js"></script>
 		<script src="../static/js/my_bmap.js"></script>
-		<script src="../static/js/utils.js"></script>
-		
-		
-	</body>
+    <script src="../static/js/utils.js"></script>
+    <script>
+        var time = new Date();
+	      setInterval("document.getElementById('time').textContent=new Date().toLocaleString();", 1000);
+    </script>
+  </body>
 </html>

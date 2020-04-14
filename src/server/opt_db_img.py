@@ -9,8 +9,8 @@ def link_mysql():
     mydb = mysql.connector.connect(
     host='127.0.0.1',
     port = 3306,
-    user='user1',      # 数据库IP、用户名和密码
-    passwd='hello',
+    user='user',      # 数据库IP、用户名和密码
+    passwd='user',
     database = 'test',
     charset = 'utf8'
     )
