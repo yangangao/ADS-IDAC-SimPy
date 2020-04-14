@@ -1,22 +1,25 @@
-from flask import Flask, render_template, jsonify, send_file
+from flask import Flask, render_template, jsonify, send_file, request
 import random, json, base64, os
 # import my_utils as utils
-import opt_db
+from . import opt_db
 
 
-# 获取server.py当前路径，以及父路径、祖父路径
-current_dir = os.path.dirname(__file__)
-parent_dir = os.path.dirname(current_dir)  # 获得current_dir所在的目录,
-grandparent_dir = os.path.dirname(parent_dir)
-print("current_dir: ", current_dir)
-# print("parent_dir: ", parent_dir)
-# print("grandparent_dir: ", grandparent_dir)
+# # 获取server.py当前路径，以及父路径、祖父路径
+# current_dir = os.path.dirname(__file__)
+# parent_dir = os.path.dirname(current_dir)  # 获得current_dir所在的目录,
+# grandparent_dir = os.path.dirname(parent_dir)
+# print("current_dir: ", current_dir)
+# # print("parent_dir: ", parent_dir)
+# # print("grandparent_dir: ", grandparent_dir)
 
-app = Flask(
-    __name__, 
-    static_folder = parent_dir + "/client/static", 
-    template_folder = parent_dir + "/client/templates"
-    )
+# app = Flask(
+#     __name__, 
+#     static_folder = parent_dir + "/client/static", 
+#     template_folder = parent_dir + "/client/templates"
+#     )
+app = Flask(__name__, 
+    static_folder='../client/static', 
+    template_folder='../client/templates')
 
 data0 = [
     {'name': 'root', 'value': 10086,'children':[
@@ -31,17 +34,35 @@ def get_data():
     # return dataIndex[i]
     return data0
 
-map_data0 = [{"lon": 122.226654,"lat": 31.210672}]
-map_data1 = [{"lon": 122.226654,"lat": 31.210672}, {"lon": 122.226654,"lat": 31.410672}]
-map_data2 = [{"lon": 122.226654,"lat": 31.210672}, {"lon": 122.226654,"lat": 31.410672}, {"lon": 122.426654,"lat": 31.210672}]
+
+map_data0 = [{"lon": 122.226654, "lat": 31.210672}]
+map_data1 = [{
+    "lon": 122.226654,
+    "lat": 31.210672
+}, {
+    "lon": 122.226654,
+    "lat": 31.410672
+}]
+map_data2 = [{
+    "lon": 122.226654,
+    "lat": 31.210672
+}, {
+    "lon": 122.226654,
+    "lat": 31.410672
+}, {
+    "lon": 122.426654,
+    "lat": 31.210672
+}]
 map_data = [map_data0, map_data1, map_data2]
+
+
 def get_map_data():
     i = random.randint(0, 2)
     return map_data[i]
 
 
 # 根路由，首页页面
-@app.route("/")
+@app.route("/", methods=["POST", "GET"])
 def index():
     return render_template("view.html")
 
@@ -55,7 +76,7 @@ def index_en():
 # 初始加载的树数据，可删除之
 @app.route("/tree")
 def get_tree():
-    return(jsonify({"data": get_data()}))
+    return (jsonify({"data": get_data()}))
 
 
 # 获取最新的仿真树data
@@ -74,8 +95,25 @@ def get_tree_by_id(treeid):
 
 @app.route("/map")
 def get_map():
-    return(jsonify({"data": get_map_data()}))
+    return (jsonify({"data": get_map_data()}))
 
+
+@app.route("/userparameters" , methods=["POST", "GET"])
+# /<int:user_speed><float:user_location_we><float:user_location_sn>
+def get_userparameters():
+    if request.method == "POST":
+        # print("这里是map")
+        mastership = request.form.get("mastership")
+        user_speed = request.form.get("user_speed")
+        user_location_we = request.form.get("user_location_we")
+        user_location_sn = request.form.get("user_location_sn")
+        
+        if not all([mastership, user_speed, user_location_we, user_location_sn]):
+            print('参数错误')
+            return jsonify({'status': '-1', 'errmsg': '接收成功但是参数错误'})
+        else:
+            print(mastership, user_speed, user_location_we, user_location_sn)
+    return jsonify({'status': mastership, 'errmsg': '接收成功'})
 
 # 从数据库中查询指定VMID的data并返回
 @app.route("/vm/<vmid>")
@@ -87,9 +125,10 @@ def get_vm_by_id(vmid):
 @app.route("/img/<imageid>")
 def img_index(imageid):
     # 方式1: 前端采用DOM操作img属性，采用http请求，后端从文件目录返回图片
-    # filename = grandparent_dir + "/res/VOImg/{}.png".format(imageid)
-    # return send_file(filename, mimetype='image/png')
 
+    # filename = "../client/static/res/{}.png".format(imageid)
+    # return send_file(filename, mimetype='image/png')
+    
     # 方式2: 前端采用Ajax方式时，后端返回base64编码的字符串
 
 	# 1. 从本地加载一条数据

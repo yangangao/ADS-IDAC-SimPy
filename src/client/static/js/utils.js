@@ -15,6 +15,15 @@ ec_tree.on('click', function (params) {
 	
 	// console.log("测试调用之后VMData: ", mysimdata);
 	// draw_dynamic_polyLine(VMData);
+	
+	//动态绘图
+	// var pois = get_pois();
+	// draw_dynamic_polyLine(pois);
+});
+	
+	// 自定义参数 确认 按钮点击事件
+$("#user_confirm").click(function(event) {
+	getUserParameter();
 });
 
 
@@ -207,3 +216,67 @@ function getVMData(VMID){
 		}
 	});
 }
+
+// 得到一组船的参数
+function getUserParameter(){
+	//得到数据
+	var user_speed = document.getElementById('u37_input').value;
+	var user_location_we = document.getElementById('u38_input').value;
+	var user_location_sn = document.getElementById('u39_input').value;
+	if($("#mastership").is(":checked")){
+	// if(document.getElementById('mastership').check){
+		mastership = 1;
+		// alert("1");
+	}else{
+		mastership = 0;
+		// alert('错鸟');
+	}
+	//判断数据完整
+	// console.log(user_speed,user_location_we,user_location_sn);
+	if(!user_speed){
+		// alert("参数错误");
+		user_speed = prompt('请输入初始速度','123');
+	}
+	if(!user_location_we){
+		// alert("参数错误");
+		user_location_we = prompt('请输入初始位置（东西）','456');
+	}
+	if(!user_location_sn){
+		// alert("参数错误");
+		user_location_sn = prompt('请输入初始（南北）','789');
+	}
+	//发送数据
+	var user_parameters = 
+	{
+		"mastership" : mastership,
+		"user_speed" : user_speed,
+	    "user_location_we" : user_location_we,
+		"user_location_sn" : user_location_sn
+	}
+	$.post("/userparameters", user_parameters, 
+		function(data){ 
+		alert("结果: " + data['errmsg'] + "\n状态: " + data['status']); 
+	}); 
+
+	// $.ajax({
+	// 	url:"http://localhost:5000",
+	// 	contentType:"application/json",
+	// 	data:JSON.stringify(user_parameters,null,4),
+	// 	dataType:"json",
+	// 	type:"POST",
+	// 	success:function (data) {
+	// 		console.log(data);
+	// 	}
+	// });
+	// 	//如果不完整 用弹窗提醒
+	// 	alert('请补全参数再确认');
+	// 	// var userwarr =document.getElementById("u40");
+	// 	// userwarr.style.display="";
+	// }	
+}
+
+// function refresh_time(){
+// 	var time = new Date();
+// 	setInterval("document.getElementById('time').textContent=new Date().toLocaleString();", 1000);
+//     // document.getElementById('time').textContent = time.toISOString();
+// }
