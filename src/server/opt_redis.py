@@ -1,7 +1,13 @@
 from redis import StrictRedis
 # import json
 
+# redis simtree db0
+# redis simvm db1
+# redis voimg db2
 
+# =======================================
+# 连接
+# =======================================
 def link_redis_master(selectdb = 0):
     # 连接数据库@写操作
     # redis simtree db0
@@ -11,7 +17,8 @@ def link_redis_master(selectdb = 0):
         host='localhost', 
         port = 6379, 
         db = selectdb, 
-        password = '123456')
+        password = '123456',
+        decode_responses = True)
     return mydb
 
 def link_redis_slave(selectdb = 0):
@@ -20,9 +27,13 @@ def link_redis_slave(selectdb = 0):
         host='localhost', 
         port = 6380, 
         db = selectdb, 
-        password = '654321')
+        password = '654321',
+        decode_responses = True)
     return mydb
 
+# =======================================
+# 插入
+# =======================================
 def insert_into_simtree(TREEID, data):
     """
     将 仿真树 数据插入表 sim_tree 
@@ -71,7 +82,9 @@ def insert_into_voimg(imgID, VMID, data):
         print(e)
     pass
 
-
+# =======================================
+# 查询
+# =======================================
 def select_from_simtree(TREEID):
     """ 
     从表sim_tree中查询tree数据
@@ -114,7 +127,7 @@ def select_from_simvm(VMID):
     sr = link_redis_slave(1)
     data = (VMID, sr.get(VMID))
     return data
-    
+
 # 从数据库中查询一张图片
 def select_from_voimg(imgID):
     """ 

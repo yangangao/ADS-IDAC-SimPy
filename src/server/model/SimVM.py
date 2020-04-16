@@ -10,7 +10,7 @@
 #-------------------------------------------------------------------------------
 
 import math, random, time, copy, uuid, threading
-import CPA, TransBCD, DrawVoAreas, opt_db
+import CPA, TransBCD, DrawVoAreas, opt_db, opt_redis
 import HumanActivity as HA
 
 class SimShip:
@@ -229,7 +229,8 @@ class SimVM:
         b64ImgData = DrawVoAreas.GenVOImgB64(pos1, heading1, speed1, pos2, heading2, speed2, imgID)
         # 将 b64压缩编码后的数据存入数据库，一次连接存储一条，有待优化
         # TODO:有待优化数据库操作
-        opt_db.insert_into_voimg(imgID, self.id, b64ImgData)
+        # opt_db.insert_into_voimg(imgID, self.id, b64ImgData)
+        opt_redis.insert_into_voimg(imgID, self.id, b64ImgData)
         return imgID
 
 

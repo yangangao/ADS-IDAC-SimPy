@@ -1,6 +1,9 @@
 // 百度地图API功能
 var map = new BMap.Map("map"); // 创建Map实例
 map.centerAndZoom(new BMap.Point(123.06, 31), 14); // 初始化地图,设置中心点坐标和地图级别
+// map.setMapStyleV2({     
+// 	styleId: '8d2966cbedea549016eeeb490a661517'
+//   });
 map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
 // var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
 // 	scale: 0.6, //图标缩放大小

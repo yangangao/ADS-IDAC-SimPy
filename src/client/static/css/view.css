@@ -1,13 +1,20 @@
 html{
 	/* 页面缩放 */
 	transform: scale(1,1);
-	-ms-transform: scale(1,1); /* IE 9 */
-	-webkit-transform: scale(0.95,0.95); /* Safari and Chrome */
+	-ms-transform: scale(1,1); 
+	/* IE 9 */
+	-webkit-transform: scale(0.96,0.96); 
+	/* Safari、 Edge and Chrome */
 }
 
 body{
 	margin: 0;
-	background-color: #ffffff;
+	/* background-color: rgb(205, 248, 221); */
+	background-image: url("../images/index/imgbg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* #title{
@@ -120,7 +127,18 @@ body{
 	margin-left:auto;
 	margin-right:auto;
 }
-
+video{
+    position: fixed;
+    right:0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -9999;
+    /*灰色调*/
+    /* -webkit-filter:grayscale(50%) */
+}
 /* 解决窗口抖动的问题 */
 /* html, body {height:100%;overflow:auto;margin: 0;}
 html{overflow-y:scroll;} */

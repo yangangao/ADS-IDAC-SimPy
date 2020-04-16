@@ -11,7 +11,7 @@
 
 from treelib import Node, Tree
 import pickle, json, copy, time, random
-import SimVM, opt_db
+import SimVM, opt_db, opt_redis
 
 
 def store(data, filename):
@@ -41,9 +41,11 @@ def Tree_to_eChartsJSON(tree):
 
 def write2db(SimTreeID, sTree, VMpool):
     JSONTree = Tree_to_eChartsJSON(sTree)
-    opt_db.insert_into_simtree(SimTreeID, JSONTree)
+    # opt_db.insert_into_simtree(SimTreeID, JSONTree)
+    opt_redis.insert_into_simtree(SimTreeID, JSONTree)
     for item in VMpool:
-        opt_db.insert_into_simvm(item["VMID"], json.dumps(item))
+        # opt_db.insert_into_simvm(item["VMID"], json.dumps(item))
+        opt_redis.insert_into_simvm(item["VMID"], json.dumps(item))
     print("已经将仿真树和其中的结点数据写入数据库.")
     pass
 

@@ -1,7 +1,5 @@
 ﻿body {
   margin:0px;
-  background-color:rgba(242, 242, 242, 1);
-  background-image:none;
   position:relative;
   left:0px;
   width:1920px;
@@ -25,7 +23,7 @@
   width:1480px;
   height:540px;
   /* background:inherit; */
-  background-color:rgba(215, 215, 215, 1);
+  background-color:rgba(147, 224, 255, 0.5);
   border:none;
   border-radius:10px;
   -moz-box-shadow:none;
@@ -81,7 +79,7 @@
   width:370px;
   height:420px;
   background:inherit;
-  background-color:rgba(215, 215, 215, 1);
+  background-color:rgba(147, 224, 255, 0.5);
   border:none;
   border-radius:10px;
   border-top-left-radius:0px;
@@ -202,7 +200,7 @@
   width:370px;
   height:101px;
   background:inherit;
-  background-color:rgba(215, 215, 215, 1);
+  background-color:rgba(147, 224, 255, 0.5);
   border:none;
   border-radius:10px;
   border-top-left-radius:0px;
@@ -289,7 +287,7 @@
   width:1480px;
   height:540px;
   background:inherit;
-  background-color:rgba(215, 215, 215, 1);
+  background-color:rgba(147, 224, 255, 0.5);
   border:none;
   border-radius:10px;
   -moz-box-shadow:none;
@@ -339,7 +337,7 @@
   width:370px;
   height:140px;
   background:inherit;
-  background-color:rgba(215, 215, 215, 1);
+  background-color:rgba(147, 224, 255, 0.5);
   border:none;
   border-radius:10px;
   border-top-left-radius:0px;
@@ -649,7 +647,7 @@
   width:370px;
   height:380px;
   background:inherit;
-  background-color:rgba(215, 215, 215, 1);
+  background-color:rgba(147, 224, 255, 0.5);
   border:none;
   border-radius:10px;
   border-top-left-radius:0px;

@@ -1,22 +1,9 @@
 from flask import Flask, render_template, jsonify, send_file, request
 import random, json, base64, os
 # import my_utils as utils
-from . import opt_db
+# import opt_db
+import opt_redis
 
-
-# # 获取server.py当前路径，以及父路径、祖父路径
-# current_dir = os.path.dirname(__file__)
-# parent_dir = os.path.dirname(current_dir)  # 获得current_dir所在的目录,
-# grandparent_dir = os.path.dirname(parent_dir)
-# print("current_dir: ", current_dir)
-# # print("parent_dir: ", parent_dir)
-# # print("grandparent_dir: ", grandparent_dir)
-
-# app = Flask(
-#     __name__, 
-#     static_folder = parent_dir + "/client/static", 
-#     template_folder = parent_dir + "/client/templates"
-#     )
 app = Flask(__name__, 
     static_folder='../client/static', 
     template_folder='../client/templates')
@@ -82,7 +69,8 @@ def get_tree():
 # 获取最新的仿真树data
 @app.route("/tree/lastest")
 def get_lastest_tree():
-    data = opt_db.select_lastest_tree()
+    # data = opt_db.select_lastest_tree()
+    data = opt_redis.select_lastest_tree()
     return(jsonify({"TREEID": data[0], "TREEData": json.loads(data[1])}))
     # return opt_db.select_lastest_tree()[1]
 
@@ -90,7 +78,8 @@ def get_lastest_tree():
 # 从数据库中查询指定TREEID的data并返回
 @app.route("/tree/<treeid>")
 def get_tree_by_id(treeid):
-    data = opt_db.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
+    # data = opt_db.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
+    data = opt_redis.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
     return data
 
 @app.route("/map")
@@ -118,7 +107,8 @@ def get_userparameters():
 # 从数据库中查询指定VMID的data并返回
 @app.route("/vm/<vmid>")
 def get_vm_by_id(vmid):
-    data = opt_db.select_from_simvm(vmid)[1] # 此时是JSON格式的字符串
+    # data = opt_db.select_from_simvm(vmid)[1] # 此时是JSON格式的字符串
+    data = opt_redis.select_from_simvm(vmid)[1] # 此时是JSON格式的字符串
     return data
 
 
@@ -138,7 +128,8 @@ def img_index(imageid):
 	
 	# 2. 从数据库加载已经Base64编码的图片数据
     # select_from_voimg返回结果格式为: data = (imgID, VMID, data)
-    return opt_db.select_from_voimg(imageid)[2]
+    # return opt_db.select_from_voimg(imageid)[2]
+    return opt_redis.select_from_voimg(imageid)[2]
     
 
 if __name__ == "__main__":
