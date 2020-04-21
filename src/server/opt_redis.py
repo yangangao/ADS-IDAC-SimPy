@@ -128,6 +128,7 @@ def select_from_simvm(VMID):
     data = (VMID, sr.get(VMID))
     return data
 
+
 # 从数据库中查询一张图片
 def select_from_voimg(imgID):
     """ 

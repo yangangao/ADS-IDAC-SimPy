@@ -1,7 +1,7 @@
 // Echarts树 结点点击事件
 ec_tree.on('click', function (params) {
     // 控制台打印数据的名称
-    // alert("value:"+params.value + " dataIndex:"+params.dataIndex+"\nseriesIndex:"+params.seriesIndex+" seriesName:"+ params.seriesName );
+    // alert("value:"+params.value + "\n dataIndex:"+params.dataIndex+"\n seriesIndex:"+params.seriesIndex+"\n seriesName:"+ params.seriesName );
 	// , params.seriesIndex, params.seriesName
 	$('#dataId').attr('value', params.value);
 	var vmid = params.value;
@@ -20,7 +20,43 @@ ec_tree.on('click', function (params) {
 	// var pois = get_pois();
 	// draw_dynamic_polyLine(pois);
 });
-	
+
+ec_tree.on('contextmenu', function (params) {
+	// alert('contextmenu')
+	// window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+	// 发送被点击的节点回去
+	// var treeid = document.getElementById('treeId').value;
+	$('#dataId').attr('value', params.value);
+	branchUrl = "/tree/branch/" + params.value.toString();
+	// alert(branchUrl)
+	var endin = 4;
+	var routs = Array();
+	$.ajax('', {
+		url: branchUrl,
+		dataType:"json",
+		success:function(data){
+			// alert(data.in1);
+			endin = data.endin;
+			// 这里埋了一个BUG！！！最多只能六层。  JSON->JS数组
+			routs = new Array(data.in1,data.in2,data.in3,data.in4,data.in5,data.in6);
+			// alert(routs);
+			for (var i = 1; i <= endin; i++){ 
+				getVMData(routs[i - 1]);
+				// alert(routs[i - 1])
+			}
+		},
+		error:function(xhr,type,errorThrown){
+			alert(error);
+		}
+	});
+	// 收到一系列节点后
+	// 开始系列绘图
+	for (var i = 1; i <= endin; i++){ 
+		getVMData(routs[i - 1]);
+		alert(routs[i - 1])
+	}
+});
+
 	// 自定义参数 确认 按钮点击事件
 $("#user_confirm").click(function(event) {
 	getUserParameter();
@@ -33,7 +69,6 @@ $("#user_confirm").click(function(event) {
 // });
 // // 切换为中文 按钮点击事件
 // $("#S2Z").click(function(event) {
-
 // });
 
 // 清除绘图 按钮点击事件
@@ -62,6 +97,8 @@ $("#testDynamicImg").click(function(event) {
 $("#getSimTree").click(function(event) {
 	// 先清理掉当前的绘图PolyLine
 	map.clearOverlays();
+	ec_tree.showLoading();
+	// TODO
 	// var treeid = "Tree2004022208017821";
 	// var treeid = "Tree2004022316511498";
 	// treeUrl = "/tree/" + treeid;
@@ -71,6 +108,7 @@ $("#getSimTree").click(function(event) {
 		dataType:"json",
 		success:function(data){
 			ec_tree_option.series[0].data = data.TREEData.data;
+			ec_tree.hideLoading();
 			ec_tree.setOption(ec_tree_option);
 			// 将TREEID填写到treeId输入框中
 			$('#treeId').attr('value', data.TREEID);
@@ -119,7 +157,7 @@ $("#getSimTree").click(function(event) {
 
 // 动态绘制polyLine功能函数
 // 目前的是绘制两条船
-//感谢杨总 倾情相助
+// 感谢杨总 倾情相助
 function draw_dynamic_polyLine(pois, Voarr) {
 	// 首先将初始位置的点添加进去
 	// console.log('Voarr传入参数测试：', Voarr);

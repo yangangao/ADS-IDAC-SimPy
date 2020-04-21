@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, send_file, request
 import random, json, base64, os
-# import my_utils as utils
+import my_utils
 # import opt_db
 import opt_redis
 
@@ -74,13 +74,23 @@ def get_lastest_tree():
     return(jsonify({"TREEID": data[0], "TREEData": json.loads(data[1])}))
     # return opt_db.select_lastest_tree()[1]
 
-
 # 从数据库中查询指定TREEID的data并返回
 @app.route("/tree/<treeid>")
 def get_tree_by_id(treeid):
     # data = opt_db.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
     data = opt_redis.select_from_simtree(treeid)[1] # 此时是JSON格式的字符串
     return data
+
+# 从数据库中查询指定TREEID的data,并根据value值找到本支的所有VMID并返回
+@app.route("/tree/branch/<name>")
+def get_branch_by_name(name):
+    # first get latest tree data to find out the very branch
+    data = opt_redis.select_lastest_tree()
+    # print(json.loads(data[1]))
+    # print(isinstance(name, str))
+    rout = my_utils.findoutRout(json.loads(data[1]), name)
+    print(rout)
+    return (jsonify(rout))
 
 @app.route("/map")
 def get_map():
