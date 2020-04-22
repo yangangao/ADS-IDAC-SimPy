@@ -3,6 +3,7 @@ import random, json, base64, os
 import my_utils
 # import opt_db
 import opt_redis
+import SimTree
 
 app = Flask(__name__, 
     static_folder='../client/static', 
@@ -100,19 +101,70 @@ def get_map():
 @app.route("/userparameters" , methods=["POST", "GET"])
 # /<int:user_speed><float:user_location_we><float:user_location_sn>
 def get_userparameters():
+    user_parameters = {
+        'mspeed':7, 'muser_location_we': 123, 'muser_location_sn': 30.99,
+        'sspeed':7, 'suser_location_we': 123.15, 'suser_location_sn': 31.01
+    }
     if request.method == "POST":
         # print("这里是map")
-        mastership = request.form.get("mastership")
-        user_speed = request.form.get("user_speed")
-        user_location_we = request.form.get("user_location_we")
-        user_location_sn = request.form.get("user_location_sn")
-        
-        if not all([mastership, user_speed, user_location_we, user_location_sn]):
-            print('参数错误')
-            return jsonify({'status': '-1', 'errmsg': '接收成功但是参数错误'})
+        # 存在小数点，为float
+
+        temp = request.form.get("muser_speed")
+        if temp.find('.') >= 0:
+            user_parameters['mspeed'] = float(temp)
         else:
-            print(mastership, user_speed, user_location_we, user_location_sn)
-    return jsonify({'status': mastership, 'errmsg': '接收成功'})
+            user_parameters['mspeed'] = int(temp)
+
+        temp = request.form.get("muser_location_we")
+        if temp.find('.') >= 0:
+            user_parameters['muser_location_we'] = float(temp)
+        else:
+            user_parameters['muser_location_we'] = int(temp)
+
+        temp = request.form.get("muser_location_sn")
+        if temp.find('.') >= 0:
+            user_parameters['muser_location_sn'] = float(temp)
+        else:
+            user_parameters['muser_location_sn'] = int(temp)
+
+        temp = request.form.get("suser_speed")
+        if temp.find('.') >= 0:
+            user_parameters['sspeed'] = float(temp)
+        else:
+            user_parameters['sspeed'] = int(temp)
+
+        temp = request.form.get("suser_location_we")
+        if temp.find('.') >= 0:
+            user_parameters['suser_location_we'] = float(temp)
+        else:
+            user_parameters['suser_location_we'] = int(temp)
+
+        temp = request.form.get("suser_location_sn")
+        if temp.find('.') >= 0:
+            user_parameters['suser_location_sn'] = float(temp)
+        else:
+            user_parameters['suser_location_sn'] = int(temp)
+
+        # user_parameters['mspeed'] = request.form.get("muser_speed")
+        # user_parameters['muser_location_we'] = request.form.get("muser_location_we")
+        # user_parameters['muser_location_sn'] = request.form.get("muser_location_sn")
+        # user_parameters['sspeed'] = request.form.get("suser_speed")
+        # user_parameters['suser_location_we'] = request.form.get("suser_location_we")
+        # user_parameters['suser_location_sn'] = request.form.get("suser_location_sn")
+
+        # if not all([mastership, user_speed, user_location_we, user_location_sn]):
+        #     print('参数错误')
+        #     return jsonify({'status': '-1', 'errmsg': '接收成功但是参数错误'})
+        # else:
+        #     print(mastership, user_speed, user_location_we, user_location_sn)
+        # print(user_parameters)
+    if SimTree.simtree_main(user_parameters):
+        return jsonify({'status': 'success', 'errmsg': '仿真成功，请获取最新仿真树。'})
+    else:
+        return jsonify({'status': 'fail', 'errmsg': '仿真失败，请重新调整参数。'})
+
+
+    
 
 # 从数据库中查询指定VMID的data并返回
 @app.route("/vm/<vmid>")

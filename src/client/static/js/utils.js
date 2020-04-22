@@ -263,9 +263,9 @@ function getVMData(VMID){
 // 得到一组船的参数
 function getUserParameter(){
 	//得到数据
-	var user_speed = document.getElementById('u37_input').value;
-	var user_location_we = document.getElementById('u38_input').value;
-	var user_location_sn = document.getElementById('u39_input').value;
+	var muser_speed = document.getElementById('u37_input').value;
+	var muser_location_we = document.getElementById('u38_input').value;
+	var muser_location_sn = document.getElementById('u39_input').value;
 	if($("#mastership").is(":checked")){
 	// if(document.getElementById('mastership').check){
 		mastership = 1;
@@ -276,29 +276,39 @@ function getUserParameter(){
 	}
 	//判断数据完整
 	// console.log(user_speed,user_location_we,user_location_sn);
-	if(!user_speed){
+	if(!muser_speed){
 		// alert("参数错误");
-		user_speed = prompt('请输入初始速度','123');
+		muser_speed = prompt('[主]请输入初始速度','7');
 	}
-	if(!user_location_we){
+	if(!muser_location_we){
 		// alert("参数错误");
-		user_location_we = prompt('请输入初始位置（东西）','456');
+		muser_location_we = prompt('[主]请输入初始位置（东西）','123');
 	}
-	if(!user_location_sn){
+	if(!muser_location_sn){
 		// alert("参数错误");
-		user_location_sn = prompt('请输入初始（南北）','789');
+		muser_location_sn = prompt('[主]请输入初始（南北）','30.99');
 	}
+	suser_speed = prompt('[客]请输入初始速度','7');
+	suser_location_we = prompt('[客]请输入初始位置（东西）','123.15');
+	suser_location_sn = prompt('[客]请输入初始位置（南北）','31.02');
 	//发送数据
 	var user_parameters = 
 	{
-		"mastership" : mastership,
-		"user_speed" : user_speed,
-	    "user_location_we" : user_location_we,
-		"user_location_sn" : user_location_sn
+		// "mastership" : mastership,
+		"muser_speed" : muser_speed,
+	    "muser_location_we" : muser_location_we,
+		"muser_location_sn" : muser_location_sn,
+		"suser_speed" : suser_speed,
+	    "suser_location_we" : suser_location_we,
+		"suser_location_sn" : suser_location_sn
 	}
+	hideShipInfo();
+	ec_tree.showLoading();
 	$.post("/userparameters", user_parameters, 
 		function(data){ 
+		// 这里的alert可以换成模态对话框
 		alert("结果: " + data['errmsg'] + "\n状态: " + data['status']); 
+		ec_tree.hideLoading();
 	}); 
 
 	// $.ajax({
