@@ -21,7 +21,7 @@
         var userAgent = navigator.userAgent;  
         if(userAgent.indexOf("Chrome") > -1){
             if(userAgent.indexOf("Edg") > -1){
-                alert("按下F11使Edge浏览器全屏");
+                // alert("按下F11使Edge浏览器全屏");
             }else{
                 document.getElementsByTagName('body')[0].style.zoom = 0.67;
                 alert("按下F11使Chrome浏览器全屏");
@@ -281,7 +281,9 @@
       </div>
 
       <!-- 船的信息 dialog-shipinfo (组合) -->
-      <div id="u13" class="ax_default ax_default_hidden" data-label="dialog-shipinfo" style="display:none; visibility: hidden" data-left="670" data-top="734" data-width="240" data-height="132">
+      <!-- <div id="u13" class="ax_default ax_default_hidden" data-label="dialog-shipinfo" style="display:none; visibility: hidden" data-left="670" data-top="734" data-width="240" data-height="132"> -->
+      <!-- 显示、隐藏调u13的display none和block 三角形调u15的left 整个位置调u13的top和left 内容调u18_text的text -->
+      <div id="u13" class="ax_default ax_default_hidden" data-label="dialog-shipinfo" style="display:none" data-left="670" data-top="734" data-width="240" data-height="132" z-index："+1">
         <!-- 标题 (矩形) -->
         <div id="u14" class="ax_default el-shadow">
           <div id="u14_div" class=""></div>
@@ -310,10 +312,45 @@
         <div id="u18" class="ax_default paragraph" data-label="content">
           <div id="u18_div" class=""></div>
           <div id="u18_text" class="text ">
-            <p><span>在这里显示其他需要显示的信息。注意箭头位置</span></p>
+            <p><span>'lon': 123, 'lat': 30.9900001, 'speed': 7</span></p>
           </div>
         </div>
       </div>
+      <!-- 显示、隐藏调u13s的display none和block 三角形调u15s的left 整个位置调u13s的top和left 内容调u18s_text的text -->
+      <div id="u13s" class="ax_default ax_default_hidden" data-label="dialog-shipinfo" style="display:none" data-left="670" data-top="734" data-width="240" data-height="132" z-index："+1">
+        <!-- 标题 (矩形) -->
+        <div id="u14s" class="ax_default el-shadow">
+          <div id="u14s_div" class=""></div>
+          <div id="u14s_text" class="text ">
+            <p><span>客船1</span></p>
+          </div>
+        </div>
+        <!-- 图形 (组合) -->
+        <div id="u15s" class="ax_default" data-left="0" data-top="0" data-width="0" data-height="0">
+          <!-- Unnamed (Triangle Down) -->
+          <div id="u16s" class="ax_default shape">
+            <img id="u16s_img" class="img " src="../static/images/index/u16.svg"/>
+            <div id="u16s_text" class="text " style="display:none; visibility: hidden">
+              <p></p>
+            </div>
+          </div>
+          <!-- Unnamed (Triangle Down) -->
+          <div id="u17s" class="ax_default shape">
+            <img id="u17s_img" class="img " src="../static/images/index/u17.svg"/>
+            <div id="u17s_text" class="text " style="display:none; visibility: hidden">
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <!-- 内容 content (矩形) -->
+        <div id="u18s" class="ax_default paragraph" data-label="content">
+          <div id="u18s_div" class=""></div>
+          <div id="u18s_text" class="text ">
+            <p><span>'lon': 123.15, 'lat': 31.0100001, 'speed': 7</span></p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
 		<script src="../static/js/ec_tree.js"></script>

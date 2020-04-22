@@ -456,13 +456,14 @@
   /* bottom: 550px; */
   /* visibility:hidden; */
 }
+/* 下面是主船的信息显示 */
 #u13 {
   border-width:0px;
   position:absolute;
-  left:0px;
-  top:0px;
-  width:0px;
-  height:0px;
+  left:570px;
+  top:750px;
+  width:100px;
+  height:100px;
 }
 #u14_div {
   border-width:0px;
@@ -491,8 +492,8 @@
 #u14 {
   border-width:0px;
   position:absolute;
-  left:670px;
-  top:734px;
+  left:0px;
+  top:0px;
   width:240px;
   height:126px;
   display:flex;
@@ -518,7 +519,7 @@
 #u15 {
   border-width:0px;
   position:absolute;
-  left:0px;
+  left:167px;
   top:0px;
   width:0px;
   height:0px;
@@ -534,8 +535,8 @@
 #u16 {
   border-width:0px;
   position:absolute;
-  left:783px;
-  top:860px;
+  left:1px;
+  top:126px;
   width:13px;
   height:6px;
   display:flex;
@@ -564,8 +565,8 @@
 #u17 {
   border-width:0px;
   position:absolute;
-  left:783px;
-  top:859px;
+  left:1px;
+  top:125px;
   width:13px;
   height:6px;
   display:flex;
@@ -607,8 +608,8 @@
 #u18 {
   border-width:0px;
   position:absolute;
-  left:670px;
-  top:768px;
+  left:1px;
+  top:34px;
   width:240px;
   height:70px;
   display:flex;
@@ -631,6 +632,183 @@
   word-wrap:break-word;
   text-transform:none;
 }
+/* 下面是客船的信息显示 */
+#u13s {
+  border-width:0px;
+  position:absolute;
+  left:1622px;
+  top:600px;
+  width:100px;
+  height:100px;
+}
+#u14s_div {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:240px;
+  height:126px;
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-width:1px;
+  border-style:solid;
+  border-color:rgba(228, 228, 228, 1);
+  border-radius:4px;
+  -moz-box-shadow:0px 2px 12px rgba(0, 0, 0, 0.0980392156862745);
+  -webkit-box-shadow:0px 2px 12px rgba(0, 0, 0, 0.0980392156862745);
+  box-shadow:0px 2px 12px rgba(0, 0, 0, 0.0980392156862745);
+  font-family:'PingFang SC ', 'PingFang SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:16px;
+  text-align:left;
+  line-height:16px;
+}
+#u14s {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:240px;
+  height:126px;
+  display:flex;
+  font-family:'PingFang SC ', 'PingFang SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:16px;
+  text-align:left;
+  line-height:16px;
+}
+#u14s .text {
+  position:absolute;
+  align-self:flex-start;
+  padding:18px 20px 18px 20px;
+  box-sizing:border-box;
+  width:100%;
+}
+#u14s_text {
+  border-width:0px;
+  word-wrap:break-word;
+  text-transform:none;
+}
+#u15s {
+  border-width:0px;
+  position:absolute;
+  left:150px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u16s_img {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:13px;
+  height:6px;
+}
+#u16s {
+  border-width:0px;
+  position:absolute;
+  left:1px;
+  top:126px;
+  width:13px;
+  height:6px;
+  display:flex;
+}
+#u16s .text {
+  position:absolute;
+  align-self:center;
+  padding:2px 2px 2px 2px;
+  box-sizing:border-box;
+  width:100%;
+}
+#u16s_text {
+  border-width:0px;
+  word-wrap:break-word;
+  text-transform:none;
+  visibility:hidden;
+}
+#u17s_img {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:13px;
+  height:6px;
+}
+#u17s {
+  border-width:0px;
+  position:absolute;
+  left:1px;
+  top:125px;
+  width:13px;
+  height:6px;
+  display:flex;
+}
+#u17s .text {
+  position:absolute;
+  align-self:center;
+  padding:2px 2px 2px 2px;
+  box-sizing:border-box;
+  width:100%;
+}
+#u17s_text {
+  border-width:0px;
+  word-wrap:break-word;
+  text-transform:none;
+  visibility:hidden;
+}
+#u18s_div {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:240px;
+  height:70px;
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  border:none;
+  border-radius:0px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  font-family:'PingFang SC ', 'PingFang SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#666666;
+  line-height:22px;
+}
+#u18s {
+  border-width:0px;
+  position:absolute;
+  left:1px;
+  top:34px;
+  width:240px;
+  height:70px;
+  display:flex;
+  font-family:'PingFang SC ', 'PingFang SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#666666;
+  line-height:22px;
+}
+#u18s .text {
+  position:absolute;
+  align-self:flex-start;
+  padding:8px 20px 18px 20px;
+  box-sizing:border-box;
+  width:100%;
+}
+#u18s_text {
+  border-width:0px;
+  word-wrap:break-word;
+  text-transform:none;
+}
+/* 结束 */
 #u19 {
   border-width:0px;
   position:absolute;

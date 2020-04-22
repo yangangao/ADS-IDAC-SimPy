@@ -3,11 +3,12 @@ ec_tree.on('click', function (params) {
     // 控制台打印数据的名称
     // alert("value:"+params.value + "\n dataIndex:"+params.dataIndex+"\n seriesIndex:"+params.seriesIndex+"\n seriesName:"+ params.seriesName );
 	// , params.seriesIndex, params.seriesName
+
 	$('#dataId').attr('value', params.value);
 	var vmid = params.value;
 	// var vmid = "2004022208011387";
 	getVMData(vmid);
-	
+	showShipInfo();
 	// getVMData(vmid, function(err, data){
 	// 	console.log("VMData callback 测试: ", data);
 		
@@ -36,6 +37,7 @@ ec_tree.on('contextmenu', function (params) {
 		dataType:"json",
 		success:function(data){
 			// alert(data.in1);
+			showShipInfo();
 			endin = data.endin;
 			// 这里埋了一个BUG！！！最多只能六层。  JSON->JS数组
 			routs = new Array(data.in1,data.in2,data.in3,data.in4,data.in5,data.in6);
@@ -60,6 +62,7 @@ ec_tree.on('contextmenu', function (params) {
 	// 自定义参数 确认 按钮点击事件
 $("#user_confirm").click(function(event) {
 	getUserParameter();
+	hideShipInfo();
 });
 
 
@@ -74,6 +77,7 @@ $("#user_confirm").click(function(event) {
 // 清除绘图 按钮点击事件
 $("#clearPolyline").click(function(event) {
 	// alert("clear polyline")
+	hideShipInfo();
 	map.clearOverlays();
 });
 
@@ -97,6 +101,7 @@ $("#testDynamicImg").click(function(event) {
 $("#getSimTree").click(function(event) {
 	// 先清理掉当前的绘图PolyLine
 	map.clearOverlays();
+	hideShipInfo();
 	ec_tree.showLoading();
 	// TODO
 	// var treeid = "Tree2004022208017821";
@@ -318,3 +323,20 @@ function getUserParameter(){
 // 	setInterval("document.getElementById('time').textContent=new Date().toLocaleString();", 1000);
 //     // document.getElementById('time').textContent = time.toISOString();
 // }
+
+// 以下是船舶显示框相关函数
+// 待补充位置调整函数
+function showShipInfo() {
+	obj = document.getElementById('u13');
+	obj.style.display = "block";
+	obj = document.getElementById('u13s');
+	obj.style.display = "block"
+}
+function hideShipInfo() {
+	obj = document.getElementById('u13');
+	obj.style.display = "none";
+	obj = document.getElementById('u13s');
+	obj.style.display = "none";
+}
+
+
